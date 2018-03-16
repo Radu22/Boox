@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/style.css">
+      	<link rel="javascript" href="js/redirects.js" type="text/javascript">
     </head>
     <body>
 
@@ -38,8 +39,8 @@
 
         </fieldset>
 
-        <button type="submit" form="index.php">Sign Up</button>
-		<button type="submit" form="index.php">Sign In</button>
+        <button type="submit" onclick="MainPage.php" > Sign Up </button>
+		<button type="submit" >Sign In</button>
 
       </form>
 
