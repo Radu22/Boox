@@ -6,13 +6,13 @@
 
 body {
   font-family: 'Nunito', sans-serif;
-  color: #384047;
+  background-color: #384047;
 }
 
 form {
   max-width: 300px;
-  margin: 150px auto;
-  padding: 10px 20px;
+  margin: 80px auto;
+  padding: 10px 10px;
   background: #f4f7f8;
   border-radius: 8px;
 }
@@ -20,6 +20,15 @@ form {
 h1 {
   margin: 0 0 30px 0;
   text-align: center;
+}
+
+#motto{
+  background-color: rgb(0, 153, 204);
+  margin: 25px auto 15px auto;
+  padding: 10px 0;
+  border-style: groove;
+  border-radius: 20px;
+  border:none;
 }
 
 input[type="text"],
@@ -112,6 +121,9 @@ label.light {
 
   form {
     max-width: 480px;
+  }
+  #motto{
+    max-width: 530px;
   }
 
 }

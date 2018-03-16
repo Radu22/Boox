@@ -4,16 +4,18 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sign Up Form</title>
-        <link rel="stylesheet" href="css/normalize.css">
+
         <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="css/style.css">
-      	<link rel="javascript" href="js/redirects.js" type="text/javascript">
+        <link rel="stylesheet" href="register.css">
+      	<script src="register.js"></script>
     </head>
     <body>
 
-      <form action="index.html" method="post">
+		<h1 id="motto"> Welcome to a world of books</h1>
 
-        <h1>Sign Up</h1>
+      <form action="../MainPage/MainPage.php" method="post">
+
+        <h1>Sign Up or <a href="#">Sign in</a></h1>
 
         <fieldset>
 
@@ -39,8 +41,7 @@
 
         </fieldset>
 
-        <button type="submit" onclick="MainPage.php" > Sign Up </button>
-		<button type="submit" >Sign In</button>
+        <button type="submit"> Sign Up </button>
 
       </form>
 
