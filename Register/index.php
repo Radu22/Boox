@@ -15,7 +15,7 @@
 
       <form action="../MainPage/MainPage.php" method="post">
 
-        <h1>Sign Up or <a href="#">Sign in</a></h1>
+        <h1>Sign Up or <button type="button" id="popup"> Sign in</button>   </h1>
 
         <fieldset>
 
