@@ -17,6 +17,7 @@
 
         <h1>Sign Up or
 
+
         		<button type="button" id="popup"> Sign in</button></h1>
 
 
