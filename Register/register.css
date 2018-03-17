@@ -1,3 +1,8 @@
+
+/*
+        Attributes
+*/
+
 *, *:before, *:after {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -17,34 +22,19 @@ form {
   border-radius: 8px;
 }
 
-#popup{
-  text-decoration: none;
-  border-radius: 5%;
-  border-color:  #4bc970;
-  border-width: 2px;
-  width: 100px;
-  height: 50px;
-  margin: 5px 10px 10px 10px;
-  padding: 5px;
-  background-color: rgb(230, 230, 255);
-  color: black;
-  font-size: 23.5px;
-
-}
-
 h1 {
-  margin: 0 0 15px 0;
+  margin: 10px 0 30px 0 ;
   text-align: center;
+  width: 350px;
+  position: relative;
+  padding-right: 50px;
 }
 
-#motto{
-  background-color: rgb(0, 153, 204);
-  margin: 25px auto 15px auto;
-  padding: 10px 0;
-  border-style: groove;
-  border-radius: 20px;
-  border:none;
+h2{
+    margin: 0 0 15px 0;
+    text-align: center;
 }
+
 
 input[type="text"],
 input[type="password"],
@@ -96,6 +86,7 @@ button {
   border-width: 1px 1px 3px;
   box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 fieldset {
@@ -118,6 +109,16 @@ label.light {
   display: inline;
 }
 
+/*
+        Classes
+*/
+.wrapper{
+  padding: 20px;
+  width: 100%;
+  margin: 375px auto;
+  text-align: center;
+}
+
 .number {
   background-color: #5fcf80;
   color: #fff;
@@ -132,6 +133,52 @@ label.light {
   border-radius: 100%;
 }
 
+.popup{
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5%;
+  border-color:  #4bc970;
+  border-width: 2px;
+  width: 120px;
+  height: 50px;
+  margin: 5px 10px 10px 10px;
+  padding: 5px;
+  background-color: rgb(230, 230, 255);
+  color: black;
+  font-size: 23.5px;
+  display: inline-block;
+}
+
+
+/*
+        IDs
+*/
+
+#register{
+  background-color:  #4bc970;
+  border-radius: 10%;
+  border-color: rgb(51, 51, 204);
+  border-width: 5px;
+  padding: 0;
+  width: 135px;
+  height: 65px;
+  margin-top: 2px;
+}
+
+
+#motto{
+  background-color: rgb(0, 153, 204);
+  margin: 25px auto 15px auto;
+  padding: 10px 0;
+  border-style: groove;
+  border-radius: 20px;
+  border:none;
+}
+
+/*
+        Media screens
+*/
+
 @media screen and (min-width: 480px) {
 
   form {
@@ -141,4 +188,57 @@ label.light {
     max-width: 530px;
   }
 
+}
+
+/*      MODAL    */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 40%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 1s;
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
 }

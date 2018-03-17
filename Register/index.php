@@ -11,43 +11,38 @@
     </head>
     <body>
 
-		<h1 id="motto"> Welcome to a world of books</h1>
+		<h2 id="motto"> Welcome to a world of books</h2>
 
-      <form action="../MainPage/MainPage.php" method="post">
+	<div class="wrapper">
+		<button type="button" class="popup" id = "register"> Sign up</button>
+        <button type="button" class="popup" id = "login"> Sign in</button>
+	</div>
 
-        <h1>Sign Up or
+	        <div id="myModal1" class="modal">
+			 	 <div class="modal-content">
+					  <div class="modal-header">
+						    <span class="close">&times;</span>
+						    <h3>Sign up here: </h3>
+					  </div>
+					  <div class="modal-body">
+							<?php include "register_form.php"; ?>
+					  </div>
+				</div>
+			</div>
 
+		   <div id="myModal2" class="modal">
+			 	 <div class="modal-content">
+					  <div class="modal-header">
+						    <span class="close">&times;</span>
+						    <h3>Sign in here: </h3>
+					  </div>
+					  <div class="modal-body">
+							<?php include "login_form.php"; ?>
+					  </div>
+				</div>
+			</div>
 
-        		<button type="button" id="popup"> Sign in</button></h1>
-
-
-        <fieldset>
-
-          <legend><span class="number">1</span> Your basic info</legend>
-
-          <label for="name">Name*</label>
-          <input type="text" id="name" name="user_name">
-
-          <label for="mail">Email*</label>
-          <input type="email" id="mail" name="user_email">
-
-          <label for="password">Password*</label>
-          <input type="password" id="password" name="user_password">
-
-        </fieldset>
-
-        <fieldset>
-
-          <legend><span class="number">2</span> Your profile</legend>
-
-          <label for="bio">Biography:</label>
-          <textarea id="bio" name="user_bio"></textarea>
-
-        </fieldset>
-
-        <button type="submit"> Sign Up </button>
-
-      </form>
+		<script src="register.js"></script>
 
     </body>
 </html>
