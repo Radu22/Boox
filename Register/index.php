@@ -15,19 +15,22 @@
 
       <form action="../MainPage/MainPage.php" method="post">
 
-        <h1>Sign Up or <button type="button" id="popup"> Sign in</button>   </h1>
+        <h1>Sign Up or
+
+        		<button type="button" id="popup"> Sign in</button></h1>
+
 
         <fieldset>
 
           <legend><span class="number">1</span> Your basic info</legend>
 
-          <label for="name">Name:</label>
+          <label for="name">Name*</label>
           <input type="text" id="name" name="user_name">
 
-          <label for="mail">Email:</label>
+          <label for="mail">Email*</label>
           <input type="email" id="mail" name="user_email">
 
-          <label for="password">Password:</label>
+          <label for="password">Password*</label>
           <input type="password" id="password" name="user_password">
 
         </fieldset>
