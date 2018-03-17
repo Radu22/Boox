@@ -7,7 +7,6 @@
 
         <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="register.css">
-      	<script src="register.js"></script>
     </head>
     <body>
 
@@ -22,7 +21,7 @@
 			 	 <div class="modal-content">
 					  <div class="modal-header">
 						    <span class="close">&times;</span>
-						    <h3>Sign up here: </h3>
+						    <h3>Sign up</h3>
 					  </div>
 					  <div class="modal-body">
 							<?php include "register_form.php"; ?>
@@ -34,7 +33,7 @@
 			 	 <div class="modal-content">
 					  <div class="modal-header">
 						    <span class="close">&times;</span>
-						    <h3>Sign in here: </h3>
+						    <h3>Sign in</h3>
 					  </div>
 					  <div class="modal-body">
 							<?php include "login_form.php"; ?>
