@@ -2,6 +2,8 @@ function toMainPage(){
 	window.location.href = '../MainPage.php';
 }
 
+var img = document.getElementById('myImg');
+
 var modal1 = document.getElementById('myModal1');
 var modal2 = document.getElementById('myModal2');
 
@@ -34,4 +36,20 @@ window.onclick = function(event) {
     if(event.target == modal2){
     	modal2.style.display = "none";
     }
+}
+
+function register_visible(){
+	img.style.opacity = 0.4;
+	btn1.style.background = "rgb(230, 230, 255)";
+}
+
+function login_visible(){
+	img.style.opacity = 0.4;
+	btn2.style.background = "#4bc970";
+}
+
+function image_visible(){
+	btn1.style.background = "#4bc970";
+	btn2.style.background = "rgb(230, 230, 255)";
+	img.style.opacity = 1;
 }
