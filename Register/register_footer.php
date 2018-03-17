@@ -1,11 +1,7 @@
 <?php
 
 echo '		<div class="footer">
-				<div id="cover">
-
-				</div>
-
-
+					<h4> You can find us on </h4>
 
 
 

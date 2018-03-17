@@ -122,6 +122,14 @@ label.light {
   display: inline;
 }
 
+h4{
+  color: white;
+  font-family: FreeMono, monospace;
+  text-align: center;
+  font-size: 20px;
+  letter-spacing: 6px;
+}
+
 /*
         Classes
 */
@@ -175,18 +183,12 @@ label.light {
   height: 130px;
   width: 100%;
   bottom: 0;
-  background-color: rgb(143, 189, 144);
+  background-color: rgb(0, 0, 0);
 }
 
 /*
         IDs
 */
-
-#cover{
-  bottom: 0;
-  background-color:   rgb(189, 166, 143);
-  height: 50px;
-}
 
 #register{
   background-color:  #4bc970;
