@@ -39,17 +39,17 @@ window.onclick = function(event) {
 }
 
 function register_visible(){
-	img.style.opacity = 0.4;
+	img.style.opacity = 0.3;
 	btn1.style.background = "rgb(230, 230, 255)";
 }
 
 function login_visible(){
-	img.style.opacity = 0.4;
+	img.style.opacity = 0.3;
 	btn2.style.background = "#4bc970";
 }
 
 function image_visible(){
 	btn1.style.background = "#4bc970";
 	btn2.style.background = "rgb(230, 230, 255)";
-	img.style.opacity = 1;
+	img.style.opacity = 0.9;
 }

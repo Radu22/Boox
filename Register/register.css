@@ -38,7 +38,7 @@ h2{
 }
 
 img{
-
+  opacity: 0.9;
   z-index: -200;
   position: absolute;
   bottom: 5%;
@@ -169,6 +169,15 @@ label.light {
   width: 100%;
   bottom: 80px;
 }
+
+.footer{
+  position: fixed;
+  height: 155px;
+  width: 100%;
+  bottom: 0;
+
+}
+
 
 
 /*
