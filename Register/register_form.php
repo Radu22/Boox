@@ -17,16 +17,6 @@
 			          <input type="password" name="user_password">
 
 			        </fieldset>
-
-			        <fieldset>
-
-			          <legend><span class="number">2</span> Your profile</legend>
-
-			          <label>Biography:</label>
-			          <textarea name="user_bio"></textarea>
-
-			    </fieldset>
-
 			      <button type="submit"> Sign Up </button>
 
       </form>
