@@ -12,7 +12,7 @@
     </head>
     <body>
 
-		<h2 id="motto"> Welcome to a world of books</h2>
+		<h2 id="motto">BookLeaks</h2>
 
 		<div class="main">
 			<img src="../quote.jpg" alt="quote" id="myImg">

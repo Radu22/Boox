@@ -248,12 +248,14 @@ ul li{
 
 
 #motto{
-  background-color: rgb(0, 153, 204);
+  background-color: rgba(153, 153, 255, 0.5);
   margin: 25px auto 15px auto;
   padding: 10px 0;
   border-style: groove;
   border-radius: 20px;
   border:none;
+  letter-spacing: 20.5px;
+  font-size: 35.5px;
 }
 
 /*      MODAL    */
