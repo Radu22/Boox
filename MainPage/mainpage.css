@@ -123,12 +123,7 @@ header h1 {
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 800px) {
-    .rightcolumn {
-        width: 100%;
-        padding: 0;
-    }
-    .rightcolumn{
-        float: left;
+    .rightcolumn, .leftcolumn {
         width: 100%;
         padding: 0;
     }

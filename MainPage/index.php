@@ -33,7 +33,7 @@
 
           <div class="rightcolumn">
           	<div class="searchButton">
-        	  	<form class="example" action="/action_page.php" style="margin:auto;max-width:500px">
+        	  	<form class="example" action="/action_page.php">
         			<input type="text" placeholder="Cauta.." name="search2">
         			<button type="submit"><i class="fa fa-search"></i></button>
         		</form>
