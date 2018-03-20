@@ -2,7 +2,7 @@
 
 	echo
 
-		'<form action="../MainPage/MainPage.php" method="post">
+		'<form action="../MainPage/index.php" method="post">
 				<fieldset>
 
 			          <legend><span class="number">1</span> Log in information </legend>
