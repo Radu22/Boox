@@ -11,13 +11,16 @@
     </head>
     <body>
 		<div class="header" id="myHeader">
-			<ul>
-				<li>Homepage</li>
-				<li>My Profile</li>
-				<li>My books</li>
-				<li>Community</li>
-				<li>Contact us</li>
-			</ul>
+			<a href="#" class="logo">Logo</a>
+			<div class="header-right">
+
+			<a href="#" class="active">Homepage </a>
+			<a href="#">My Profile</a>
+			<a href="#">My books</a>
+			<a href="#">Community</a>
+			<a href="#">Contact us</a>
+
+			</div>
 
 		</div>
 
@@ -41,7 +44,7 @@
 			<p>Some text I wrote myself</p>
 			<p>Some text I wrote myself</p>
 			<p>Some text I wrote myself</p>
-			<p>Some text I wrote myself</p>
+			<p>Some text I wrote myselfSome text I wrote myselfSome text I wrote myselfSome text I wrote myselfSome text I wrote myself</p>
 			<p>Some text I wrote myself</p>
 			<p>Some text I wrote myself</p>
 			<p>Some text I wrote myself</p>
