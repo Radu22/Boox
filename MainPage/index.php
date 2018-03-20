@@ -1,47 +1,49 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-	<head>
-		<link rel="stylesheet"  href="mainpage.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	</head>
-<body>
+    <head>
+    <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My Profile</title>
 
-<div class="header">
-  <h1>Aici trebuie headerul comun</h1>
-</div>
+        <link rel="stylesheet" href="../css/footer.css">
+        <link rel="stylesheet" href="../css/header.css">
+        <link rel="stylesheet" href="mainpage.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<div class="topnav">
-  <a href="#">Link</a>
-  <a href="#">Link</a>
-  <a href="#">Link</a>
-  <a href="#" style="float:right">Link</a>
-</div>
+    </head>
+    <body>
 
-<div class="row">
-  <div class="leftcolumn">
-    <div class="card">
-      <h2>Titlu Carte</h2>
-      <h5>Autor</h5>
-      <div class="fakeimg" style="height:200px;">Image</div>
-    </div>
-    <div class="card">
-      <h2>Titlu Carte</h2>
-      <h5>Autor</h5>
-      <div class="fakeimg" style="height:200px;">Image</div>
-    </div>
-  </div>
-  <div class="rightcolumn">
-  	<div class="searchButton">
-	  	<form class="example" action="/action_page.php" style="margin:auto;max-width:500px">
-			<input type="text" placeholder="Cauta.." name="search2">
-			<button type="submit"><i class="fa fa-search"></i></button>
-		</form>
-	</div>
-    <div class="addButton">
-    	<button class="button">Adauga Carte</button>
-  </div>
+      <?php include "../Headers/header_main.php";?>
 
-</div>
+        <div class="row">
+          <div class="leftcolumn">
+              <?php include "../Headers/header_book.php"; ?>
+              <?php include "../Headers/header_book.php"; ?>
+              <?php include "../Headers/header_book.php"; ?>
+              <?php include "../Headers/header_book.php"; ?>
+              <?php include "../Headers/header_book.php"; ?>
+              <?php include "../Headers/header_book.php"; ?>
+              <?php include "../Headers/header_book.php"; ?>
+              <?php include "../Headers/header_book.php"; ?>
+              <?php include "../Headers/header_book.php"; ?>
+              <?php include "../Headers/header_book.php"; ?>
+
+
+          </div>
+
+          <div class="rightcolumn">
+          	<div class="searchButton">
+        	  	<form class="example" action="/action_page.php" style="margin:auto;max-width:500px">
+        			<input type="text" placeholder="Cauta.." name="search2">
+        			<button type="submit"><i class="fa fa-search"></i></button>
+        		</form>
+        	</div>
+
+            <div class="addButton">
+            	<button class="button">Adauga Carte</button>
+            </div>
+
+        </div>
 
 </body>
 </html>
