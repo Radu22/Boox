@@ -1,15 +1,13 @@
 <!doctype html>
 <html>
     <head>
-    <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>My Profile</title>
-
+        <title>Home</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="mainpage.css">
         <link rel="stylesheet" href="../css/footer.css">
         <link rel="stylesheet" href="../css/header.css">
-        <link rel="stylesheet" href="mainpage.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     </head>
     <body>
 
@@ -33,7 +31,11 @@
 
           <div class="rightcolumn">
           	<div class="searchButton">
+<<<<<<< HEAD
         	  	<form class="example" action="/action_page.php">
+=======
+        	  	<form class="adaugaCarte" action="/action_page.php" style="margin:auto;max-width:500px">
+>>>>>>> 7a237eed936ffc0708a7cd8444a9237dbab3a4ee
         			<input type="text" placeholder="Cauta.." name="search2">
         			<button type="submit"><i class="fa fa-search"></i></button>
         		</form>
