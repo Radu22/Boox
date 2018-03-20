@@ -12,6 +12,7 @@
     <body>
 
 		<?php include "../Headers/header_main.php";?>
+
 		<div class="content">
 			<p>Some text I wrote myself</p>
 			<p>Some text I wrote myself</p>
