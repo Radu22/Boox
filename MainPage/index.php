@@ -31,23 +31,22 @@
 
           <div class="rightcolumn">
           	<div class="searchButton">
-<<<<<<< HEAD
         	  	<form class="searchBook" action="/action_page.php" style="margin:auto;max-width:500px">
           			<input type="text" placeholder="Cauta.." name="search2">
           			<button type="submit"><i class="fa fa-search"></i></button>
         		  </form>
         	 </div>
-=======
-<<<<<<< HEAD
+
+
         	  	<form class="example" action="/action_page.php">
-=======
+
         	  	<form class="adaugaCarte" action="/action_page.php" style="margin:auto;max-width:500px">
->>>>>>> 7a237eed936ffc0708a7cd8444a9237dbab3a4ee
+
         			<input type="text" placeholder="Cauta.." name="search2">
         			<button type="submit"><i class="fa fa-search"></i></button>
         		</form>
         	</div>
->>>>>>> a169b6dc0ab8601ab431850eb074e4b3d5506260
+
 
             <div class="addButton">
             	<button class="button">Adauga Carte</button>
