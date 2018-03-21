@@ -76,17 +76,24 @@
 				<div id="settings">
 					<h3>Profile Settings</h3>
 					<button type="button" >Reset defaults</button>
+					<h3 style="font-size: 17.5px"> Choose whether or not to get notified if people in your area are offering books </h3>
+
+							  <input type="radio" name="notif" id="first"> <label for="first">Yes</label><br>
+						 	  <input type="radio" name="notif" id="second"> <label for="second">No</label>
+
 
 				</div>
 
 				<div id="follow">
 					<h3>People that you follow</h3>
-					<button type="button" >Reset defaults</button>
+					<?php include 'follow_template.php';?>
+					<?php include 'follow_template.php';?>
 
 				</div>
 				<div id="followed">
 					<h3>People that follow you</h3>
-					<button type="button" >Reset defaults</button>
+					<?php include 'follow_template.php';?>
+					<?php include 'follow_template.php';?>
 
 				</div>
 
