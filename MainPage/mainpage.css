@@ -4,7 +4,6 @@
 
 body {
     font-family: Arial;
-    padding: 20px;
     background: #f1f1f1;
 }
 
@@ -12,7 +11,6 @@ body {
     margin:auto;
     max-width:500px;
     margin-top:20px;
-
 }
 .addButton{
     margin-top: 10px;
@@ -66,12 +64,6 @@ form.searchBook::after {
     float:right;
 }
 
-header {
-    padding: 30px;
-    text-align: center;
-    background: white;
-}
-
 header h1 {
     font-size: 50px;
 }
@@ -102,6 +94,7 @@ header h1 {
 
 .row {
     margin-top: 69px;
+    padding: 20px;
 }
 
 .row:after {
