@@ -261,6 +261,8 @@ ul li{
   letter-spacing: 25.5px;
   font-size: 35.5px;
   font-family: 'Gloria Hallelujah';
+  position: sticky;
+  top: 10px;
 }
 
 /*      MODAL    */
@@ -339,6 +341,11 @@ ul li{
        display: inline;
        margin: 10px 20px;
   }
+  #motto{
+        letter-spacing: 12.5px;
+        font-size: 20.5px;
+        width: 53.5%;
+  }
 
 }
 @media screen and (max-width: 650px){
@@ -352,4 +359,11 @@ ul li{
         height: 1125px;
 
   }
+}
+
+@media screen and (max-width: 600px){
+    #motto{
+        letter-spacing: 10px;
+        font-size: 16.5px;
+    }
 }

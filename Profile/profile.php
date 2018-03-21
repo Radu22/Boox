@@ -15,9 +15,7 @@
 		<?php include "../Headers/header_main.php";?>
 
 	<div class="content">
-		<h2>Hello, Garbage</h2>
-
-
+		<h2>Hello, $name</h2>
 				<div id="myTabs">
 					<ul>
 						<li>Edit</li>
@@ -26,12 +24,7 @@
 						<li>Followers</li>
 					</ul>
 
-
 				</div>
-
-
-
-
 
 		</div>
 
