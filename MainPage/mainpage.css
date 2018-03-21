@@ -9,11 +9,16 @@ body {
 }
 
 .searchButton{
-    margin-top: 20px;
+    margin:auto;
+    max-width:500px;
 
 }
 .addButton{
     margin-top: 10px;
+}
+.adaugaCarte{
+    margin:auto;
+    max-width:500px;
 }
 
 form.searchBook input[type=text] {
@@ -105,12 +110,7 @@ header h1 {
 }
 
 @media screen and (max-width: 800px) {
-    .rightcolumn {
-        width: 100%;
-        padding: 0;
-    }
-    .rightcolumn{
-        float: left;
+    .rightcolumn, .leftcolumn {
         width: 100%;
         padding: 0;
     }
