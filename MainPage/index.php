@@ -37,10 +37,9 @@
         		  </form>
 
             <div class="addButton">
-            	<button class="button">Adauga Carte</button>
+            	<a href="../AddBook/AddBook.php"><button class="button">Adauga Carte</button></a>
             </div>
 
         </div>
-
 </body>
 </html>
