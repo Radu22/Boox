@@ -26,7 +26,69 @@
 						<li class="fa fa-heart under" ><a href="#followed">Followers</a></li>
 					</ul>
 				</div>
-			<p id="edit">Lorem Ipsum este pur şi simplu o machetă pentru text a industriei tipografice. Lorem Ipsum a fost macheta standard a industriei încă din secolul al XVI-lea, când un tipograf anonim a luat o planşetă de litere şi le-a amestecat pentru a crea o carte demonstrativă pentru literele respective. Nu doar că a supravieţuit timp de cinci secole, dar şi a facut saltul în tipografia electronică practic neschimbată. A fost popularizată în anii '60 odată cu ieşirea colilor Letraset care conţineau pasaje Lorem Ipsum, iar mai recent, prin programele de publicare pentru calculator,</p>
+			<div id="profile_content">
+				<div id="edit">
+					<h3>Edit your profile from here:</h3>
+					<div class="container">
+						  <form action="#">
+						    <div class="row">
+						      <div class="col-25">
+						        <label for="user">Change username</label>
+						      </div>
+						      <div class="col-75">
+						        <input type="text" id="user" name="username" placeholder="Your username..">
+						      </div>
+						    </div>
+						    <div class="row">
+						      <div class="col-25">
+						        <label for="lname">Last Name</label>
+						      </div>
+						      <div class="col-75">
+						        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+						      </div>
+						    </div>
+						    <div class="row">
+						      <div class="col-25">
+						        <label for="country">Country</label>
+						      </div>
+						      <div class="col-75">
+						        <select id="country" name="country">
+						          <option value="australia">Australia</option>
+						          <option value="canada">Canada</option>
+						          <option value="usa">USA</option>
+						        </select>
+						      </div>
+						    </div>
+						    <div class="row">
+						      <div class="col-25">
+						        <label for="subject">Subject</label>
+						      </div>
+						      <div class="col-75">
+						        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+						      </div>
+						    </div>
+						    <div class="row">
+						      <input type="submit" value="Submit">
+						    </div>
+						  </form>
+					</div>
+
+				</div>
+				<div id="settings">
+
+
+
+				</div>
+				<div id="follow">
+
+				</div>
+				<div id="followed">
+
+				</div>
+
+
+
+			</div>
 
 
 		</div>

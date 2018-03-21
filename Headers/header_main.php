@@ -10,7 +10,8 @@ echo '	<div class="header" id="myHeader">
 			<a href="../Community/index.php" >Friends</a>
 			<a href="../Contact/index.php">Contact us</a>
 			<a href="../Register/index.php">Logout</a>
-			<a href="../Profile/profile.php" class="fa fa-user-circle" id="myProf"></a>
+			<a href="../Profile/profile.php" class="fa fa-user-circle" id="myProf"
+					style="text-decoration:none;"></a>
 
 		  </div>
 
