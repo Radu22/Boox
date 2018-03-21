@@ -9,14 +9,14 @@
         <link rel="stylesheet" href="../css/header.css">
         <link rel="stylesheet" href="profile.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Merriweather|Lobster|Mina" rel="stylesheet">
 
     </head>
     <body>
 
 		<?php include "../Headers/header_main.php";?>
 
-	<div class="content">
+	<div class="content" id="up">
 		<h2>Hello, $name</h2>
 				<div id="myTabs">
 					<ul>
@@ -67,12 +67,12 @@
 						    </div>
 
 						    <div class="row">
-						      <input type="submit" value="Submit">
+						      <input type="submit" value="Save changes">
 						    </div>
 
 						  </form>
 					</div>
-
+				</div>
 				<div id="settings">
 					<h3>Profile Settings</h3>
 					<button type="button" >Reset defaults</button>
@@ -84,17 +84,15 @@
 					<button type="button" >Reset defaults</button>
 
 				</div>
-				<div id="followed"></div>
-				<div >
+				<div id="followed">
 					<h3>People that follow you</h3>
 					<button type="button" >Reset defaults</button>
-
 
 				</div>
 
 
 
-			</div>
+
 
 
 		</div>
