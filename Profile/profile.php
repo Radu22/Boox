@@ -7,7 +7,9 @@
 
         <link rel="stylesheet" href="../css/footer.css">
         <link rel="stylesheet" href="../css/header.css">
+        <link rel="stylesheet" href="profile.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
 
     </head>
     <body>
@@ -18,10 +20,10 @@
 		<h2>Hello, $name</h2>
 				<div id="myTabs">
 					<ul>
-						<li>Edit</li>
-						<li>Settings</li>
-						<li>Following</li>
-						<li>Followers</li>
+						<li class="fa fa-pencil-square-o">Edit</li>
+						<li class="fa fa-gears">Settings</li>
+						<li class="fa fa-thumbs-o-up">Following</li>
+						<li class="fa fa-heart">Followers</li>
 					</ul>
 
 				</div>

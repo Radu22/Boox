@@ -1,0 +1,62 @@
+
+ul{
+	height:100%;
+	width: 100%;
+	padding: 15px 35px 5px 0;
+	text-align: center;
+}
+
+li{
+  list-style-type: none;
+  display: inline-block;
+  font-family: Merriweather;
+  font-weight: 700;
+  text-align: left;
+  padding: 15px 20px 10px;
+  width: 15.5%;
+}
+
+li.fa{
+	font-weight: 700;
+	font-size: 20px;
+}
+
+li.fa.fa-gears::before,
+li.fa.fa-pencil-square-o::before,
+li.fa.fa-thumbs-o-up::before,
+li.fa.fa-heart::before{
+	padding-right: 8.2px;
+}
+
+
+
+#myTabs{
+  height: 70px;
+}
+
+
+@media screen and (max-width: 920px) {
+	#myTabs{
+ 		 height: 250px;
+	}
+
+	ul{
+		width: 80%;
+	}
+	li.fa{
+		display: block;
+	}
+}
+
+
+@media screen and (max-width: 523px) {
+	.content{
+		margin-top: 128.5px;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.content{
+		margin-top: 325.5px;
+	}
+}

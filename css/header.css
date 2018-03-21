@@ -15,11 +15,6 @@ body {
   margin: 0;
 }
 
-li{
-  list-style-type: none;
-  display: inline-block;
-}
-
 
 /*
 
@@ -69,7 +64,7 @@ li{
 
 .content{
 	margin: 89px 50px;
-	padding: 50px 50px 0 50px;
+	padding: 50px 50px 0;
 }
 
 /*
@@ -77,14 +72,6 @@ li{
     IDs
 
 */
-#myTabs{
-  height: 100px;
-}
-
-
-
-
-
 
 /*
 
