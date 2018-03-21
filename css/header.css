@@ -15,6 +15,11 @@ body {
   margin: 0;
 }
 
+li{
+  list-style-type: none;
+  display: inline-block;
+}
+
 
 /*
 
@@ -66,6 +71,19 @@ body {
 	margin: 89px 50px;
 	padding: 50px 50px 0 50px;
 }
+
+/*
+
+    IDs
+
+*/
+#myTabs{
+  height: 100px;
+}
+
+
+
+
 
 
 /*

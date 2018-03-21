@@ -14,48 +14,26 @@
 
 		<?php include "../Headers/header_main.php";?>
 
-		<div class="content">
-			<p>Some text I wrote myself</p>
-			<p>Some text I wrote myself</p>
-			<p>Some text I wrote myself</p>
-			<p>Some text I wrote myself</p>
-			<p>Some text I wrote myself</p>
-			<p>Some text I wrote myself</p>
-			<p>Some text I wrote myself</p>
-			<p>Some text I wrote myself</p>
-			<p>Some text I wrote myself</p>
-			<p>Some text I wrote myself</p>
-			<p>Some text I wrote myself</p>
+	<div class="content">
+		<h2>Hello, Garbage</h2>
 
-			<p>Some text I wrote myself</p>
-			<p>Some text I wrote myself</p>
-			<p>Some text I wrote myself</p>
-			<p>Some text I wrote myself</p>
-			<p>Some text I wrote myself</p>
-			<p>Some text I wrote myself</p>
-			<p>Some text I wrote myselfSome text I wrote myselfSome text I wrote myselfSome text I wrote myselfSome text I wrote myself</p>
-			<p>Some text I wrote myself</p>
-			<p>Some text I wrote myself</p>
-			<p>Some text I wrote myself</p>
-			<p>Some text I wrote myself</p>
-			<p>Some text I wrote myself</p>
-			<p>Some text I wrote myself</p>
-			<p>Some text I wrote myself</p>
-			<p>Some text I wrote myself</p>
-			<p>Some text I wrote myself</p>
-			<p>Some text I wrote myself</p>
-			<p>Some text I wrote myself</p>
-			<p>Some text I wrote myself</p>
-			<p>Some text I wrote myself</p>
-			<p>Some text I wrote myself</p>
-			<p>Some text I wrote myself</p>
-			<p>Some text I wrote myself</p>
-			<p>Some text I wrote myself</p>
+
+				<div id="myTabs">
+					<ul>
+						<li>Edit</li>
+						<li>Settings</li>
+						<li>Following</li>
+						<li>Followers</li>
+					</ul>
+
+
+				</div>
+
+
+
+
+
 		</div>
-
-
-
-
 
 
 
