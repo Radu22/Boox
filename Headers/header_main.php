@@ -6,12 +6,12 @@ echo '	<div class="header" id="myHeader">
 			<div class="header-right">
 
 			<a href="#" class="active">Homepage </a>
-			<a href="#">My Profile</a>
-			<a href="#">My books</a>
-			<a href="#">Community</a>
-			<a href="#">Contact us</a>
+			<a href="#" class="secondary">My books</a>
+			<a href="#" class="secondary">Community</a>
+			<a href="#" class="secondary">Contact us</a>
+			<a href="#" class="fa fa-user-circle" id="myProf"></a>
 
-			</div>
+		  </div>
 
 		</div>';
 
