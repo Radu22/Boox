@@ -1,4 +1,9 @@
 
+a{
+	color: inherit;
+	text-decoration: none;
+}
+
 ul{
 	height:100%;
 	width: 100%;
@@ -16,6 +21,12 @@ li{
   width: 15.5%;
 }
 
+p{
+	width: 76.5%;
+	float: left;
+}
+
+
 li.fa{
 	font-weight: 700;
 	font-size: 20px;
@@ -32,26 +43,50 @@ li.fa.fa-heart::before{
 
 #myTabs{
   height: 70px;
+  width: 100%;
 }
 
 
 @media screen and (max-width: 920px) {
-	#myTabs{
- 		 height: 250px;
+	.content{
+		padding: 50px 0 0;
+		margin: 89px 20px;
 	}
 
+	#myTabs{
+ 		 height: 250px;
+ 		 width: 23.5%;
+ 		 float: left;
+	}
 	ul{
-		width: 80%;
+		width: 100%;
+		padding-right: 0;
+		margin-right: 0;
 	}
 	li.fa{
 		display: block;
 	}
+	p{
+		width: 76.5%;
+		padding: 20px 0 0 55px;
+	}
+}
+
+.fa:hover{
+	text-decoration: underline;
+	cursor: pointer;
 }
 
 
 @media screen and (max-width: 523px) {
 	.content{
 		margin-top: 128.5px;
+	}
+	#myTabs{
+		width: 40%;
+	}
+	p{
+		width: 60%;
 	}
 }
 
