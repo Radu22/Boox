@@ -26,9 +26,10 @@
 						<li class="fa fa-heart under" ><a href="#followed">Followers</a></li>
 					</ul>
 				</div>
+
 			<div id="profile_content">
 				<div id="edit">
-					<h3>Edit your profile from here:</h3>
+					<h3>Edit your profile from here</h3>
 					<div class="container">
 						  <form action="#">
 						    <div class="row">
@@ -36,53 +37,58 @@
 						        <label for="user">Change username</label>
 						      </div>
 						      <div class="col-75">
-						        <input type="text" id="user" name="username" placeholder="Your username..">
+						        <input type="text" id="user" name="username" placeholder="Username ">
 						      </div>
 						    </div>
 						    <div class="row">
 						      <div class="col-25">
-						        <label for="lname">Last Name</label>
+						        <label for="email">Change email address</label>
 						      </div>
 						      <div class="col-75">
-						        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+						        <input type="text" id="email" name="emailadd" placeholder="Email address ">
 						      </div>
 						    </div>
 						    <div class="row">
 						      <div class="col-25">
-						        <label for="country">Country</label>
+						        <label for="phone">Provide Phone number</label>
 						      </div>
 						      <div class="col-75">
-						        <select id="country" name="country">
-						          <option value="australia">Australia</option>
-						          <option value="canada">Canada</option>
-						          <option value="usa">USA</option>
-						        </select>
+						        <input type="text" id="phone" name="number_phone" placeholder="Phone ">
 						      </div>
 						    </div>
+
 						    <div class="row">
 						      <div class="col-25">
-						        <label for="subject">Subject</label>
+						        <label for="subject">About me</label>
 						      </div>
 						      <div class="col-75">
-						        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+						        <textarea id="subject" name="subject" placeholder="Write anything that crosses your mind" style="height:200px"></textarea>
 						      </div>
 						    </div>
+
 						    <div class="row">
 						      <input type="submit" value="Submit">
 						    </div>
+
 						  </form>
 					</div>
 
-				</div>
 				<div id="settings">
-
-
+					<h3>Profile Settings</h3>
+					<button type="button" >Reset defaults</button>
 
 				</div>
+
 				<div id="follow">
+					<h3>People that you follow</h3>
+					<button type="button" >Reset defaults</button>
 
 				</div>
-				<div id="followed">
+				<div id="followed"></div>
+				<div >
+					<h3>People that follow you</h3>
+					<button type="button" >Reset defaults</button>
+
 
 				</div>
 
@@ -94,7 +100,7 @@
 		</div>
 
 
-
+	</div>
 
 		<script src="profile.js"></script>
 

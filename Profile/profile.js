@@ -6,5 +6,4 @@ var followed = document.querySelector(".fa-heart");
 
 
 
-
 // -- end
