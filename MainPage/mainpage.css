@@ -16,7 +16,7 @@ body {
     margin-top: 10px;
 }
 
-form.adaugaCarte input[type=text] {
+form.searchBook input[type=text] {
     padding: 20px;
     font-size: 17px;
     border: 1px solid grey;
@@ -25,7 +25,7 @@ form.adaugaCarte input[type=text] {
     background: #f1f1f1;
 }
 
-form.adaugaCarte button {
+form.searchBook button {
     float: left;
     width: 20%;
     padding: 20px;
@@ -37,11 +37,11 @@ form.adaugaCarte button {
     cursor: pointer;
 }
 
-form.adaugaCarte button:hover {
+form.searchBook button:hover {
     background: #0b7dda;
 }
 
-form.adaugaCarte::after {
+form.searchBook::after {
     content: "";
     clear: both;
     display: table;

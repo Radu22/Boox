@@ -31,11 +31,11 @@
 
           <div class="rightcolumn">
           	<div class="searchButton">
-        	  	<form class="adaugaCarte" action="/action_page.php" style="margin:auto;max-width:500px">
-        			<input type="text" placeholder="Cauta.." name="search2">
-        			<button type="submit"><i class="fa fa-search"></i></button>
-        		</form>
-        	</div>
+        	  	<form class="searchBook" action="/action_page.php" style="margin:auto;max-width:500px">
+          			<input type="text" placeholder="Cauta.." name="search2">
+          			<button type="submit"><i class="fa fa-search"></i></button>
+        		  </form>
+        	 </div>
 
             <div class="addButton">
             	<button class="button">Adauga Carte</button>

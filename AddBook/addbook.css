@@ -1,0 +1,43 @@
+.row {
+    margin-top: 150px;
+    font-size: 23px;
+}
+.formular{
+    width: 40%;
+    margin:auto;
+}
+.tipcarte{
+    cursor: pointer;
+    font-size: 23px;
+}
+input[type=radio]{
+    margin:30px;
+    transform: scale(3);
+}
+input[type=text] {
+    width: 100%;
+    padding: 22px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size:23px;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 20px 24px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 23px;
+}
+
+input[type=submit]:hover {
+    background-color: #888888;
+}
+
