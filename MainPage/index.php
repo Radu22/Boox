@@ -13,7 +13,18 @@
 
       <?php include "../Headers/header_main.php";?>
 
-        <div class="row">
+        <div class="rand">
+          <div class="rightcolumn">
+              <form class="searchBook" >
+                <input type="text" placeholder="Cauta.." name="search2">
+                <button type="submit"><i class="fa fa-search"></i></button>
+              </form>
+
+
+            <div class="addButton">
+              <a href="../AddBook/AddBook.php"><button class="button">Adauga Carte</button></a>
+            </div>
+        </div>
           <div class="leftcolumn">
             <div clas="firstrow">
               <?php include "../Headers/header_book.php"; ?>
@@ -29,16 +40,6 @@
             </div>
           </div>
 
-          <div class="rightcolumn">
-        	  	<form class="searchBook" >
-          			<input type="text" placeholder="Cauta.." name="search2">
-          			<button type="submit"><i class="fa fa-search"></i></button>
-        		  </form>
 
-
-            <div class="addButton">
-            	<a href="../AddBook/AddBook.php"><button class="button">Adauga Carte</button></a>
-            </div>
-        </div>
 </body>
 </html>
