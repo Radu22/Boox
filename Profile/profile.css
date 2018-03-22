@@ -56,10 +56,10 @@ li.fa{
 	font-size: 20px;
 }
 
-li.fa.fa-gears::before,
-li.fa.fa-pencil-square-o::before,
-li.fa.fa-thumbs-o-up::before,
-li.fa.fa-heart::before{
+li.fa.fa-gears:before,
+li.fa.fa-pencil-square-o:before,
+li.fa.fa-thumbs-o-up:before,
+li.fa.fa-heart:before{
 	padding-right: 8.2px;
 }
 

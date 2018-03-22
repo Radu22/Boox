@@ -56,6 +56,14 @@
 						        <input type="text" id="phone" name="number_phone" placeholder="Phone ">
 						      </div>
 						    </div>
+						    <div class="row">
+						      <div class="col-25">
+						        <label for="location">Provide your location</label>
+						      </div>
+						      <div class="col-75">
+						        <input type="text" id="location" name="number_phone" placeholder="Location ">
+						      </div>
+						    </div>
 
 						    <div class="row">
 						      <div class="col-25">

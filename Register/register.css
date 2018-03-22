@@ -82,12 +82,6 @@ input[type="checkbox"] {
   margin: 0 4px 8px 0;
 }
 
-select {
-  padding: 6px;
-  height: 32px;
-  border-radius: 2px;
-}
-
 button {
   padding: 19px 39px 18px 39px;
   color: #FFF;
