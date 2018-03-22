@@ -11,9 +11,11 @@
 	<body>
 
 		 <?php include "../Headers/header_main.php";?>
-		<div class="row">
-			 <div class="formular">
-			 	<form action="/action_page.php">
+			 <div class ="formular">
+			 	<div class="titlupagina">
+			 		<p>Adauga Carte</p>
+			 	</div>
+			 	<form>
 			 		<label >Titlu:</label>
 			 		<input type="text" id="titlu" name="titlucarte">
 
@@ -21,19 +23,27 @@
 			 		<input type="text" id="autor" name="autorcarte">
 
 					<label >ISBN:</label>
-			 		<input type="text" id="isbn" name="isbncarte">
-					<label class="tipcarte">
-						<input type="radio" name="list"  value="paperback"/>Paperback
-					</label>
-					<label class="tipcarte">
-						<input type="radio" name="list"  value="hardcover"/>Hardcover
-					</label>
+			 		<input type="text" id="isbn" name="isbncarte" maxlength="13">
+			 		<fieldset id="tip">
 
-					<div class="wrapper">
-						<input type="submit"  value="Adauga">
+				 		<legend >Tip Carte:</legend>
+						<label class="tipcarte">
+							<input type="radio" name="list"  value="paperback"/>Paperback
+						</label><br>
+						<label class="tipcarte">
+							<input type="radio" name="list"  value="hardcover"/>Hardcover
+						</label>
+					</fieldset>
+					<button class="butonUpload">Incarca Fotografii</button>
+					<div class="imaginiCarte">
+						<div class="imagineCarte">Image</div>
+						<div class="imagineCarte">Image</div>
+						<div class="imagineCarte">Image</div>
 					</div>
+					<label >Descriere:</label>
+					<textarea name="descriere"></textarea>
+					<input type="submit"  value="Adauga">
 				</form>
 			</div>
-		</div>
 	</body>
 </html>

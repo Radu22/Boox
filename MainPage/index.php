@@ -15,31 +15,30 @@
 
         <div class="row">
           <div class="leftcolumn">
+            <div clas="firstrow">
               <?php include "../Headers/header_book.php"; ?>
               <?php include "../Headers/header_book.php"; ?>
+            </div>
+             <div clas="firstrow">
               <?php include "../Headers/header_book.php"; ?>
               <?php include "../Headers/header_book.php"; ?>
+            </div>
+            <div clas="firstrow">
               <?php include "../Headers/header_book.php"; ?>
               <?php include "../Headers/header_book.php"; ?>
-              <?php include "../Headers/header_book.php"; ?>
-              <?php include "../Headers/header_book.php"; ?>
-              <?php include "../Headers/header_book.php"; ?>
-              <?php include "../Headers/header_book.php"; ?>
-
-
+            </div>
           </div>
 
           <div class="rightcolumn">
-          	<div class="searchButton">
-        	  	<form class="searchBook" action="/action_page.php" style="margin:auto;max-width:500px">
+        	  	<form class="searchBook" >
           			<input type="text" placeholder="Cauta.." name="search2">
           			<button type="submit"><i class="fa fa-search"></i></button>
         		  </form>
 
+
             <div class="addButton">
             	<a href="../AddBook/AddBook.php"><button class="button">Adauga Carte</button></a>
             </div>
-
         </div>
 </body>
 </html>
