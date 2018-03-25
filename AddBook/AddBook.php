@@ -3,10 +3,12 @@
 	<head>
 		<title>Adauga Carte</title>
 		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="stylesheet" href="../css/header.css">
+
 	    <link rel="stylesheet" href="addbook.css">
 	    <link rel="stylesheet" href="../css/footer.css">
-        <link rel="stylesheet" href="../css/header.css">
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 	</head>
 	<body>
 
@@ -40,7 +42,7 @@
 						<div class="imagineCarte">Image</div>
 						<div class="imagineCarte">Image</div>
 					</div>
-					<label >Descriere:</label>
+					<label id="description">Descriere:</label>
 					<textarea name="descriere"></textarea>
 					<input type="submit"  value="Adauga">
 				</form>

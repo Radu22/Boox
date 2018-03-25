@@ -13,8 +13,8 @@
 
 create table users (
 	id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	nume varchar2(15) NOT NULL,
-	prenume varchar2(15) NOT NULL,
-	email varchar2(40) NOT NULL,
- 	location varchar2(50)
+	nume varchar(15) NOT NULL,
+	prenume varchar(15) NOT NULL,
+	email varchar(40) NOT NULL,
+ 	location varchar(50)
 );
