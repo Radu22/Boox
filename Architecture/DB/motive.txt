@@ -1,0 +1,7 @@
+ Motivele pentru care am ales un limbaj de tipul SQL
+
+- este o alegere sigura pentru interogari complexe
+- se pot folosit scheme predefinite pentru a determina structura datelor inainte de folosinta
+- limbajele sql sunt mai noi, si sunt actualizate regulat
+- putem defini relatii intre tabele
+- indecsi, chei primare
