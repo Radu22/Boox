@@ -9,14 +9,14 @@ body {
     padding: 20px;
 }
 
-.leftcolumn {
-    float: right;
+.rightcolumn {
+    float: left;
     width: 70%;
 }
 
-.rightcolumn {
+.leftcolumn {
     margin-top: 20px;
-    float: right;
+    float: left;
     width: 30%;
     background-color: #f1f1f1;
     padding-left: 20px;
@@ -87,11 +87,11 @@ form.searchBook::after {
 }
 
 @media screen and (max-width: 1198px) and (min-width: 996px) {
-    .rightcolumn{
+    .leftcolumn{
         width: 15%;
         padding: 0;
     }
-    .leftcolumn{
+    .rightcolumn{
         position: relative;
         left: -10px;
         width: 85%;
@@ -99,6 +99,7 @@ form.searchBook::after {
     form.searchBook button {
         width: 50%;
         margin-top: 7.5px;
+        margin-left: 77px;
         padding: 8px;
 
     }
