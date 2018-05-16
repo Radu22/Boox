@@ -10,7 +10,6 @@ function getFiltered()
 	{
 		book_div = document.getElementsByClassName("card")[i];
 		title = book_div.getElementsByTagName("h2")[0];
-		// console.log(title.innerHTML);
 		if(title.innerHTML.toUpperCase().indexOf(filter) > -1)
 		{
 			book_div.style.display = "";
