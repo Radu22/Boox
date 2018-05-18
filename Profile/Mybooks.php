@@ -16,7 +16,7 @@
 		<?php include "../Headers/header_main.php";?>
 
     <h2>My books</h2>
-
+    <hr>
 
 	<div class="content">
         <form >

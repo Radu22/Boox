@@ -13,24 +13,35 @@ body{
 h2{
 	margin-top: 100px;
 	font-size: 23px;
-	letter-spacing: 2px;
-	color: #b366ff;
+	color: #2d2d86;
 	width: 100%;
 	padding: 50px 0 0 50px;
 }
+
 h3{
 	margin-top: 65px;
 }
+
 ul{
 	padding: 0;
 	width: 30%;
 	list-style: none;
 }
+
 ul li{
 	margin-top: 10px;
 }
 ul li a {
 	text-decoration: none;
+}
+
+hr{
+	border-width: 0.7px;
+	border-style: inset;
+	width: 85%;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	margin-right: 11.2%;
 }
 
 form{
@@ -40,13 +51,16 @@ form{
 
 form input[type=text] {
     padding: 5px;
-    font-size: 12px;
+    font-size: 13px;
     border: 1px solid grey;
     background: #f1f1f1;
     margin-top: 20px;
 
 }
 
+form button[type=submit]{
+	padding: 4px 12px;
+}
 
 /*
 *
@@ -59,4 +73,11 @@ form input[type=text] {
 	padding: 0;
 	margin-top: 25px;
 	margin-bottom: 0;
+}
+
+
+@media screen and (max-width: 758px){
+	.header .header-right{
+		display: none;
+	}
 }
