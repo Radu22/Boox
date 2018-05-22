@@ -56,8 +56,6 @@ class AuthController{
                 if($error){
                     AuthController::prompt("All fields are required");
                 }else{
-                    var_dump($required);
-       
                     require_once("models/signup.php");
                     if(insert_user()){
                         header("Location: views/authsuccess.php?controller=auth&action=signup"); 
