@@ -6,6 +6,8 @@
     public $email;
     public $username;
     public $password;
+    public static $count_users;
+
 
     public function __construct($id, $firstname, $lastname, $email, $username, $password) {
       $this->id         = $id;
@@ -20,8 +22,9 @@
       $list = [];
       $db = Db::getInstance();
       $req = $db->query('SELECT * FROM users');
-
+      
       foreach($req->fetchAll() as $post) {
+        ++self::$count_users;
         $list[] = new User($post['user_id'], $post['user_first'], $post['user_last'],
             $post['user_email'], $post['user_uid'],$post['user_pwd']);
       }
@@ -39,5 +42,7 @@
       return new User($post['user_id'], $post['user_first'], $post['user_last'],
       $post['user_email'], $post['user_uid'],$post['user_pwd']);
     }
+
+
   }
 ?>
