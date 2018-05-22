@@ -20,7 +20,7 @@
 			          <input type="password" name="user_password">
 
 			        </fieldset>
-			      <button type="submit"> Sign Up </button>
+			      <button type="submit" name="submit"> Sign Up </button>
 
       </form>
 
