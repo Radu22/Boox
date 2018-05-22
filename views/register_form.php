@@ -8,8 +8,11 @@
 			          <legend><span class="number">1</span> Your basic info</legend>
 
 			          <label>Name *</label>
-			          <input type="text" name="user_name">
+			          <input type="text" name="name">
 
+					  <label>Username *</label>
+					  <input type="text" name="user_name">
+					  
 			          <label>Email *</label>
 			          <input type="email" name="user_email">
 

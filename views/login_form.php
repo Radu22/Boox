@@ -7,7 +7,7 @@
 
 			          <legend><span class="number">1</span> Log in information </legend>
 
-			          <label>Name</label>
+			          <label>Username</label>
 			          <input type="text" name="user_name">
 
 			          <label>Password</label>
