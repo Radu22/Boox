@@ -1,0 +1,100 @@
+/*
+
+	Elements
+
+*/
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+  }
+  
+  
+  /*
+  
+      Classes
+  
+  */
+  
+  .header {
+    padding: 20px 10px;
+    background: rgb(187, 187, 119);
+    color: #f1f1f1;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+  
+  .header a {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 14.5px;
+    line-height: 25px;
+    letter-spacing: 3px;
+    border-radius: 4px;
+  }
+  
+  .header a.logo {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  
+  .header a:hover {
+    background-color: rgb(0, 102, 34);
+    color: white;
+  }
+  
+  .header a.active {
+    background-color: dodgerblue;
+    color: white;
+  }
+  
+  .header-right {
+    float: right;
+  }
+  
+  .content{
+      margin: 89px 50px;
+      padding: 50px 50px 0;
+  }
+  
+  /*
+  
+      IDs
+  
+  */
+  
+  /*
+  
+          Media Screens
+  
+  */
+  
+  
+  @media screen and (max-width: 500px) {
+    .header a {
+      float: none;
+      display: block;
+      text-align: center;
+    }
+    .header-right {
+      float: none;
+    }
+    #myProf{
+      text-align: center;
+    }
+  }
+  
+  #myProf{
+    font-size: 30px;
+  }
