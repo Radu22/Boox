@@ -11,9 +11,6 @@ class AuthController{
 
     public function prompt($prompt_msg){
         echo("<script type='text/javascript'> var answer = prompt('".$prompt_msg."'); </script>");
-
-        $answer = "<script type='text/javascript'> document.write(answer); </script>";
-        return($answer);
     }
 
 
@@ -24,28 +21,42 @@ class AuthController{
 *
 *
 */
+        // Getting data from form
         $name     = $_POST['name'];
         $username = $_POST['user_name'];
         $email    = $_POST['user_email']; 
         $password = $_POST['user_password'];
+        
+        // Splitting name to get first_name / last_name
         $name = explode(" ",$name);
         $error = false;
+        // Array to be inserted into DB
         global $required;
         $required = array();
         
+        // Check if data from form got sent
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
+            // We need first and also last name
             if(count($name) < 2){
                 AuthController::prompt("Insert last name as well");
+                exit();
             }else{
+
+                // Validate first and last name, they should contain only alpha chars
                 for($i = 0; $i < count($name); ++$i)
                 {
                     if(isset($name[$i])){
-                        array_push($required, $name[$i]);
+                        if(preg_match("/([0-9]*)/", $name[$i])){
+                            AuthController::prompt("Only letters are allowed in first / last name");
+                            exit();
+                        }else
+                            array_push($required, $name[$i]);
                     }
                 }
                 array_push($required, $username, $email, $password);
                 
+                // Check if input is empty
                 foreach($required as $req){
                     if(empty($req)){
                         $error = true;
@@ -55,6 +66,7 @@ class AuthController{
                 
                 if($error){
                     AuthController::prompt("All fields are required");
+                    exit();
                 }else{
                     require_once("models/signup.php");
                     if(insert_user()){
