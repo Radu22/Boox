@@ -18,6 +18,7 @@
       $this->password   = $password;
     }
 
+
     public static function all() {
       $list = [];
       $db = Db::getInstance();
@@ -41,6 +42,16 @@
 
       return new User($post['user_id'], $post['user_first'], $post['user_last'],
       $post['user_email'], $post['user_uid'],$post['user_pwd']);
+    }
+
+    public static function getID($username){
+      $db = Db::getInstance();
+      $req = $db->prepare('SELECT * FROM users WHERE user_uid = :us');
+      $req->execute(array(':us' => $username));
+      $post = $req->fetch();
+
+      return $post['user_id'];
+
     }
 
 

@@ -1,4 +1,5 @@
 <?php
+
     function insert_user(){
         $db = Db::getInstance();
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -9,6 +10,14 @@
             VALUES ('".$required[0]."','".$required[1]."','".$required[2]."', '".$required[3]."','".$required[4]."')";
         
         if($db->query($sql)){
+            $id = User::getID($required[3]);
+            $_SESSION['id']       = $id;
+            $_SESSION['last']     = $required[1];
+            $_SESSION['first']    = $required[0];
+            $_SESSION['last']     = $required[1];
+            $_SESSION['email']    = $required[2];
+            $_SESSION['user']     = $required[3];
+            $_SESSION['password'] = $required[4];
             return true;
         }else 
             return false;
