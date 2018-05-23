@@ -47,7 +47,7 @@ class AuthController{
                 for($i = 0; $i < count($name); ++$i)
                 {
                     if(isset($name[$i])){
-                        if(preg_match("/([0-9]*)/", $name[$i])){
+                        if(preg_match("/[0-9]/", $name[$i])){
                             AuthController::prompt("Only letters are allowed in first / last name");
                             exit();
                         }else
