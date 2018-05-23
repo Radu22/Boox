@@ -1,3 +1,7 @@
+<?php 
+	session_start();
+?>
+
 <!doctype html>
 <html>
     <head>
@@ -19,7 +23,7 @@
 		<?php require_once('../header_main.php');?>
 
 	<div class="content" id="up">
-		<h2>Hello, $name</h2>
+		<h2>Hello, <?php echo '<b>' .$_SESSION['first'] . '</b>' ;?></h2>
 				<div id="myTabs">
 					<ul>
 						<li class="fa fa-pencil-square-o under" ><a href="#edit">Edit</a></li>

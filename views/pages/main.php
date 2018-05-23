@@ -1,3 +1,8 @@
+<?php 
+	session_start();
+?>
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -60,6 +65,9 @@
           $action     = 'reg';
         }
         
+        // echo "\t" . $_SESSION['id'] . " " . $_SESSION['first'] . " ".  $_SESSION['last'] . " " . $_SESSION['user'] . " ".  $_SESSION['password'] . "\n";
+
+
         global $current_dir; 
         $current_dir =  getcwd();
         require_once("../../routes.php");
