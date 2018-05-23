@@ -40,6 +40,7 @@ class AuthController{
             // We need first and also last name
             if(count($name) < 2){
                 AuthController::prompt("Insert last name as well");
+                exit();
             }else{
 
                 // Validate first and last name, they should contain only alpha chars

@@ -12,7 +12,6 @@
         if($db->query($sql)){
             $id = User::getID($required[3]);
             $_SESSION['id']       = $id;
-            $_SESSION['last']     = $required[1];
             $_SESSION['first']    = $required[0];
             $_SESSION['last']     = $required[1];
             $_SESSION['email']    = $required[2];
