@@ -16,17 +16,19 @@ class BooksController {
     }
 
     public function ins_book(){
-
+		
+		global $info;
+		$info = array();
+		$title = $_POST['title'];
+		$author = $_POST['autorcarte'];
+		$isbn = $_POST['isbncarte'];
+		$language = $_POST['taskOption'];
+		$type = $_POST['gencarte'];
+		$duration = $_POST['durata'];
+		$description = $_POST['descriere'];
+		$user_id = $_SESSION['id'];
+		
     	if($_SERVER['REQUEST_METHOD'] === 'POST'){
-
-    		$title = $_POST['title'];
-    		$author = $_POST['autorcarte'];
-    		$isbn = $_POST['isbncarte'];
-    		$language = $_POST['taskOption'];
-    		$type = $_POST['gencarte'];
-    		$duration = $_POST['durata'];
-    		$description = $_POST['descriere'];
-    		$user_id = $_SESSION['id'];
 
     		switch ($language) {
     			case '1':
@@ -44,10 +46,15 @@ class BooksController {
     			case '5':
     				$limba = 'Germana';
     			break;
-    		}
+			}
+			
+			array_push($info,$user_id, $title,$author, $isbn, $description,$type,$duration, $language);
 
-    		require_once("models/book_modelling.php");
-    		if(insertBook('book_wanted')){
+			require_once("../../connection.php");
+			require_once("../../models/book_modelling.php");
+	  
+			
+			if(insertBook('book_wanted')){
     			echo "Inserted";
     		}
     		else{

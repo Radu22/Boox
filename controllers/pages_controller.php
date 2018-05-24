@@ -26,6 +26,9 @@
     public function contact(){
       echo 'contact us';
     }
+    public function add(){
+      echo 'we are in add method';
+    }
 
 
   }

@@ -15,7 +15,7 @@ class AuthController{
 
 
     public function signup(){
-
+        require_once("connection.php");
 /*
 *       INPUT VALIDATION, THEN REDIRECT TO DB
 *
@@ -82,6 +82,7 @@ class AuthController{
 
     }
     public function signin(){
+        require_once("connection.php");
 
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
