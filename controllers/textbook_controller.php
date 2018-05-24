@@ -47,8 +47,25 @@ class BooksController {
     				$limba = 'Germana';
     			break;
 			}
-			
-			array_push($info,$user_id, $title,$author, $isbn, $description,$type,$duration, $language);
+			// switch ($type) {
+    		// 	case '1':
+    		// 		$limba = 'Romana';
+    		// 	break;
+    		// 	case '2':
+    		// 		$limba = 'Engleza';
+    		// 	break;
+    		// 	case '3':
+    		// 		$limba = 'Franceza';
+    		// 	break;
+    		// 	case '4':
+    		// 		$limba = 'Italiana';
+    		// 	break;
+    		// 	case '5':
+    		// 		$limba = 'Germana';
+    		// 	break;
+			// }
+
+			array_push($info,$user_id, $title, $author, $isbn, $description,$type,$duration, $limba);
 
 			require_once("../../connection.php");
 			require_once("../../models/book_modelling.php");
