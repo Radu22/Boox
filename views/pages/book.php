@@ -24,20 +24,31 @@
     <hr>
 
 	<div class="content">
-        <form >
-                  <input type="text" placeholder="Search for books" name="search2" title="Search for books" id="filter"
-                     onkeyup="getFiltered()">
-                  <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
-        <h3>Bookshelves</h3>
-        <div id="shelf">
-            <ul>
-                <li><a href="#">Total Books - 99</a></li>
-                <li><a href="#">Read()</a></li>
-                <li><a href="#">To Read()</a></li>
-                <li><a href="#">For rent()</a></li>
-            </ul>
+        <div class="wrapper-left">
+            <form >
+                <input type="text" placeholder="Search for books" name="search2" title="Search for books" id="filter"
+                    onkeyup="getFiltered()">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+            <h3>Bookshelves</h3>
+            <div id="shelf">
+                <ul>
+                    <li><a href="#">Total Books - 99</a></li>
+                    <li><a href="#">Read()</a></li>
+                    <li><a href="#">To Read()</a></li>
+                    <li><a href="#">For rent()</a></li>
+                </ul>
 
+            </div>
+        </div>
+        <div class="wrapper-right">
+            
+                <div class="card">
+                    <h4>Crime and punishment</h4>
+                    <h5>Fyodor Dostoyevsky</h5>
+                    <div class="fakeimg">Raskolnikov in shorts</div>
+                  </div>
+        
         </div>
 	</div>
 

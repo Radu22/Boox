@@ -2,16 +2,18 @@
   function call($controller, $action) {
     require_once('controllers/' . $controller . '_controller.php');
 
+    require_once('connection.php'); 
+    require_once('models/users.php');
+    require_once('models/books.php');
+
     switch($controller) {
       case 'pages':
         $controller = new PagesController();
       break;
       case 'auth':
-        require_once('models/users.php');
         $controller = new AuthController();
       break;
       case 'textbook':
-        require_once('models/books.php');
         $controller = new BooksController();
       break;
     }

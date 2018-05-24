@@ -24,7 +24,7 @@ h3{
 
 ul{
 	padding: 0;
-	width: 30%;
+	width: 100%;
 	list-style: none;
 }
 
@@ -45,7 +45,7 @@ hr{
 }
 
 form{
-	width: 35%;
+	width: 100%;
 	height: 60px;
 }
 
@@ -75,6 +75,40 @@ form button[type=submit]{
 	margin-bottom: 0;
 }
 
+.wrapper-left{
+	background-color: rgba(228, 224, 224, 0.644);
+	float: left;	
+	width: 20%;
+	margin-right: 35px;
+	padding: 1%;
+}
+
+.wrapper-right{
+	background-color: rgb(87, 76, 76);
+	float: left;
+	width: 75%;
+}
+
+.wrapper-right::after{
+	content: "";
+	clear: both;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+    width: 28%;
+    float:left;
+    height: 400px;
+}
+
+.fakeimg {
+    background-color: #aaa;
+    width: 80%;
+    padding: 10px;
+    height:250px;
+}
 
 @media screen and (max-width: 758px){
 	.header .header-right{
