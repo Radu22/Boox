@@ -1,4 +1,4 @@
-<!-- 
+<!--
 
     Login / Sign up validation
 
@@ -15,7 +15,7 @@ class AuthController{
 
 
     public function signup(){
-        
+
 /*
 *       INPUT VALIDATION, THEN REDIRECT TO DB
 *
@@ -24,16 +24,16 @@ class AuthController{
         // Getting data from form
         $name     = $_POST['name'];
         $username = $_POST['user_name'];
-        $email    = $_POST['user_email']; 
+        $email    = $_POST['user_email'];
         $password = $_POST['user_password'];
-        
+
         // Splitting name to get first_name / last_name
         $name = explode(" ",$name);
         $error = false;
         // Array to be inserted into DB
         global $required;
         $required = array();
-        
+
         // Check if data from form got sent
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
@@ -55,7 +55,7 @@ class AuthController{
                     }
                 }
                 array_push($required, $email, $username, $password);
-                
+
                 // Check if input is empty
                 foreach($required as $req){
                     if(empty($req)){
@@ -63,36 +63,47 @@ class AuthController{
                         break;
                     }
                 }
-                
+
                 if($error){
                     AuthController::prompt("All fields are required");
                     exit();
                 }else{
                     require_once("models/signup.php");
                     if(insert_user()){
-                        header("Location: views/authsuccess.php?controller=auth&action=signup"); 
+                        header("Location: views/authsuccess.php?controller=auth&action=signup");
                     }else{
                         echo "sad story";
                     }
                 }
             }
-            
+
         }
-       
+
 
     }
     public function signin(){
-        //                  \/\/\/\/\/\/\/\/\/\/
 
-        // vreau sa fiu implementat de catre bernard, altfel nu voi functiona
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
+            $username = $_POST['user_name'];
+            $password = $_POST['user_password'];
 
-        //          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        // Ia-te dupa signup, faci functie de signin, ca sa fie separat de controller
+            if(empty($username) || empty($password)){
+                AuthController::prompt("Incomplete data");
+                exit();
+            }else{
+                require_once("models/signin.php");
+                if(verifyUser($username,$password)){
+                    header("Location: views/authsuccess.php?controller=auth&action=signin");
+                }else{
+                    echo "Error";
+                }
+            }
 
-        header("Location: views/authsuccess.php?controller=auth&action=signin");
+        }
+        }
     }
-}
+
 
 
 ?>

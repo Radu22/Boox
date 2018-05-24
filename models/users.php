@@ -23,7 +23,7 @@
       $list = [];
       $db = Db::getInstance();
       $req = $db->query('SELECT * FROM users');
-      
+
       foreach($req->fetchAll() as $post) {
         ++self::$count_users;
         $list[] = new User($post['user_id'], $post['user_first'], $post['user_last'],
@@ -44,16 +44,24 @@
       $post['user_email'], $post['user_uid'],$post['user_pwd']);
     }
 
-    public static function getID($username){
+    public static function getIDbyUsername($username){
       $db = Db::getInstance();
       $req = $db->prepare('SELECT * FROM users WHERE user_uid = :us');
       $req->execute(array(':us' => $username));
       $post = $req->fetch();
 
       return $post['user_id'];
-
     }
 
+    public static function getIDbyEmail($email){
+      $db = Db::getInstance();
+      $req = $db->prepare('SELECT * FROM users WHERE user_email = :email');
+      $req->execute(array(':email' => $email));
+      $post = $req->fetch();
+
+      return $post['user_id'];
+    }
 
   }
+
 ?>
