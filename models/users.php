@@ -44,22 +44,28 @@
       $post['user_email'], $post['user_uid'],$post['user_pwd']);
     }
 
-    public static function getIDbyUsername($username){
+    public static function getUserByUsername($username){
       $db = Db::getInstance();
       $req = $db->prepare('SELECT * FROM users WHERE user_uid = :us');
       $req->execute(array(':us' => $username));
       $post = $req->fetch();
 
-      return $post['user_id'];
+      return new User($post['user_id'], $post['user_first'], $post['user_last'],
+      $post['user_email'], $post['user_uid'],$post['user_pwd']);
     }
 
-    public static function getIDbyEmail($email){
+    public static function getUserByEmail($email){
       $db = Db::getInstance();
       $req = $db->prepare('SELECT * FROM users WHERE user_email = :email');
       $req->execute(array(':email' => $email));
       $post = $req->fetch();
 
-      return $post['user_id'];
+      return new User($post['user_id'], $post['user_first'], $post['user_last'],
+      $post['user_email'], $post['user_uid'],$post['user_pwd']);
+    }
+
+    public function getID(){
+
     }
 
   }

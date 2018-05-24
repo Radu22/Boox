@@ -4,6 +4,24 @@ body {
     background: #f1f1f1;
 }
 
+h3{
+    
+}
+
+.filtercol{
+    width: 30%;
+    /* height: 30%; */
+    float: left;
+    position: relative;
+    bottom: 660px;
+    margin-bottom:0;
+}
+
+.filtercol::after{
+    clear: both;
+    content: "";
+}
+
 .rand {
     margin-top: 69px;
     padding: 20px;
@@ -63,7 +81,6 @@ form.searchBook::after {
     padding: 20px 80px;
     font-size: 21.5px;
     letter-spacing: 2px;
-    display: inline-block;
     margin: 20px 2px;
     cursor: pointer;
     width: 100%;

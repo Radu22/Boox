@@ -93,14 +93,14 @@ class AuthController{
                 exit();
             }else{
                 require_once("models/signin.php");
-                if(verifyUser($username,$password)){
+                if(verifyUser($username, $password)){
                     header("Location: views/authsuccess.php?controller=auth&action=signin");
                 }else{
                     echo "Error";
                 }
             }
 
-        }
+         }
         }
     }
 

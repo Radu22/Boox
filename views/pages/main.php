@@ -52,7 +52,15 @@
                   </div>
             </div>
           </div>
+
+          <div class="filtercol">
+              <h3>Filter part</h3>
+          
+          </div>
         </div>
+
+        <br />
+        
 
      <script src="../../content/js/filter.js"></script>
 
@@ -65,7 +73,7 @@
           $action     = 'reg';
         }
         
-        // echo "\t" . $_SESSION['id'] . " " . $_SESSION['first'] . " ".  $_SESSION['last'] . " " . $_SESSION['user'] . " ".  $_SESSION['password'] . "\n";
+        echo "\t" . $_SESSION['id'] . " " . $_SESSION['first'] . " ".  $_SESSION['last'] . " " . $_SESSION['user'] . " ".  $_SESSION['password'] . "\n";
 
 
         global $current_dir; 

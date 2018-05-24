@@ -10,8 +10,8 @@
             VALUES ('".$required[0]."','".$required[1]."','".$required[2]."', '".$required[3]."','".$required[4]."')";
         
         if($db->query($sql)){
-            $id = User::getID($required[3]);
-            $_SESSION['id']       = $id;
+            $user = User::getUserByUsername($required[3]);
+            $_SESSION['id']       = $user->id;
             $_SESSION['first']    = $required[0];
             $_SESSION['last']     = $required[1];
             $_SESSION['email']    = $required[2];
