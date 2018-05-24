@@ -1,4 +1,4 @@
-<?php 
+<?php
 	session_start();
 ?>
 
@@ -21,10 +21,10 @@
 		<section class="main-container">
 			<div class ="formular">
 				<h2>Adauga Carte</h2>
-				<form action="bd.php" method="POST" enctype="multipart/form-data">
+				<form action="?controller=textbook&action=ins_book" method="POST" >
 
 				 		<label >Titlu:</label>
-				 		<input type="text" id="titlu" name="titlucarte">
+				 		<input type="text" id="titlu" name="title">
 
 				 		<label >Autor:</label>
 				 		<input type="text" id="autor" name="autorcarte">
@@ -32,17 +32,11 @@
 						<label >ISBN:</label>
 				 		<input type="text" id="isbn" name="isbncarte" maxlength="13">
 
-						<label>Tip Carte:</label>
-						<select>
-						    <option value="0">Alege</option>
-						    <option value="1">Paperback</option>
-						    <option value="2">Hardcover</option>
-						</select>
 						<br>
 						<br>
 
 						<label>Limba:</label>
-						<select>
+						<select name="taskOption">
 						    <option value="0">Alege</option>
 						    <option value="1">Romana</option>
 						    <option value="2">Engleza</option>
@@ -54,7 +48,7 @@
 						<br>
 
 						<label>Gen:</label>
-						<select>
+						<select name="gencarte">
 						    <option value="0">Alege</option>
 						    <option value="1">Arta, arhitectura si fotografie</option>
 						    <option value="2">Biografii si memorii</option>
@@ -85,10 +79,10 @@
 
 						<input type="file" name="file" id="file" class="inputfile" />
 						<label for="file">Upload Photo</label>
-
-						<input type="file" name="file2" id="file2" class="inputfile" />
-						<label for="file">Upload Photo</label>
 						<br>
+
+						<label >Durata ofertei: (nr de zile) </label>
+				 		<input type="text" id="durata" name="durata">
 
 						<label>Descriere:</label>
 						<textarea name="descriere"></textarea>
@@ -96,5 +90,18 @@
 				</form>
 			</div>
 		</section>
+	<?php
+		if (isset($_GET['controller']) && isset($_GET['action'])) {
+          $controller = $_GET['controller'];
+          $action     = $_GET['action'];
+        } else {
+          $controller = 'pages';
+          $action     = 'reg';
+        }
+
+        global $current_dir;
+        $current_dir =  getcwd();
+        require_once("../../routes.php");
+    ?>
 	</body>
 </html>
