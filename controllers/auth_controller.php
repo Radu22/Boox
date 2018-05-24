@@ -15,7 +15,7 @@ class AuthController{
 
 
     public function signup(){
-        require_once("connection.php");
+        
 /*
 *       INPUT VALIDATION, THEN REDIRECT TO DB
 *
@@ -72,7 +72,7 @@ class AuthController{
                     if(insert_user()){
                         header("Location: views/authsuccess.php?controller=auth&action=signup");
                     }else{
-                        echo "sad story";
+                        header("Location: views/pages/error.php");
                     }
                 }
             }
@@ -82,7 +82,6 @@ class AuthController{
 
     }
     public function signin(){
-        require_once("connection.php");
 
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
@@ -97,7 +96,7 @@ class AuthController{
                 if(verifyUser($username, $password)){
                     header("Location: views/authsuccess.php?controller=auth&action=signin");
                 }else{
-                    echo "Error";
+                    header("Location: views/pages/error.php");
                 }
             }
 

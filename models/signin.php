@@ -8,6 +8,10 @@
             $user = User::getUserByEmail($username);
         }else{
             $user = User::getUserByUsername($username);
+            if(!isset($user->username)){
+                AuthController::prompt("username not found");
+                exit();
+            }
         }
 
         if($password !== $user->password){

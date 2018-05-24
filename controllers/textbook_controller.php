@@ -47,35 +47,90 @@ class BooksController {
     				$limba = 'Germana';
     			break;
 			}
-			// switch ($type) {
-    		// 	case '1':
-    		// 		$limba = 'Romana';
-    		// 	break;
-    		// 	case '2':
-    		// 		$limba = 'Engleza';
-    		// 	break;
-    		// 	case '3':
-    		// 		$limba = 'Franceza';
-    		// 	break;
-    		// 	case '4':
-    		// 		$limba = 'Italiana';
-    		// 	break;
-    		// 	case '5':
-    		// 		$limba = 'Germana';
-    		// 	break;
-			// }
 
-			array_push($info,$user_id, $title, $author, $isbn, $description,$type,$duration, $limba);
+			switch ($type) {
+    			case '1':
+    				$tip = 'Arta, arhitectura si fotografie';
+    			break;
+    			case '2':
+    				$tip = 'Biografii si memorii';
+    			break;
+    			case '3':
+    				$tip = 'Business, economie, finante';
+    			break;
+    			case '4':
+    				$tip = 'Carti pentru copii';
+    			break;
+    			case '5':
+    				$tip = 'Dictionare si Enciclopedii';
+				break;
+				case '6':
+    				$tip = 'Diete si fitness';
+    			break;
+				case '7':
+    				$tip = 'Drept';
+    			break;
+				case '8':
+    				$tip = 'Fictiune';
+    			break;
+				case '9':
+    				$tip = 'Filosofie';
+    			break;
+				case '10':
+    				$tip = 'Gastronomie';
+    			break;
+				case '11':
+    				$tip = 'Ghiduri de calatorie, harti';
+    			break;
+				case '12':
+    				$tip = 'Hobby, timp liber';
+    			break;
+				case '13':
+    				$tip = 'Istorie';
+    			break;
+				case '14':
+    				$tip = 'Limbi straine';
+    			break;
+				case '15':
+    				$tip = 'Manuale si auxiliare scolare';
+    			break;
+				case '16':
+    				$tip = 'Medicina';
+    			break;
+				case '17':
+    				$tip = 'Parenting si familie';
+    			break;
+				case '18':
+    				$tip = 'Psihologie, Pedagogie';
+    			break;
+				case '19':
+    				$tip = 'Religie';
+    			break;
+				case '20':
+    				$tip = 'Self Help';
+    			break;
+				case '21':
+    				$tip = 'Sociologie, stiinte politice';
+    			break;
+				case '22':
+    				$tip = 'Spiritualitate, ezoterism';
+    			break;
+				case '23':
+    				$tip = 'Stiinte';
+    			break;
+			}
+
+			array_push($info,$user_id, $title, $author, $isbn, $description,$tip,$duration, $limba);
 
 			require_once("../../connection.php");
 			require_once("../../models/book_modelling.php");
 	  
 			
-			if(insertBook('book_wanted')){
-    			echo "Inserted";
+			if(insertBook('book_added')){
+    			header("Location: ../../views/pages/main.php");
     		}
     		else{
-    			echo "NAspa";
+    			header("Location: ../../views/pages/error.php");
     		}
     	}
 

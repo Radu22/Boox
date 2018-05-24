@@ -11,11 +11,9 @@
     }
 
     public function main(){
-        echo 'blind shit';
     }
    
     public function book(){
-        echo '<p>blind shit</p>';
     }
     public function reg(){
 
@@ -27,7 +25,6 @@
       echo 'contact us';
     }
     public function add(){
-      echo 'we are in add method';
     }
 
 
