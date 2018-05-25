@@ -1,5 +1,17 @@
 <?php 
-	session_start();
+    session_start();
+    $count = $_SESSION['count'];
+    global $books;
+
+    if (isset($_GET['controller']) && isset($_GET['action'])) {
+        $controller = $_GET['controller'];
+        $action     = $_GET['action'];
+    } else {
+        $controller = 'pages';
+        $action     = 'reg';
+    }
+
+    require_once("../../routes.php");
 ?>
 
 
@@ -33,7 +45,7 @@
             <h3>Bookshelves</h3>
             <div id="shelf">
                 <ul>
-                    <li><a href="#">Total Books - 99</a></li>
+                    <li><a href="#">Total Books - <?php echo $count; ?></a></li>
                     <li><a href="#">Read()</a></li>
                     <li><a href="#">To Read()</a></li>
                     <li><a href="#">For rent()</a></li>
@@ -42,30 +54,18 @@
             </div>
         </div>
         <div class="wrapper-right">
-            
-                <div class="card">
-                    <h4>Crime and punishment</h4>
-                    <h5>Fyodor Dostoyevsky</h5>
-                    <div class="fakeimg">Raskolnikov in shorts</div>
+            <?php foreach($books as $book) { ?>
+                    <div class="card">
+                        <h4><?php echo $book->book_title; ?></h4>
+                        <h5><?php echo $book->book_author; ?></h5>
+                        <div class="fakeimg"><?php echo $book->description; ?></div>
                   </div>
+                <?php } ?>
         
         </div>
 	</div>
 
 		<script src="../../content/js/filter.js"></script>
-
-        <?php 
-            if (isset($_GET['controller']) && isset($_GET['action'])) {
-                $controller = $_GET['controller'];
-                $action     = $_GET['action'];
-            } else {
-                $controller = 'pages';
-                $action     = 'reg';
-            }
-        
-            require_once("../../routes.php");
-        
-        ?>
 
     </body>
 </html>

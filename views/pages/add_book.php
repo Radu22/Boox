@@ -1,5 +1,18 @@
 <?php
 	session_start();
+
+	if (isset($_GET['controller']) && isset($_GET['action'])) {
+	  $controller = $_GET['controller'];
+	  $action     = $_GET['action'];
+	} else {
+	  $controller = 'pages';
+	  $action     = 'reg';
+	}
+
+	global $current_dir;
+	$current_dir =  getcwd();
+	require_once("../../routes.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -90,18 +103,5 @@
 				</form>
 			</div>
 		</section>
-	<?php
-		if (isset($_GET['controller']) && isset($_GET['action'])) {
-          $controller = $_GET['controller'];
-          $action     = $_GET['action'];
-        } else {
-          $controller = 'pages';
-          $action     = 'reg';
-        }
-
-        global $current_dir;
-        $current_dir =  getcwd();
-        require_once("../../routes.php");
-    ?>
 	</body>
 </html>

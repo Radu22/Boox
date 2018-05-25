@@ -55,7 +55,7 @@
       $req = $db->query($sql);
 
       foreach($req->fetchAll() as $post){
-        $list[] = new Book($post['book_id'],$post['user_id'],$post['book_title'],$post['book_author'],$post['isbn'],$post['book_type'],$post['duration'],$post['language'],$post['description']);
+        $list[] = new Book($post['book_id'],$post['user_id'],$post['book_title'],$post['book_author'],$post['ISBN'],$post['book_type'],$post['duration'],$post['language'],$post['description']);
       }
 
       return $list;

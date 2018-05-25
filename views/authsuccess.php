@@ -21,4 +21,4 @@
 successfully </p>
 
 
-<?php  header("refresh:1;url=pages/main.php?controller=pages&action=main"); ?>
+<?php  header("refresh:1;url=pages/main.php"); ?>

@@ -122,8 +122,6 @@ class BooksController {
 
 			array_push($info,$user_id, $title, $author, $isbn, $description,$tip,$duration, $limba);
 
-			// require_once("../../connection.php");
-	
 			if(Book::insertBook('book_added')){
     			header("Location: ../../views/pages/main.php");
     		}
