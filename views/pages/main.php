@@ -33,7 +33,16 @@
               </div>
            </div>
 
-          <div class="rightcolumn">
+         <div class="filtercol">
+              <h3>Filter part</h3>
+              <p>more content</p>
+              <p>test</p>
+              <p>test</p>
+              <p>test</p>
+              <p>test</p>
+          </div>
+
+          <div class="rightcolumn clearfix">
             <div class="firstrow">
                  <div class="card">
                     <h2>Crime and punishment</h2>
@@ -49,14 +58,26 @@
                     <h2>The Idiot</h2>
                     <h5>Fyodor Dostoyevsky</h5>
                     <div class="fakeimg">99% of the population</div>
+                </div>
+                <div class="card">
+                    <h2>Crime and punishment</h2>
+                    <h5>Fyodor Dostoyevsky</h5>
+                    <div class="fakeimg">Raskolnikov in shorts</div>
+                  </div>
+                  <div class="card">
+                    <h2>Crime and punishment</h2>
+                    <h5>Fyodor Dostoyevsky</h5>
+                    <div class="fakeimg">Raskolnikov in shorts</div>
+                  </div>
+                  <div class="card">
+                    <h2>Crime and punishment</h2>
+                    <h5>Fyodor Dostoyevsky</h5>
+                    <div class="fakeimg">Raskolnikov in shorts</div>
                   </div>
             </div>
           </div>
 
-          <div class="filtercol">
-              <h3>Filter part</h3>
-          
-          </div>
+       
         </div>
 
         <br />

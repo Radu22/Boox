@@ -1,6 +1,5 @@
 <?php 
     session_start();
-    $count = $_SESSION['count'];
     global $books;
 
     if (isset($_GET['controller']) && isset($_GET['action'])) {
@@ -45,7 +44,7 @@
             <h3>Bookshelves</h3>
             <div id="shelf">
                 <ul>
-                    <li><a href="#">Total Books - <?php echo $count; ?></a></li>
+                    <li><a href="#">Total Books - <?php echo $_SESSION['count']; ?></a></li>
                     <li><a href="#">Read()</a></li>
                     <li><a href="#">To Read()</a></li>
                     <li><a href="#">For rent()</a></li>
@@ -53,16 +52,33 @@
 
             </div>
         </div>
-        <div class="wrapper-right">
-            <?php foreach($books as $book) { ?>
-                    <div class="card">
-                        <h4><?php echo $book->book_title; ?></h4>
-                        <h5><?php echo $book->book_author; ?></h5>
-                        <div class="fakeimg"><?php echo $book->description; ?></div>
-                  </div>
-                <?php } ?>
+        <table id="books" border="1">
+        <thead>
+            <tr id="booksHeader">
+                <th>Cover</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Type</th>
+                <th>Duration</th>
+                <th>Language</th>
+            </tr>
+        </thead>
+        <tbody id="booksBody">
+            <?php foreach($books as $book) {?>
+                <tr id="<?php echo "".$book->book_id.""; ?>" >
+                    <td class="field cover"><?php echo $book->description; ?></td>
+                    <td class="field title"><?php echo $book->book_title; ?></td>
+                    <td class="field author"><?php echo $book->book_author; ?></td>
+                    <td class="field type"><?php echo $book->book_type; ?></td>
+                    <td class="field duration"><?php echo $book->duration; ?></td>
+                    <td class="field language"><?php echo $book->language; ?></td>
+                </tr>
+            <?php } ?>
+        </tbody>
         
-        </div>
+        </table>
+
+
 	</div>
 
 		<script src="../../content/js/filter.js"></script>

@@ -12,15 +12,14 @@ h3{
     width: 30%;
     /* height: 30%; */
     float: left;
-    position: relative;
-    bottom: 660px;
+    /* position: relative; */
     margin-bottom:0;
 }
-
+/* 
 .filtercol::after{
     clear: both;
     content: "";
-}
+} */
 
 .rand {
     margin-top: 69px;
@@ -29,7 +28,23 @@ h3{
 
 .rightcolumn {
     float: left;
-    width: 70%;
+    width: 100%;
+}
+
+.clearfix::after{
+    display: table;
+    content: '';
+    float: left;
+}
+
+.firstrow{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /* grid-template-rows: 1fr 1fr 3fr; */
+    grid-gap: 1em;
+}
+.firstrow .card{
+    width: 100%;
 }
 
 .leftcolumn {
@@ -89,7 +104,7 @@ form.searchBook::after {
 
 .fakeimg {
     background-color: #aaa;
-    width: 40%;
+    width: 70%;
     padding: 20px;
     height: 250px;
 }
@@ -99,55 +114,17 @@ form.searchBook::after {
     padding: 20px;
     margin: 20px;
     width: 45%;
-    float:left;
+    /* float:left; */
     height: 400px;
 }
 
 @media screen and (max-width: 1198px) and (min-width: 996px) {
-    .leftcolumn{
-        width: 15%;
-        padding: 0;
-    }
-    .rightcolumn{
-        position: relative;
-        left: -10px;
-        width: 85%;
-    }
-    form.searchBook button {
-        width: 50%;
-        margin-top: 7.5px;
-        margin-left: 77px;
-        padding: 8px;
-
-    }
-    form.searchBook input[type=text]{
-        padding: 10px;
-        font-size: 15px;
-        width: 100%;
-    }
     .button{
         padding: 13px 10px;
         font-size: 14px;
 
     }
 }
-
-/*@media screen and (max-width: 996px) and (min-width: 801px){
-    .rightcolumn{
-        position: relative;
-        right: -15px;
-        padding: 0;
-        width: 15%;
-
-    }
-    .leftcolumn{
-        width: 85%;
-        position: relative;
-        left: -25px;
-
-    }
-}*/
-
 @media screen and (max-width: 996px) {
     .rightcolumn, .leftcolumn {
         width: 100%;
@@ -164,5 +141,11 @@ form.searchBook::after {
     .button{
         font-size: 17px;
         padding: 10px 100px;;
+    }
+    .firstrow{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        /* grid-template-rows: 1fr 1fr 3fr; */
+        grid-gap: 1em;
     }
 }
