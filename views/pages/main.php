@@ -21,8 +21,8 @@
 
         <div class="rand">
             <div class="leftcolumn">
-                <form class="searchBook" >
-                  <input type="text" placeholder="Search for books" name="search2" title="Search for books" id="filter"
+                <form class="searchBook" method="post">
+                  <input type="text" placeholder="Search for books" name="search" title="Search for books" id="filter"
                      onkeyup="getFiltered()">
                   <button type="submit"><i class="fa fa-search"></i></button>
                 </form>

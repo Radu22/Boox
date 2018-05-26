@@ -51,7 +51,7 @@ form{
 
 form input[type=text] {
     padding: 5px;
-    font-size: 13px;
+    font-size: 16px;
     border: 1px solid grey;
     background: #f1f1f1;
     margin-top: 20px;
@@ -63,8 +63,48 @@ form button[type=submit]{
 }
 
 table{
-	width: 70%;
+	width: 99%;
 	border-collapse: collapse;
+
+}
+thead{
+	background-color: #38a773;
+}
+thead tr{
+	text-align: left;
+	box-shadow: 13px 15px 35px #000000;
+}
+thead tr th{
+	min-width: 200px;
+}
+
+table, th, td{
+	border: 0;
+}
+th, td{
+	border-bottom: 1px solid #ddd;
+	padding: 10px;
+}
+tbody:before {
+    line-height:2.5em;
+    content:"_";
+    color:white;
+    display:block;
+}
+
+tbody tr:nth-child(even){
+	background-color: #f2f2f2;
+}
+tbody tr:nth-child(odd){
+	background-color: #fdfafa;
+}
+
+tbody tr:hover{
+	background-color: #ddd;
+}
+
+td{
+	margin-top: 10px;	
 }
 /*
 *
@@ -96,11 +136,10 @@ table{
 .wrapper-left{
 	background-color: rgba(228, 224, 224, 0.644);
 	float: left;	
-	width: 250px;
+	width: 300px;
 	margin-right: 35px;
-	padding: 1%;
+	padding: 22px;
 	height: 1000px;
-	max-width: none;
 }
 
 .wrapper-right{

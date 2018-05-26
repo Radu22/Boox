@@ -36,7 +36,7 @@
 
 	<div class="content">
         <div class="wrapper-left">
-            <form >
+            <form method="post">
                 <input type="text" placeholder="Search for books" name="search2" title="Search for books" id="filter"
                     onkeyup="getFiltered()">
                 <button type="submit"><i class="fa fa-search"></i></button>
@@ -52,32 +52,37 @@
 
             </div>
         </div>
-        <table id="books" border="1">
+        <div style="overflow-x:hidden">
+
+        <table border="1" >
         <thead>
-            <tr id="booksHeader">
-                <th>Cover</th>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Type</th>
-                <th>Duration</th>
-                <th>Language</th>
-            </tr>
-        </thead>
-        <tbody id="booksBody">
-            <?php foreach($books as $book) {?>
-                <tr id="<?php echo "".$book->book_id.""; ?>" >
-                    <td class="field cover"><?php echo $book->description; ?></td>
-                    <td class="field title"><?php echo $book->book_title; ?></td>
-                    <td class="field author"><?php echo $book->book_author; ?></td>
-                    <td class="field type"><?php echo $book->book_type; ?></td>
-                    <td class="field duration"><?php echo $book->duration; ?></td>
-                    <td class="field language"><?php echo $book->language; ?></td>
+                <tr id="booksHeader">
+                    <th>Cover</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Type</th>
+                    <th>Duration</th>
+                    <th>Language</th>
                 </tr>
-            <?php } ?>
-        </tbody>
+            </thead>
+            <tbody>
+                <?php foreach($books as $book) {?>
+                    <tr id="<?php echo "".$book->book_id.""; ?>" align="left">
+                        <td class="field cover">
+                            <img src="../../content/images/crime.jpg" alt="<?php echo $book->description; ?>" width="80" height="80"></td>
+
+                        <td class="field title"><?php echo $book->book_title; ?></td>
+                        <td class="field author"><?php echo $book->book_author; ?></td>
+                        <td class="field type"><?php echo $book->book_type; ?></td>
+                        <td class="field duration"><?php echo $book->duration; ?></td>
+                        <td class="field language"><?php echo $book->language; ?></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
         
         </table>
 
+        </div>
 
 	</div>
 
