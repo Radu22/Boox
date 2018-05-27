@@ -67,7 +67,7 @@
             </thead>
             <tbody>
                 <?php foreach($books as $book) {?>
-                    <tr id="<?php echo "".$book->book_id.""; ?>" align="left">
+                    <tr class="<?php echo "".$book->book_id.""; ?>" align="left">
                         <td class="field cover">
                             <img src="../../content/images/crime.jpg" alt="<?php echo $book->description; ?>" width="80" height="80"></td>
 
@@ -86,7 +86,7 @@
 
 	</div>
 
-		<script src="../../content/js/filter.js"></script>
+		<script src="../../content/js/filterAdd.js"></script>
 
     </body>
 </html>

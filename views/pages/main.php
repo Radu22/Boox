@@ -1,5 +1,17 @@
 <?php 
-	session_start();
+  session_start();
+
+          if (isset($_GET['controller']) && isset($_GET['action'])) {
+          $controller = $_GET['controller'];
+          $action     = $_GET['action'];
+        } else {
+          $controller = 'pages';
+          $action     = 'reg';
+        }
+        
+        // echo "\t" . $_SESSION['id'] . " " . $_SESSION['first'] . " ".  $_SESSION['last'] . " " . $_SESSION['user'] . " ".  $_SESSION['password'] . "\n";
+
+        require_once("../../routes.php");
 ?>
 
 
@@ -21,10 +33,10 @@
 
         <div class="rand">
             <div class="leftcolumn">
-                <form class="searchBook" method="post">
+                <form class="searchBook" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>?controller=pages&action=main">
                   <input type="text" placeholder="Search for books" name="search" title="Search for books" id="filter"
                      onkeyup="getFiltered()">
-                  <button type="submit"><i class="fa fa-search"></i></button>
+                  <button id="click" type="submit"><i class="fa fa-search"></i></button>
                 </form>
 
 
@@ -44,39 +56,40 @@
 
           <div class="rightcolumn clearfix">
             <div class="firstrow">
-                 <div class="card">
-                    <h2>Crime and punishment</h2>
-                    <h5>Fyodor Dostoyevsky</h5>
-                    <div class="fakeimg">Raskolnikov in shorts</div>
-                  </div>
-                <div class="card">
-                    <h2> Adolescent</h2>
-                    <h5>Fyodor Dostoyevsky</h5>
-                    <div class="fakeimg">Sexy Tatiana</div>
-                  </div>
-                <div class="card">
-                    <h2>The Idiot</h2>
-                    <h5>Fyodor Dostoyevsky</h5>
-                    <div class="fakeimg">99% of the population</div>
-                </div>
-                <div class="card">
-                    <h2>Crime and punishment</h2>
-                    <h5>Fyodor Dostoyevsky</h5>
-                    <div class="fakeimg">Raskolnikov in shorts</div>
-                  </div>
-                  <div class="card">
-                    <h2>Crime and punishment</h2>
-                    <h5>Fyodor Dostoyevsky</h5>
-                    <div class="fakeimg">Raskolnikov in shorts</div>
-                  </div>
-                  <div class="card">
-                    <h2>Crime and punishment</h2>
-                    <h5>Fyodor Dostoyevsky</h5>
-                    <div class="fakeimg">Raskolnikov in shorts</div>
-                  </div>
+                   <div class="card">
+                        <h2>Crime and punishment</h2>
+                        <h5>Fyodor Dostoyevsky</h5>
+                        <div class="fakeimg">Raskolnikov in shorts</div>
+                      </div>
+                    <div class="card">
+                        <h2> Adolescent</h2>
+                        <h5>Fyodor Dostoyevsky</h5>
+                        <div class="fakeimg">Sexy Tatiana</div>
+                      </div>
+                    <div class="card">
+                        <h2>The Idiot</h2>
+                        <h5>Fyodor Dostoyevsky</h5>
+                        <div class="fakeimg">99% of the population</div>
+                    </div>
+                    <div class="card">
+                        <h2>Crime and punishment</h2>
+                        <h5>Fyodor Dostoyevsky</h5>
+                        <div class="fakeimg">Raskolnikov in shorts</div>
+                      </div>
+                      <div class="card">
+                        <h2>Crime and punishment</h2>
+                        <h5>Fyodor Dostoyevsky</h5>
+                        <div class="fakeimg">Raskolnikov in shorts</div>
+                      </div>
+                      <div class="card">
+                        <h2>Crime and punishment</h2>
+                        <h5>Fyodor Dostoyevsky</h5>
+                        <div class="fakeimg">Raskolnikov in shorts</div>
+                      </div>
             </div>
+            
+            
           </div>
-
        
         </div>
 
@@ -84,23 +97,6 @@
         
 
      <script src="../../content/js/filter.js"></script>
-
-     <?php 
-        if (isset($_GET['controller']) && isset($_GET['action'])) {
-          $controller = $_GET['controller'];
-          $action     = $_GET['action'];
-        } else {
-          $controller = 'pages';
-          $action     = 'reg';
-        }
-        
-        // echo "\t" . $_SESSION['id'] . " " . $_SESSION['first'] . " ".  $_SESSION['last'] . " " . $_SESSION['user'] . " ".  $_SESSION['password'] . "\n";
-
-
-        global $current_dir; 
-        $current_dir =  getcwd();
-        require_once("../../routes.php");
-     ?>
      
 </body>
 </html>

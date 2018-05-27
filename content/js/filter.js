@@ -1,4 +1,4 @@
-// Returns books filtered after their title
+// Returns books filtered after their title for main page
 
 function getFiltered()
 {
