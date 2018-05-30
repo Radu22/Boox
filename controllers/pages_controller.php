@@ -26,11 +26,27 @@
             }
             $key = (int) $key;
 
-            // var_dump("Title: ");
-            // var_dump($firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('h2')[0]->textContent);
-            // var_dump("Author: ");
-            // var_dump($firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('h5')[0]->textContent);
+            global $info;
+            $info = array();
+            $title = $firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('h2')[0]->textContent;
+            $author = $firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('h5')[0]->textContent;
+             
+            $isbn = 0;
+            $language = '';
+            $type = '';
+            $duration = 0;
+            $description = '';
+            $user_id = $_SESSION['id'];
+
+            array_push($info,$user_id, $title, $author, $isbn, $description, $type, $duration, $language);
             
+            if(Book::insertBook('book_wanted')){
+              header("Location: ../pages/main.php?controller=pages&action=main");
+              unset($info);
+            } else {
+              header("Location: ../pages/error.php");
+            }
+
           }
         }
 

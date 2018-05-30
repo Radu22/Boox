@@ -123,7 +123,8 @@ class BooksController {
 			array_push($info,$user_id, $title, $author, $isbn, $description,$tip,$duration, $limba);
 
 			if(Book::insertBook('book_added')){
-    			header("Location: ../../views/pages/main.php");
+				header("Location: ../../views/pages/main.php?controller=pages&action=main");
+				unset($info);
     		}
     		else{
     			header("Location: ../../views/pages/error.php");

@@ -58,7 +58,7 @@
           <div class="rightcolumn clearfix">
           <form id="wishes" action="<?php echo $_SERVER['PHP_SELF']; ?>?controller=pages&action=main" method="post">
               <div class="firstrow">
-                    <!-- 0 -->
+                 <!-- 0 -->
                         <div class="card"> 
 
                             <h2>Crime and punishment</h2>
@@ -82,7 +82,7 @@
                           <div class="fakeimg">Sexy Tatiana</div>
                           <?php $count+=3; ?>
                         </div>
-                        <!-- 6 -->
+                  <!-- 6 -->
                       <div class="card">
                           <h2>The Idiot</h2>
                           <!-- 7 -->
@@ -93,7 +93,7 @@
                           <div class="fakeimg">99% of the population</div>
                           <?php $count+=3; ?>
                       </div>
-                      <!-- 9 -->
+                  <!-- 9 -->
                       <div class="card">
                           <h2>wabba  hjbasd </h2>
                           <!-- 10 -->
@@ -104,7 +104,7 @@
                           <div class="fakeimg">Raskolnikov in shorts</div>
                           <?php $count+=3; ?>
                         </div>
-                        <!-- 12 -->
+                    <!-- 12 -->
                         <div class="card">
                           <h2>hjbsd jhb2</h2>
                           <!-- 13 -->
@@ -115,7 +115,7 @@
                           <div class="fakeimg">Raskolnikov in shorts</div>
                           <?php $count+=3; ?>
                          </div>
-                         <!-- 15 -->
+                    <!-- 15 -->
                         <div class="card">
                           <h2>sixth </h2>
                           <!-- 16 -->
