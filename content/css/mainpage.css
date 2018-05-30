@@ -4,8 +4,27 @@ body {
     background: #f1f1f1;
 }
 
-h3{
-    
+h2{
+    font-size: 17px;
+}
+
+#wishes input[type=submit]{
+    margin-left: 35px;
+    margin-top: -2px;
+    border-left: 8px solid rgb(53, 185, 20);
+    font-family: "Tahoma";
+    font-weight: 550;
+
+}
+
+.card h2{
+    width: 50%;
+    float: left;
+}
+
+.want{
+    width: 50%;
+    float: right;
 }
 
 .filtercol{
@@ -27,7 +46,7 @@ h3{
 .clearfix::after{
     display: table;
     content: '';
-    float: left;
+    clear: both;
 }
 
 .firstrow{
@@ -75,11 +94,6 @@ form.searchBook button {
 
 form.searchBook button:hover {
     background: #0b7dda;
-}
-
-form.searchBook::after {
-    content: "";
-    clear: both;
 }
 
 .button {

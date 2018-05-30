@@ -45,9 +45,8 @@
             <div id="shelf">
                 <ul>
                     <li><a href="#">Total Books - <?php echo $_SESSION['count']; ?></a></li>
-                    <li><a href="#">Read()</a></li>
-                    <li><a href="#">To Read()</a></li>
-                    <li><a href="#">For rent()</a></li>
+                    <li><a href="#">For leasing ( )</a></li>
+                    <li><a href="#">Want to read ( )</a></li>
                 </ul>
 
             </div>

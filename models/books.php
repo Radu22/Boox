@@ -33,11 +33,11 @@
           VALUES ('".$info[0]."','".$info[1]."','".$info[2]."', '".$info[3]."','".$info[4]."','".$info[5]."', '".$info[6]."', '".$info[7]."')";
 
       if($db->query($sql)){
+          unset($info);
           return true;
       }else{
         return false;
       }
-
     }
 
     public static function getByTitle($title){

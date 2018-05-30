@@ -33,7 +33,7 @@
 
         <div class="rand">
             <div class="leftcolumn">
-                <form class="searchBook" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>?controller=pages&action=main">
+                <form class="searchBook clearfix" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>?controller=pages&action=main">
                   <input type="text" placeholder="Search for books" name="search" title="Search for books" id="filter"
                      onkeyup="getFiltered()">
                   <button id="click" type="submit"><i class="fa fa-search"></i></button>
@@ -55,38 +55,52 @@
           </div>
 
           <div class="rightcolumn clearfix">
+          <form id="wishes" action="<?php echo $_SERVER['PHP_SELF']; ?>?controller=pages&action=main" method="post">
             <div class="firstrow">
                    <div class="card">
                         <h2>Crime and punishment</h2>
+                        <div class="want"><input type="submit" value="Wanted"> </div>
+                        <br><br><br>
                         <h5>Fyodor Dostoyevsky</h5>
                         <div class="fakeimg">Raskolnikov in shorts</div>
                       </div>
                     <div class="card">
                         <h2> Adolescent</h2>
+                        <div class="want"><input type="submit" value="Wanted"> </div>
+                        <br><br><br>
                         <h5>Fyodor Dostoyevsky</h5>
                         <div class="fakeimg">Sexy Tatiana</div>
                       </div>
                     <div class="card">
                         <h2>The Idiot</h2>
+                        <div class="want"><input type="submit" value="Wanted"> </div>
+                        <br><br><br>
                         <h5>Fyodor Dostoyevsky</h5>
                         <div class="fakeimg">99% of the population</div>
                     </div>
                     <div class="card">
                         <h2>Crime and punishment</h2>
+                        <div class="want"><input type="submit" value="Wanted"> </div>
+                        <br><br><br>
                         <h5>Fyodor Dostoyevsky</h5>
                         <div class="fakeimg">Raskolnikov in shorts</div>
                       </div>
                       <div class="card">
                         <h2>Crime and punishment</h2>
+                        <div class="want"><input type="submit" value="Wanted"> </div>
+                        <br><br><br>
                         <h5>Fyodor Dostoyevsky</h5>
                         <div class="fakeimg">Raskolnikov in shorts</div>
                       </div>
                       <div class="card">
                         <h2>Crime and punishment</h2>
+                        <div class="want"><input type="submit" value="Wanted"> </div>
+                        <br><br><br>
                         <h5>Fyodor Dostoyevsky</h5>
                         <div class="fakeimg">Raskolnikov in shorts</div>
                       </div>
-            </div>
+              </div>
+            </form>
             
             
           </div>
