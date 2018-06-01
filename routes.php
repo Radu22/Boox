@@ -2,7 +2,7 @@
   function call($controller, $action) {
     require_once('controllers/' . $controller . '_controller.php');
 
-    require_once('connection.php'); 
+    require_once('connection.php');
     require_once('models/users.php');
     require_once('models/books.php');
 
@@ -23,7 +23,7 @@
 
 
   $controllers = array('pages' => ['reg', 'error', 'main', 'book', 'profile', 'contact', 'add'],
-                       'auth'  => ['signup', 'signin'],
+                       'auth'  => ['signup', 'signin', 'edit'],
                        'textbook' => ['ins_book']
                      );
 

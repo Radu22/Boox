@@ -6,15 +6,15 @@
     if($_GET['controller'] == 'auth'){
         if($current_action == 'signup'){
             echo 'signed up';
-        }else 
+        }else
             if($current_action == 'signin')
                 echo 'logged in';
         else
             require_once('pages/error.php');
-        
+
     }else
         require_once('pages/error.php');
-    
+
 
 ?>
 

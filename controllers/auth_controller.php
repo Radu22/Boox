@@ -15,7 +15,7 @@ class AuthController{
 
 
     public function signup(){
-        
+
 /*
 *       INPUT VALIDATION, THEN REDIRECT TO DB
 *
@@ -100,10 +100,32 @@ class AuthController{
                 }
             }
 
-         }
         }
     }
 
+        public function edit(){
 
+            if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
+                $username = $_POST['username'];
+                $email = $_POST['email'];
+                $location = $_POST['location'];
+
+                if(!empty($username)){
+                    if(!User::updateUsername($username)){
+                        AuthController::prompt("Username taken");
+                    }
+                }
+                if(!empty($email)){
+                    if(strpos($email, '@')){
+                        if(!User::updateEmail($email)){
+                            AuthController::prompt("There is already an account associated with this email");
+                        }
+                    }else{
+                        AuthController::prompt("You didn't write a valid email");
+                    }
+                }
+            }
+        }
+}
 ?>

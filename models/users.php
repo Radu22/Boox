@@ -62,10 +62,40 @@
       $post['user_email'], $post['user_uid'],$post['user_pwd']);
     }
 
-    public function getID(){
-
-    }
-
+    public static function updateUsername($username){
+        $db = Db::getInstance();
+        //$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $user = User::getUserByUsername($username);
+        if($user->id ==  NULL){
+          // username neocupat
+          $sql = "UPDATE users SET user_uid = :username WHERE user_id = :id";
+          $stmt = $db->prepare($sql);
+          $stmt->bindValue(":username", $username);
+          $stmt->bindValue(":id", $_SESSION['id'] );
+          $stmt->execute();
+          return 1;
+        }else{
+          //username existent in baza de date
+          return 0;
+        }
+      }
+      public static function updateEmail($email){
+        $db = Db::getInstance();
+        //$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $user = User::getUserByEmail($email);
+        if($user->id ==  NULL){
+          // email neocupat
+          $sql = "UPDATE users SET user_email = :email WHERE user_id = :id";
+          $stmt = $db->prepare($sql);
+          $stmt->bindValue(":email", $email);
+          $stmt->bindValue(":id", $_SESSION['id'] );
+          $stmt->execute();
+          return 1;
+        }else{
+          //email existent in baza de date
+          return 0;
+        }
+      }
   }
 
 ?>
