@@ -59,18 +59,18 @@
 						    </div>
 						    <div class="row">
 						      <div class="col-25">
-						        <label for="location">Provide your city</label>
+						        <label for="city">Provide your city</label>
 						      </div>
 						      <div class="col-75">
-						        <input type="text" id="city" name="city" placeholder="Location ">
+						        <input type="text" id="city" name="city" placeholder="City ">
 						      </div>
 						    </div>
 						    <div class="row">
 						      <div class="col-25">
-						        <label for="location">Provide your county</label>
+						        <label for="county">Provide your county</label>
 						      </div>
 						      <div class="col-75">
-						        <input type="text" id="county" name="county" placeholder="Location ">
+						        <input type="text" id="county" name="county" placeholder="County ">
 						      </div>
 						    </div>
 						    <div class="row">
@@ -78,8 +78,8 @@
 						        <label for="notification">Choose whether or not to get notified if people in your area are offering books</label>
 						      </div>
 						      <div class="col-75">
-						        <input type="radio" name="notification" value="1"> <label for="first">Yes</label><br>
-						 	  	<input type="radio" name="notification" value="2"> <label for="second">No</label>
+						        <input type="radio" name="notification" value="1"> <label>Yes</label><br>
+						 	  	  <input type="radio" name="notification" value="2"> <label>No</label>
 						      </div>
 						    </div>
 						    <div class="row">
