@@ -23,27 +23,32 @@
     }
 
     public static function insertBook($table_name) {
-       
-      $db = Db::getInstance();
-      $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
       global $info;
 
-      $sql = "INSERT INTO ". $table_name . "(user_id,book_title,book_author , isbn, description,book_type,duration, language)
-          VALUES ('".$info[0]."','".$info[1]."','".$info[2]."', '".$info[3]."','".$info[4]."','".$info[5]."', '".$info[6]."', '".$info[7]."')";
+      $db = Db::getInstance();
+      $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      $bookie = Book::getByTitle($table_name, $info[1]);
+      if($bookie == NULL){
 
-      if($db->query($sql)){
-          unset($info);
-          return true;
+        $sql = "INSERT INTO ". $table_name . "(user_id,book_title,book_author , isbn, description,book_type,duration, language)
+        VALUES ('".$info[0]."','".$info[1]."','".$info[2]."', '".$info[3]."','".$info[4]."','".$info[5]."', '".$info[6]."', '".$info[7]."')";
+
+        if($db->query($sql)){
+            unset($info);
+            return true;
+        }else{
+          return false;
+        }
       }else{
         return false;
       }
     }
 
-    public static function getByTitle($title){
+    public static function getByTitle($table_name, $title){
       $db = Db::getInstance();
       $list = [];
-      $sql = "SELECT * FROM book_added WHERE book_title LIKE " . "'%" . $title . "%'";
+      $sql = "SELECT * FROM " .  $table_name . " WHERE book_title='" . $title . "'";
+
       $req = $db->query($sql);
       foreach($req->fetchAll() as $post){
         $list[] = new Book($post['book_id'],$post['user_id'],$post['book_title'],$post['book_author'],$post['ISBN'],$post['book_type'],     $post['duration'],$post['language'],$post['description']);
@@ -61,10 +66,10 @@
       return $req['COUNT(*)'];
     }
 
-    public static function getBooksByUserID($user_id){
+    public static function getBooksByUserID($table_name, $user_id){
       $db = Db::getInstance();
       $list = [];
-      $sql = "SELECT * FROM book_added WHERE user_id=" . $user_id;
+      $sql = "SELECT * FROM " . $table_name . " WHERE user_id=" . $user_id;
       $req = $db->query($sql);
 
       foreach($req->fetchAll() as $post){

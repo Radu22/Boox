@@ -57,7 +57,7 @@
     public function book(){
       global $books;
       $_SESSION['count'] = Book::getCount();
-      $books = Book::getBooksByUserID($_SESSION['id']);
+      $books = Book::getBooksByUserID('book_added', $_SESSION['id']);
 
    
     }

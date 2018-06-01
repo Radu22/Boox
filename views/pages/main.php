@@ -129,6 +129,13 @@
                 </div>
             </form>
             
+            <?php
+                // $test = Book::getBooksByUserID('book_wanted',$_SESSION['id']);
+                // foreach($test as $t){
+                //     var_dump($t->book_title . " " );
+                // }
+
+            ?>
             
           </div>
        
