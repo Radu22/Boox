@@ -79,6 +79,7 @@
           return 0;
         }
       }
+
       public static function updateEmail($email){
         $db = Db::getInstance();
         //$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -96,6 +97,31 @@
           return 0;
         }
       }
+
+      public static function updateNotification($notification){
+        $db = Db::getInstance();
+        //$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = "UPDATE users SET notification = :notif WHERE user_id = :id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(":notif", $notification);
+        $stmt->bindValue(":id", $_SESSION['id'] );
+        $stmt->execute();
+        return 1;
+
+      }
+
+      public static function updateLocation($location){
+        $db = Db::getInstance();
+        //$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = "UPDATE users SET location = :location WHERE user_id = :id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(":location", $location);
+        $stmt->bindValue(":id", $_SESSION['id'] );
+        $stmt->execute();
+        return 1;
+
+      }
+
   }
 
 ?>

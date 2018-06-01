@@ -35,12 +35,6 @@
 
 	<div class="content" id="up">
 		<h2>Hello, <?php echo '<b>' .$_SESSION['first'] . '</b>' ;?></h2>
-				<div id="myTabs">
-					<ul>
-						<li class="fa fa-pencil-square-o under" ><a href="#edit">Edit</a></li>
-						<li class="fa fa-gears under" ><a href="#settings">Settings</a></li>
-					</ul>
-				</div>
 
 			<div id="profile_content">
 				<div id="edit">
@@ -65,10 +59,27 @@
 						    </div>
 						    <div class="row">
 						      <div class="col-25">
-						        <label for="location">Provide your location</label>
+						        <label for="location">Provide your city</label>
 						      </div>
 						      <div class="col-75">
-						        <input type="text" id="location" name="location" placeholder="Location ">
+						        <input type="text" id="city" name="city" placeholder="Location ">
+						      </div>
+						    </div>
+						    <div class="row">
+						      <div class="col-25">
+						        <label for="location">Provide your county</label>
+						      </div>
+						      <div class="col-75">
+						        <input type="text" id="county" name="county" placeholder="Location ">
+						      </div>
+						    </div>
+						    <div class="row">
+						      <div class="col-25">
+						        <label for="notification">Choose whether or not to get notified if people in your area are offering books</label>
+						      </div>
+						      <div class="col-75">
+						        <input type="radio" name="notification" value="1"> <label for="first">Yes</label><br>
+						 	  	<input type="radio" name="notification" value="2"> <label for="second">No</label>
 						      </div>
 						    </div>
 						    <div class="row">
@@ -76,16 +87,6 @@
 						    </div>
 						  </form>
 					</div>
-				</div>
-				<div id="settings">
-					<h3>Profile Settings</h3>
-					<button type="button" >Reset defaults</button>
-					<h3 style="font-size: 17.5px"> Choose whether or not to get notified if people in your area are offering books </h3>
-
-							  <input type="radio" name="notif" id="first"> <label for="first">Yes</label><br>
-						 	  <input type="radio" name="notif" id="second"> <label for="second">No</label>
-
-
 				</div>
 		</div>
 	</div>

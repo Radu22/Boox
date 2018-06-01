@@ -109,7 +109,9 @@ class AuthController{
 
                 $username = $_POST['username'];
                 $email = $_POST['email'];
-                $location = $_POST['location'];
+                $city = $_POST['city'];
+                $county = $_POST['county'];
+                $notification = $_POST['notification'];
 
                 if(!empty($username)){
                     if(!User::updateUsername($username)){
@@ -123,6 +125,25 @@ class AuthController{
                         }
                     }else{
                         AuthController::prompt("You didn't write a valid email");
+                    }
+                }
+
+                if(empty($city) xor empty($county)){
+                     AuthController::prompt("For location you need to specify both city and county");
+                }else{
+                    if(!empty($city) && !empty($county)){
+                         $location = $city .", ".$county;
+                        User::updateLocation($location);
+                    }
+                }
+
+
+                if(!empty($notification)){
+                    if($notification == '2'){
+                        $notification = '0';
+                    }
+                    if(!User::updateNotification($notification)){
+                        AuthController::prompt("Error");
                     }
                 }
             }

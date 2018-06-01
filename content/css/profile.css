@@ -157,11 +157,6 @@ input[type=submit]:hover {
 		margin: 89px 20px;
 	}
 
-	#myTabs{
- 		 height: 250px;
- 		 width: 23.5%;
- 		 float: left;
-	}
 	ul{
 		width: 100%;
 		padding-right: 0;
@@ -170,12 +165,7 @@ input[type=submit]:hover {
 	li.fa{
 		display: block;
 	}
-	#profile_content{
-		width: 100%;
-		padding-left: 228px;
-		position: relative;
-		top: -165px;
-	}
+
 }
 
 
@@ -183,9 +173,7 @@ input[type=submit]:hover {
 	.content{
 		margin-top: 128.5px;
 	}
-	#myTabs{
-		width: 40%;
-	}
+
 }
 
 @media screen and (max-width: 500px) {
