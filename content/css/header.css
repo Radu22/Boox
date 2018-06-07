@@ -67,6 +67,37 @@
       margin: 89px 50px;
       padding: 50px 50px 0;
   }
+
+  .header-left{
+    float: left;
+  }
+
+ .header-left .fa-bell::before{
+    position: relative;
+    width: 100px;
+    line-height: 25px;
+    margin-left: 35px;
+    font-size: 30px;
+    cursor: pointer;
+  }
+
+  .header-left .fa-bell:hover{
+    background-color: rgb(187, 187, 119);
+   
+  }
+  .notification{
+    position: absolute;
+    top: 25px;
+    left: 180px;
+    
+    background-color:rgb(22, 150, 189);
+    line-height: 22px;
+    width: 26px;
+    height: 23px;
+    border-radius:10px;
+    text-align: center;
+    color: black !important;
+  }
   
   /*
   
