@@ -7,6 +7,10 @@ body {
 h2{
     font-size: 17px;
 }
+img{
+    width: 62%;
+
+}
 
 #wishes input{
     margin-left: 35px;
@@ -28,9 +32,11 @@ h2{
 }
 
 .filtercol{
-    width: 30%;
+    width: 40%;
     float: left;
     margin-bottom:0;
+    margin-left: 122px;
+    margin-top: 19px;
 }
 
 .rand {
@@ -51,7 +57,7 @@ h2{
 
 .firstrow{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
     /* grid-template-rows: 1fr 1fr 3fr; */
     grid-gap: 1em;
 }
@@ -72,7 +78,15 @@ h2{
     width: 100%;
 }
 
-form.searchBook input[type=text] {
+form.searchBook input[type=text]{
+    padding: 20px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 100%;
+    background: #f1f1f1;
+}
+form.goodreads input[type=text]{
     padding: 20px;
     font-size: 17px;
     border: 1px solid grey;
@@ -81,7 +95,8 @@ form.searchBook input[type=text] {
     background: #f1f1f1;
 }
 
-form.searchBook button {
+
+form.goodreads button {
     float: left;
     width: 20%;
     padding: 20px;
@@ -92,12 +107,12 @@ form.searchBook button {
     cursor: pointer;
 }
 
-form.searchBook button:hover {
+form.goodreads button:hover {
     background: #0b7dda;
 }
 
 .button {
-    background-color: #333;
+    background-color: rgba(87, 167, 98, 0.651);
     border: none;
     color: white;
     padding: 20px 80px;
@@ -108,10 +123,12 @@ form.searchBook button:hover {
     width: 100%;
     float:left;
 }
+.button:hover{
+    background-color: rgba(44, 77, 51, 0.651);
+}
 
 .fakeimg {
-    background-color: #aaa;
-    width: 70%;
+    width: 80%;
     padding: 20px;
     height: 250px;
 }
@@ -127,11 +144,14 @@ form.searchBook button:hover {
 
 @media screen and (min-width: 1307px){
     .firstrow{
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 }
 
 @media screen and (max-width: 1198px) and (min-width: 996px) {
+    form.goodreads{
+        width: 100%;
+    }
     .button{
         padding: 13px 10px;
         font-size: 14px;
@@ -139,7 +159,7 @@ form.searchBook button:hover {
     }
 }
 @media screen and (max-width: 996px) {
-    .rightcolumn, .leftcolumn {
+    .rightcolumn, .leftcolumn, .filtercol{
         width: 100%;
     }
     .card{
@@ -151,12 +171,23 @@ form.searchBook button:hover {
     div.header-right{
         display: none;
     }
+    div.header-left{
+        display: none;
+    }
     .button{
-        font-size: 17px;
-        padding: 10px 100px;;
+        font-size: 20px;
+        padding: 20px 100px;
     }
     .firstrow{
         grid-template-columns: 1fr 1fr 1fr;
         /* grid-template-rows: 1fr 1fr 3fr; */
+    }
+    form.goodreads input[type=text]{
+        width: 77%;
+        margin-left: 12px;
+
+    }
+    .filtercol{
+        margin: 0 10px;
     }
 }

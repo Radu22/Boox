@@ -4,6 +4,27 @@
       require_once('views/pages/error.php');
     }
 
+    public function fetchbook($title){
+      $books = array();
+      $xml = simplexml_load_string(file_get_contents('https://www.goodreads.com/search/index.xml?key=ZgkIb7fl4IAwJRVKwf9A&q=' . $title));
+      $total        = $xml->search->results->work;
+      
+      for($i = 0; $i < count($total); ++$i){
+          $title        = $xml->search->results->work[$i]->best_book->title;
+          $author_name  = $xml->search->results->work[$i]->best_book->author->name;
+          $img_url      = $xml->search->results->work[$i]->best_book->image_url;
+  
+          $new_input = array(
+              'title'   => $title,
+              'author'  => $author_name,
+              'img_src' => $img_url
+          );
+          array_push($books, $new_input);
+      }
+      
+      return $books;
+    }
+
     public function main(){
         // set error level
         $internalErrors = libxml_use_internal_errors(true);
@@ -47,6 +68,15 @@
               header("Location: ../pages/error.php");
             }
 
+          }else{
+            $title_of_the_book = $_POST['search'];
+            if(!empty($title_of_the_book)){
+                global $book_list;
+                $book_list = array();
+
+                $book_list = $this->fetchbook($title_of_the_book);
+              
+            }
           }
         }
 

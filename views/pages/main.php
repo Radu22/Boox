@@ -13,6 +13,8 @@
 
         require_once("../../routes.php");
         $count = 0;
+
+        global $book_list;
 ?>
 
 
@@ -34,10 +36,9 @@
 
         <div class="rand">
             <div class="leftcolumn">
-                <form class="searchBook clearfix" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>?controller=pages&action=main">
-                  <input type="text" placeholder="Search for books" name="search" title="Search for books" id="filter"
+                <form class="searchBook clearfix">
+                  <input type="text" placeholder="Search books here" title="Search books here" id="filter"
                      onkeyup="getFiltered()">
-                  <button id="click" type="submit"><i class="fa fa-search"></i></button>
                 </form>
 
 
@@ -47,12 +48,10 @@
            </div>
 
          <div class="filtercol">
-              <h3>Filter part</h3>
-              <p>more content</p>
-              <p>test</p>
-              <p>test</p>
-              <p>test</p>
-              <p>test</p>
+              <form class="goodreads" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>?controller=pages&action=main">
+                <input type="text" placeholder="Search goodreads" name="search" title="Search goodreads" id="goodr">
+                <button id="click" type="submit"><i class="fa fa-search"></i></button>              
+              </form>
           </div>
 
           <div class="rightcolumn clearfix">
@@ -125,6 +124,25 @@
                           <div class="fakeimg">Raskolnikov in shorts</div>
                           <?php $count+=3; ?>
                         </div>
+                    <?php
+                    if(!empty($book_list)){
+                        foreach($book_list as $bookie){
+                            echo '<div class="card">
+                                    <h2>' . $bookie['title'] . ' </h2>
+                                    <div class="want"><input type="submit"  value="Wanted" name="WANT' . $count . '"> </div>
+                                    <br><br><br><br>
+                                    <h5>' . $bookie['author'] . '</h5>
+                                    <div class="fakeimg">
+                                        <img src="' . $bookie['img_src'] . '">
+                                    </div>
+                                </div>';
+                            $count+=3;
+                        }
+                    }
+                ?>
+                 
+
+
                 </div>
             </form>
 
