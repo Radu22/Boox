@@ -1,4 +1,4 @@
-<?php 
+<?php
   session_start();
 
           if (isset($_GET['controller']) && isset($_GET['action'])) {
@@ -8,7 +8,7 @@
           $controller = 'pages';
           $action     = 'reg';
         }
-        
+
         // echo "\t" . $_SESSION['id'] . " " . $_SESSION['first'] . " ".  $_SESSION['last'] . " " . $_SESSION['user'] . " ".  $_SESSION['password'] . "\n";
 
         require_once("../../routes.php");
@@ -47,6 +47,7 @@
            </div>
 
          <div class="filtercol">
+              <script src="../../content/js/location.js"></script>
               <h3>Filter part</h3>
               <p>more content</p>
               <p>test</p>
@@ -59,7 +60,7 @@
           <form id="wishes" action="<?php echo $_SERVER['PHP_SELF']; ?>?controller=pages&action=main" method="post">
               <div class="firstrow">
                  <!-- 0 -->
-                        <div class="card"> 
+                        <div class="card">
 
                             <h2>Crime and punishment</h2>
                         <!-- 1 -->
@@ -70,7 +71,7 @@
                             <div class="fakeimg">Raskolnikov in shorts</div>
                             <?php $count+=3; ?>
                           </div>
-                      
+
                  <!-- 3 -->
                       <div class="card">
                           <h2> Adolescent</h2>
@@ -128,7 +129,7 @@
                         </div>
                 </div>
             </form>
-            
+
             <?php
                 // $test = Book::getBooksByUserID('book_wanted',$_SESSION['id']);
                 // foreach($test as $t){
@@ -136,15 +137,15 @@
                 // }
 
             ?>
-            
+
           </div>
-       
+
         </div>
 
         <br />
-        
+
 
      <script src="../../content/js/filter.js"></script>
-     
+
 </body>
 </html>
