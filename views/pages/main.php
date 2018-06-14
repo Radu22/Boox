@@ -47,8 +47,6 @@
            </div>
 
          <div class="filtercol">
-              <button onclick="updateDB()">Try It</button>
-
               <h3>Filter part</h3>
               <p>more content</p>
               <p>test</p>

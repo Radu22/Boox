@@ -65,7 +65,9 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($books as $book) {?>
+                <?php 
+        
+                foreach($books as $book) {?>
                     <tr class="<?php echo "".$book->book_id.""; ?>" align="left">
                         <td class="field cover">
                             <img src="../../content/images/crime.jpg" alt="<?php echo $book->description; ?>" width="80" height="80"></td>

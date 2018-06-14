@@ -58,9 +58,9 @@
 
     }
 
-    public static function getCount(){
+    public static function getCount($table_name){
       $db = Db::getInstance();
-      $sql = "SELECT COUNT(*) FROM book_added";
+      $sql = "SELECT COUNT(*) FROM " . $table_name;
       $req = $db->query($sql);
       $req = $req->fetch(PDO::FETCH_ASSOC);
       return $req['COUNT(*)'];
