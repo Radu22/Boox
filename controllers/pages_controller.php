@@ -38,7 +38,7 @@
             $description = '';
             $user_id = $_SESSION['id'];
 
-            array_push($info,$user_id, $title, $author, $isbn, $description, $type, $duration, $language);
+            array_push($info,$user_id, $title, $author, $isbn, $description, $type, $language, $duration);
             
             if(Book::insertBook('book_wanted')){
               header("Location: ../pages/main.php?controller=pages&action=main");
@@ -60,6 +60,9 @@
       $books = Book::getBooksByUserID('book_added', $_SESSION['id']);
 
    
+    }
+    public function notif(){
+
     }
 
     public function reg(){

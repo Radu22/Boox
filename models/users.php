@@ -6,15 +6,19 @@
     public $email;
     public $username;
     public $password;
+    public $notif;
+    public $location;
 
 
-    public function __construct($id, $firstname, $lastname, $email, $username, $password) {
+    public function __construct($id, $firstname, $lastname, $email, $username, $password,$notif,$location) {
       $this->id         = $id;
       $this->firstname  = $firstname;
       $this->lastname   = $lastname;
       $this->email      = $email;
       $this->username   = $username;
       $this->password   = $password;
+      $this->notif      = $notif;
+      $this->location   = $location;
     }
 
 
@@ -25,7 +29,7 @@
 
       foreach($req->fetchAll() as $post) {
         $list[] = new User($post['user_id'], $post['user_first'], $post['user_last'],
-            $post['user_email'], $post['user_uid'],$post['user_pwd']);
+            $post['user_email'], $post['user_uid'],$post['user_pwd'],$post['notification'],$post['location']);
       }
 
       return $list;
@@ -39,7 +43,7 @@
       $post = $req->fetch();
 
       return new User($post['user_id'], $post['user_first'], $post['user_last'],
-      $post['user_email'], $post['user_uid'],$post['user_pwd']);
+      $post['user_email'], $post['user_uid'],$post['user_pwd'],$post['notification'],$post['location']);
     }
 
     public static function getUserByUsername($username){
@@ -49,7 +53,7 @@
       $post = $req->fetch();
 
       return new User($post['user_id'], $post['user_first'], $post['user_last'],
-      $post['user_email'], $post['user_uid'],$post['user_pwd']);
+      $post['user_email'], $post['user_uid'],$post['user_pwd'],$post['notification'],$post['location']);
     }
 
     public static function getUserByEmail($email){
@@ -59,7 +63,7 @@
       $post = $req->fetch();
 
       return new User($post['user_id'], $post['user_first'], $post['user_last'],
-      $post['user_email'], $post['user_uid'],$post['user_pwd']);
+      $post['user_email'], $post['user_uid'],$post['user_pwd'],$post['notification'],$post['location']);
     }
 
     public static function updateUsername($username){

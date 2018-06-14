@@ -4,16 +4,22 @@
 echo '	<div class="header" id="myHeader">
 			<a href="#" class="logo">Logo</a>
 
+	';
+
+	if($_SESSION['notif'] == 1)
+		echo'
 			<div class="header-left">
 
-				<a class="fa fa-bell">
+				<a href="notification.php?controller=pages&action=notif" class="fa fa-bell">
 					<div class="notification">30</div>
 				</a>
 				
 
 			</div>
-
-
+		';
+	
+	
+	echo '
 			<div class="header-right">
 
 				<a href="main.php?controller=pages&action=main" class="active" >Homepage </a>

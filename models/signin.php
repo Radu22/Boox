@@ -29,6 +29,8 @@
                 $_SESSION['email']    = $user->email;
                 $_SESSION['user']     = $username;
                 $_SESSION['password'] = $password;
+                $_SESSION['notif']    = $user->notif;
+                $_SESSION['location']    = $user->location;
                 return true;
             }
         }

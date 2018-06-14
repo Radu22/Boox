@@ -113,6 +113,8 @@ class AuthController{
                 $county = $_POST['county'];
                 $notification = $_POST['notification'];
 
+                $_SESSION['notif'] = $notification;
+                
                 if(!empty($username)){
                     if(!User::updateUsername($username)){
                         AuthController::prompt("Username taken");
@@ -132,7 +134,7 @@ class AuthController{
                      AuthController::prompt("For location you need to specify both city and county");
                 }else{
                     if(!empty($city) && !empty($county)){
-                         $location = $city .", ".$county;
+                        $location = $city .", ".$county;
                         User::updateLocation($location);
                     }
                 }

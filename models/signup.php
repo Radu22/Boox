@@ -17,6 +17,8 @@
             $_SESSION['email']    = $required[2];
             $_SESSION['user']     = $required[3];
             $_SESSION['password'] = $required[4];
+            $_SESSION['notif']    = $user->notif;
+            $_SESSION['location'] = $user->location;
             return true;
         }else 
             return false;
