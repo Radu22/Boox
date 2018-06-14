@@ -47,7 +47,8 @@
            </div>
 
          <div class="filtercol">
-              <script src="../../content/js/location.js"></script>
+              <button onclick="updateDB()">Try It</button>
+
               <h3>Filter part</h3>
               <p>more content</p>
               <p>test</p>
@@ -146,6 +147,7 @@
 
 
      <script src="../../content/js/filter.js"></script>
+     <script src="../../content/js/location.js"></script>
 
 </body>
 </html>

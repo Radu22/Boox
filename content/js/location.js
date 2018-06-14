@@ -1,3 +1,4 @@
+
 function updateDB(){
 
         var c = function(pos){
@@ -9,7 +10,7 @@ function updateDB(){
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            //console.log(this.responseText);
+            console.log(this.responseText);
                     //document.getElementById("txtHint").innerHTML = this.responseText;
          }
         };
@@ -18,8 +19,9 @@ function updateDB(){
             xmlhttp.send("lat=" + lat + "&long="+ long);
         }
 
+
         navigator.geolocation.watchPosition(c);
         return false;
     }
-    updateDB();
-    setInterval(updateDB, 1000);
+    //updateDB();
+    setInterval(updateDB, 2000);
