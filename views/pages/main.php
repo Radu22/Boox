@@ -60,7 +60,6 @@
               <div class="firstrow">
                  <!-- 0 -->
                         <div class="card">
-
                             <h2>Crime and punishment</h2>
                         <!-- 1 -->
                             <div class="want"><input type="submit"  value="Wanted" name="WANT<?php echo $count; ?>"> </div>
