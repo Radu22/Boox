@@ -126,6 +126,30 @@
 
       }
 
+      public static function insertSearch($search){
+        $db = Db::getInstance();
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
+  
+          $sql = "INSERT INTO searches (lista) VALUES ('".$search."')";
+  
+          if($db->query($sql)){
+              return true;
+          }else{
+            return false;
+          }
+   
+      }
+
+      public static function getLastSearch(){
+        $db = Db::getInstance();
+        $req = $db->prepare('SELECT * FROM searches ORDER BY inc DESC LIMIT 1');
+        $req->execute();
+        $post = $req->fetch();
+  
+        return $post['lista'];
+      }
+
   }
 
 ?>

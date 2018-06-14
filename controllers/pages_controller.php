@@ -29,34 +29,97 @@
         // set error level
         $internalErrors = libxml_use_internal_errors(true);
         
+        global $fetching_for_file, $book_list;
+        $book_list = array();
+
+        if(!empty($_POST['search'])){
+        
+          $title_of_the_book = $_POST['search'];
+          if(!User::insertSearch($title_of_the_book)){
+              AuthController::prompt("errors searching");
+              die;
+          }else{
+              $book_list = $this->fetchbook($title_of_the_book);
+          }
+        }
+        
+
+        $fetching_for_file = Book::fetchBooks();
         if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+
           if(current($_POST) == 'Wanted'){
-            $html  = file_get_contents('main.php');  
+            $html = file_get_contents('template.php');  
+            $count = 0;
+            
+
+            if(!empty($fetching_for_file)){
+              foreach($fetching_for_file as $f){
+                  $html .= '<div class="card">
+                                <h2>' . $f->book_title . ' </h2>
+                                <div class="want"><input type="submit" value="Wanted" name="WANT' . $count . '"> </div>
+                                <br><br><br><br>
+                                <h5>' . $f->book_author . '</h5>
+                                <div class="fakeimg">
+                                     ' .  $f->description . '
+                                </div>
+                            </div>';
+                  $count+=3;
+               }
+             }
+             $book_list = $this->fetchbook(User::getLastSearch());
+            
+            if(!empty($book_list)){
+                foreach($book_list as $bookie){
+                    $html .= '<div class="card">
+                                <h2>' . $bookie["title"] . ' </h2>
+                                <div class="want"><input type="submit" value="Wanted" name="WANT' . $count . '"> </div>
+                                <br><br><br><br>
+                                <h5>' . $bookie["author"] . '</h5>
+                                <div class="fakeimg">
+                                    <img src="' . $bookie["img_src"] . '">
+                                </div>
+                          </div>';
+                      $count+=3;
+                }
+            }
+
 
             $dom = new domDocument; 
             $dom->loadHTML($html); 
             /*** discard white space ***/ 
             $dom->preserveWhiteSpace = false; 
 
-            $form = $dom->getElementsByTagName('form')[1];
+            $form = $dom->getElementsByTagName('form')[2];
             $firstrow = $form->getElementsByTagName('div')[0];
+
             if(strlen(key($_POST)) == 6 ){
               $key = substr(key($_POST), strlen(key($_POST)) - 2);  
             }else{
               $key = substr(key($_POST), strlen(key($_POST)) - 1);
             }
             $key = (int) $key;
+      
+            //   var_dump($firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('img')->textContent);
+         
+            
+            // die;
 
             global $info;
             $info = array();
+          
+  
             $title = $firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('h2')[0]->textContent;
             $author = $firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('h5')[0]->textContent;
              
+            // if for img check null
+
+            $description = $firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('div')[1]->textContent;
+            
+
             $isbn = 0;
             $language = '';
             $type = '';
             $duration = 0;
-            $description = '';
             $user_id = $_SESSION['id'];
 
             array_push($info,$user_id, $title, $author, $isbn, $description, $type, $language, $duration);
@@ -68,15 +131,6 @@
               header("Location: ../pages/error.php");
             }
 
-          }else{
-            $title_of_the_book = $_POST['search'];
-            if(!empty($title_of_the_book)){
-                global $book_list;
-                $book_list = array();
-
-                $book_list = $this->fetchbook($title_of_the_book);
-              
-            }
           }
         }
 
