@@ -14,7 +14,7 @@
     	$sql = $db->prepare('SELECT * FROM book_added WHERE user_id = :id');
     	$sql->bindValue(":id", $id);
 		$sql->execute();
-		
+
     	foreach($sql->fetchAll() as $book){
 
     		$ql = $db->prepare('SELECT user_first FROM users WHERE user_id = :id');
@@ -22,7 +22,7 @@
     		$ql->execute();
     		$result = $ql->fetch();
     		$nume = $result['user_first'];
-			
+
 
     		echo "<div class= card>";
     			echo "<h4><b>" . $nume . " is less then 5 km away</b></h4> ";
@@ -30,21 +30,22 @@
     			echo "<p>ISBN: ". $book['ISBN'] . "</p>";
 				echo "<p>Limba: ". $book['language'] . "</p>";
 
-				echo '<input type="text" name="titlu_carte" id="titlu" value=' . $book['book_title'] . '>';
+                echo '<input type="text" name="user_to" class="titlu" value=' . $id . '>';
+				echo '<input type="text" name="titlu_carte" class="titlu" value=' . $book['book_title'] . '>';
 				if(Book::getCount('book_added') == 0){
 					echo '<p> You don\'t have any books to trade</p>';
 				}else
 				{
 					echo "<input type='submit' value='Trade'></button>";
 				}
-    				
+
     		echo "</div>";
     	}
 
 	}
 	echo '</form>';
-	
-	
+
+
 
 
 
