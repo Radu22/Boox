@@ -114,8 +114,8 @@ class AuthController{
                 $notification = $_POST['notification'];
 
                 $_SESSION['notif'] = $notification;
-                
-                if(!empty($username)){
+
+                if(!empty($username) ){
                     if(!User::updateUsername($username)){
                         AuthController::prompt("Username taken");
                     }
