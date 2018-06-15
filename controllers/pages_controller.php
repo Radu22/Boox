@@ -149,9 +149,16 @@
       if(!empty($_POST['titlu_carte']) && !empty($_POST['user_to'])){
         Notification::insertNotification($_POST['titlu_carte'], $_POST['user_to']);
         header("Location: ../pages/notification.php?controller=pages&action=notification");
+        // requice_once("../pages/notification.php?controller=pages&action=notification");
       }else{
         var_dump("No");
       }
+
+      // if(!empty($_POST['titlu_carte']) && !empty($_POST['user_to'])){
+      //     var_dump($_POST['titlu_carte']);
+      //     var_dump($_POST['user_to']);
+      
+      // }
 
     }
 
