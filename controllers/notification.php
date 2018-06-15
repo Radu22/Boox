@@ -11,7 +11,9 @@
     	$id = $notif['user_from'];
     	$sql = $db->prepare('SELECT * FROM book_added WHERE user_id = :id');
     	$sql->bindValue(":id", $id);
-    	$sql->execute();
+		$sql->execute();
+		
+		echo '<form action=' . $_SERVER["PHP_SELF"] . '?controller=pages&action=main method=post';
     	foreach($sql->fetchAll() as $book){
 
     		$ql = $db->prepare('SELECT user_first FROM users WHERE user_id = :id');
