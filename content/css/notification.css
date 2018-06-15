@@ -1,11 +1,11 @@
 #txtHint{
 	padding: 100px;
+
 }
 
-#card{
-	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+.card{
 	background-color: aquamarine;
-    width: 40%;
+    width: 80%;
 }
 
 .titlu{
@@ -14,7 +14,6 @@
 
 h3{
 	font-weight: 100;
-
 }
 
 b{

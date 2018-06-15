@@ -87,12 +87,12 @@
       $sql->execute();
       foreach($sql->fetchAll() as $post){
         $list[] = new Book($post['book_id'],$post['user_id'],$post['book_title'],$post['book_author'],$post['ISBN'],$post['book_type'],$post['duration'],$post['language'],$post['description']);
-      
+
       }
       return $list;
     }
 
-    
+
 
   }
 

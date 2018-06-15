@@ -21,10 +21,11 @@
                 $ql->execute();
                 $result = $ql->fetch();
                 $nume = $result['user_first'];
+                echo "<div class= card>";
+                    echo "<h3>" . $nume . " wants to trade <b>". $book['book_title'] ."</b> for</h3>";
+                    echo '<p>'. substr($notif['type'],5) ." </p> ";
 
-                echo "<h3>" . $nume . " wants to trade <b>". $book['book_title'] ."</b> for</h3>";
-                echo '<p>'. substr($notif['type'],5) ." </p> ";
-
+                echo "</div>";
         }
 
         }else{
@@ -38,7 +39,7 @@
 
 
             echo "<div class= card>";
-                echo "<h4><b>" . $nume . " is less then 5 km away</b></h4> ";
+                echo "<h4><b>" . $nume . " is less then 5 km away and has this for trade:</b></h4> ";
                 echo "<p>Titlu: ". $book['book_title'] . "</p>";
                 echo "<p>ISBN: ". $book['ISBN'] . "</p>";
                 echo "<p>Limba: ". $book['language'] . "</p>";
@@ -49,7 +50,7 @@
                     echo '<p> You don\'t have any books to trade</p>';
                 }else
                 {
-                    echo "<input type='submit' value='Trade'></button>";
+                    echo "<input type='submit' value='Trade' style='font-size:20px;'></button>";
                 }
 
             echo "</div>";
