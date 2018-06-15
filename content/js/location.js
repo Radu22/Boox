@@ -19,9 +19,7 @@ function updateDB(){
             xmlhttp.send("lat=" + lat + "&long="+ long);
         }
 
-
         navigator.geolocation.watchPosition(c);
         return false;
     }
-    //updateDB();
-    //setInterval(updateDB, 1000);
+

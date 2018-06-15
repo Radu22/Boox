@@ -58,9 +58,9 @@
 
     }
 
-    public static function getCount(){
+    public static function getCount($table_name){
       $db = Db::getInstance();
-      $sql = "SELECT COUNT(*) FROM book_added";
+      $sql = "SELECT COUNT(*) FROM " . $table_name . " WHERE user_id = " . $_SESSION['id'];
       $req = $db->query($sql);
       $req = $req->fetch(PDO::FETCH_ASSOC);
       return $req['COUNT(*)'];
@@ -78,6 +78,21 @@
 
       return $list;
     }
+
+    public function fetchBooks(){
+      $db = Db::getInstance();
+      $list = [];
+      $sql = $db->prepare('SELECT * FROM book_added WHERE user_id != :id');
+      $sql->bindValue(":id", $_SESSION['id'] );
+      $sql->execute();
+      foreach($sql->fetchAll() as $post){
+        $list[] = new Book($post['book_id'],$post['user_id'],$post['book_title'],$post['book_author'],$post['ISBN'],$post['book_type'],$post['duration'],$post['language'],$post['description']);
+      
+      }
+      return $list;
+    }
+
+    
 
   }
 

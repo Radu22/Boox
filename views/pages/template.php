@@ -9,12 +9,10 @@
           $action     = 'reg';
         }
 
-        // echo "\t" . $_SESSION['id'] . " " . $_SESSION['first'] . " ".  $_SESSION['last'] . " " . $_SESSION['user'] . " ".  $_SESSION['password'] . "\n";
-
         require_once("../../routes.php");
         $count = 0;
 
-        global $book_list, $fetching_for_file;
+        global $book_list;
 ?>
 
 
@@ -48,12 +46,10 @@
            </div>
 
          <div class="filtercol">
-
               <form class="goodreads" method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>?controller=pages&action=main">
                 <input type="text" placeholder="Search goodreads" name="search" title="Search goodreads" id="goodr">
-                <button id="click" type="submit"><i class="fa fa-search"></i></button>
+                <button id="click" type="submit"><i class="fa fa-search"></i></button>              
               </form>
-
           </div>
 
           <div class="rightcolumn clearfix">
@@ -126,49 +122,4 @@
                           <div class="fakeimg">Raskolnikov in shorts</div>
                           <?php $count+=3; ?>
                         </div>
-                <?php
-                    if(!empty($fetching_for_file)){
-                            foreach($fetching_for_file as $f){
-                            echo '<div class="card">
-                                    <h2>' . $f->book_title . ' </h2>
-                                    <div class="want"><input type="submit" value="Wanted" name="WANT' . $count . '"> </div>
-                                    <br><br><br><br>
-                                    <h5>' . $f->book_author . '</h5>
-                                    <div class="fakeimg">
-                                        ' . $f->description . '
-                                    </div>
-                                </div>';
-                            $count+=3;
-                            }
-                    }
-                    if(!empty($book_list)){
-                        foreach($book_list as $bookie){
-                            echo '<div class="card">
-                                    <h2>' . $bookie["title"] . ' </h2>
-                                    <div class="want"><input type="submit" value="Wanted" name="WANT' . $count . '"> </div>
-                                    <br><br><br><br>
-                                    <h5>' . $bookie["author"] . '</h5>
-                                    <div class="fakeimg">
-                                        <img src="' . $bookie["img_src"] . '">
-                                    </div>
-                                </div>';
-                            $count+=3;
-                        }
-                    }
 
-                ?>
-                </div>
-            </form>
-
-          </div>
-
-        </div>
-
-        <br/>
-
-     </div>
-     <script src="../../content/js/filter.js"></script>
-
-
-</body>
-</html>
