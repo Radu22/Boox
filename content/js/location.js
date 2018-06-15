@@ -24,4 +24,4 @@ function updateDB(){
         return false;
     }
     //updateDB();
-    setInterval(updateDB, 2000);
+    //setInterval(updateDB, 1000);

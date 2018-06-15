@@ -7,5 +7,4 @@
     $location = new Location($lat, $long);
     $location->updateLocation();
     $location->verifyNearUsers();
-
  ?>
