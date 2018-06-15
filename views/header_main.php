@@ -11,7 +11,7 @@ echo '	<div class="header" id="myHeader">
 			<div class="header-left">
 
 
-				<a href="notification.php?controller=pages&action=notif" class="fa fa-bell">
+				<a href="notification.php?controller=pages&action=notification" class="fa fa-bell">
 					<div class="notification">30</div>
 				</a>
 

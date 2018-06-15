@@ -145,8 +145,12 @@
 
    
     }
-    public function notif(){
-
+    public function notification(){
+      if(!empty($_POST['titlu_carte'])){
+       
+      
+      }
+      
     }
 
     public function reg(){

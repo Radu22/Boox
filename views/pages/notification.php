@@ -32,7 +32,8 @@
       <?php require_once('../header_main.php');?>
       <script src="../../content/js/notification.js"></script>
 
-      <div id="txtHint"></div>
+             <div id="txtHint"></div>
+    
 
 
 
