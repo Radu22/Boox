@@ -1,5 +1,8 @@
 <?php
   session_start();
+            
+            $_SESSION['LAST_ACTIVITY'] = time() - 1529056300;
+    // var_dump($_SESSION['LAST_ACTIVITY'] );
 
           if (isset($_GET['controller']) && isset($_GET['action'])) {
           $controller = $_GET['controller'];
@@ -8,8 +11,6 @@
           $controller = 'pages';
           $action     = 'reg';
         }
-
-        // echo "\t" . $_SESSION['id'] . " " . $_SESSION['first'] . " ".  $_SESSION['last'] . " " . $_SESSION['user'] . " ".  $_SESSION['password'] . "\n";
 
         require_once("../../routes.php");
         $count = 0;
@@ -59,73 +60,7 @@
           <div class="rightcolumn clearfix">
           <form id="wishes" action="<?php echo $_SERVER["PHP_SELF"]; ?>?controller=pages&action=main" method="post">
               <div class="firstrow">
-                 <!-- 0 -->
-                        <div class="card">
-                            <h2>Crime and punishment</h2>
-                        <!-- 1 -->
-                            <div class="want"><input type="submit"  value="Wanted" name="WANT<?php echo $count; ?>"> </div>
-                            <br><br><br>
-                            <h5>Fyodor Dostoyevsky</h5>
-                            <!-- 2 -->
-                            <div class="fakeimg">Raskolnikov in shorts</div>
-                            <?php $count+=3; ?>
-                          </div>
-
-                 <!-- 3 -->
-                      <div class="card">
-                          <h2> Adolescent</h2>
-                       <!-- 4 -->
-                          <div class="want"><input type="submit"  value="Wanted" name="WANT<?php echo $count; ?>"> </div>
-                          <br><br><br>
-                          <h5>  Dostoyevsky</h5>
-                          <!-- 5 -->
-                          <div class="fakeimg">Sexy Tatiana</div>
-                          <?php $count+=3; ?>
-                        </div>
-                  <!-- 6 -->
-                      <div class="card">
-                          <h2>The Idiot</h2>
-                          <!-- 7 -->
-                          <div class="want"><input type="submit"  value="Wanted" name="WANT<?php echo $count; ?>"> </div>
-                          <br><br><br>
-                          <h5>Fyodor Dostoyevsky</h5>
-                          <!-- 8 -->
-                          <div class="fakeimg">99% of the population</div>
-                          <?php $count+=3; ?>
-                      </div>
-                  <!-- 9 -->
-                      <div class="card">
-                          <h2>wabba  hjbasd </h2>
-                          <!-- 10 -->
-                          <div class="want"><input type="submit"  value="Wanted" name="WANT<?php echo $count; ?>"> </div>
-                          <br><br><br>
-                          <h5>yfoidosfi sdb23</h5>
-                          <!-- 11 -->
-                          <div class="fakeimg">Raskolnikov in shorts</div>
-                          <?php $count+=3; ?>
-                        </div>
-                    <!-- 12 -->
-                        <div class="card">
-                          <h2>hjbsd jhb2</h2>
-                          <!-- 13 -->
-                          <div class="want"><input type="submit"  value="Wanted" name="WANT<?php echo $count; ?>"> </div>
-                          <br><br><br>
-                          <h5>fifth </h5>
-                          <!-- 14 -->
-                          <div class="fakeimg">Raskolnikov in shorts</div>
-                          <?php $count+=3; ?>
-                         </div>
-                    <!-- 15 -->
-                        <div class="card">
-                          <h2>sixth </h2>
-                          <!-- 16 -->
-                          <div class="want"><input type="submit"  value="Wanted" name="WANT<?php echo $count; ?>"> </div>
-                          <br><br><br>
-                          <h5>sixth sixth </h5>
-                          <!-- 17 -->
-                          <div class="fakeimg">Raskolnikov in shorts</div>
-                          <?php $count+=3; ?>
-                        </div>
+         
                 <?php
                     if(!empty($fetching_for_file)){
                             foreach($fetching_for_file as $f){

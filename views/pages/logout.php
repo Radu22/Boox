@@ -1,8 +1,14 @@
 <?php 
    session_start();
-   session_unset();
-   session_destroy();
-   $_SESSION = array();
 
-   header("Location: /Boox");
+    if (isset($_GET['controller']) && isset($_GET['action'])) {
+        $controller = $_GET['controller'];
+        $action     = $_GET['action'];
+    } else {
+        $controller = 'pages';
+        $action     = 'reg';
+    }
+
+  require_once("../../routes.php");
+
 ?>

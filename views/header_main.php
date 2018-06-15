@@ -6,7 +6,6 @@ echo '	<div class="header" id="myHeader">
 
 	';
 
-	if($_SESSION['notif'] == 1)
 		echo'
 			<div class="header-left">
 
@@ -28,7 +27,7 @@ echo '	<div class="header" id="myHeader">
 				<a href="main.php?controller=pages&action=main" class="active" >Homepage </a>
 				<a href="book.php?controller=pages&action=book">My books</a>
 				<a href="contact.php?controller=pages&action=contact">Contact us</a>
-				<a href="logout.php">Logout</a>
+				<a href="?controller=pages&action=logout">Logout</a>
 				<button class="button-header" onclick="updateDB()">Find books near me</button>
 				<a href="profile.php?controller=pages&action=profile" class="fa fa-user-circle" id="myProf"
 						style="text-decoration:none;"></a>

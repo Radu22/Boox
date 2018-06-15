@@ -8,9 +8,10 @@
     public $password;
     public $notif;
     public $location;
+    public $logged_time;
 
 
-    public function __construct($id, $firstname, $lastname, $email, $username, $password,$notif,$location) {
+    public function __construct($id, $firstname, $lastname, $email, $username, $password,$notif,$location,$logged_time) {
       $this->id         = $id;
       $this->firstname  = $firstname;
       $this->lastname   = $lastname;
@@ -19,6 +20,7 @@
       $this->password   = $password;
       $this->notif      = $notif;
       $this->location   = $location;
+      $this->logged_time = $logged_time;
     }
 
 
@@ -29,11 +31,34 @@
 
       foreach($req->fetchAll() as $post) {
         $list[] = new User($post['user_id'], $post['user_first'], $post['user_last'],
-            $post['user_email'], $post['user_uid'],$post['user_pwd'],$post['notification'],$post['location']);
+            $post['user_email'], $post['user_uid'],$post['user_pwd'],$post['notification'],$post['location'], $post['logged_time']);
       }
 
       return $list;
     }
+
+    public static function setLoggedTime($logged){
+      $db = Db::getInstance();
+      
+      $logged = (int) $logged;  
+
+      $sql = "UPDATE users SET logged_time = :loging WHERE user_id = :id";
+      $stmt = $db->prepare($sql);
+      $stmt->bindValue(":loging", $logged);
+      $stmt->bindValue(":id", $_SESSION['id'] );
+      $stmt->execute();
+    }
+
+    public static function getHighestLog(){
+      $db = Db::getInstance();
+      $req = $db->prepare('SELECT * FROM users ORDER BY logged_time DESC LIMIT 1');
+      $req->execute();
+      $post = $req->fetch();
+
+      return $post['logged_time'];
+    }
+
+
 
     public static function find($id) {
       $db = Db::getInstance();
@@ -43,7 +68,7 @@
       $post = $req->fetch();
 
       return new User($post['user_id'], $post['user_first'], $post['user_last'],
-      $post['user_email'], $post['user_uid'],$post['user_pwd'],$post['notification'],$post['location']);
+      $post['user_email'], $post['user_uid'],$post['user_pwd'],$post['notification'],$post['location'], $post['logged_time']);
     }
 
     public static function getUserByUsername($username){
@@ -53,7 +78,7 @@
       $post = $req->fetch();
 
       return new User($post['user_id'], $post['user_first'], $post['user_last'],
-      $post['user_email'], $post['user_uid'],$post['user_pwd'],$post['notification'],$post['location']);
+      $post['user_email'], $post['user_uid'],$post['user_pwd'],$post['notification'],$post['location'], $post['logged_time']);
     }
 
     public static function getUserByEmail($email){
@@ -63,7 +88,7 @@
       $post = $req->fetch();
 
       return new User($post['user_id'], $post['user_first'], $post['user_last'],
-      $post['user_email'], $post['user_uid'],$post['user_pwd'],$post['notification'],$post['location']);
+      $post['user_email'], $post['user_uid'],$post['user_pwd'],$post['notification'],$post['location'], $post['logged_time']);
     }
 
     public static function updateUsername($username){

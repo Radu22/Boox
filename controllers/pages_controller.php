@@ -1,5 +1,7 @@
 <?php
   class PagesController {
+  
+    
     public function error() {
       require_once('views/pages/error.php');
     }
@@ -26,7 +28,9 @@
     }
 
     public function main(){
-        // set error level
+
+      User::setLoggedTime($_SESSION['LAST_ACTIVITY']);
+      // set error level
         $internalErrors = libxml_use_internal_errors(true);
 
         global $fetching_for_file, $book_list;
@@ -149,19 +153,42 @@
       if(!empty($_POST['titlu_carte']) && !empty($_POST['user_to'])){
         Notification::insertNotification($_POST['user_to'],$_POST['titlu_carte'] );
         header("Location: ../pages/notification.php?controller=pages&action=notification");
-        // requice_once("../pages/notification.php?controller=pages&action=notification");
-      }else{
-        var_dump("No");
       }
-
-      // if(!empty($_POST['titlu_carte']) && !empty($_POST['user_to'])){
-      //     var_dump($_POST['titlu_carte']);
-      //     var_dump($_POST['user_to']);
-
-      // }
-
+     
     }
 
+
+    public function logout(){
+      $users = User::all();
+
+      $names = array();
+      $log_times = array();
+
+      foreach($users as $user){
+            array_push($names, $user->firstname);
+            array_push($log_times, $user->logged_time);
+      }
+        
+
+      $file = "../../data.tsv";
+      $current = file_get_contents($file);
+      for($i = 0; $i < count($names); ++$i){
+        
+        if($log_times[$i] != NULL){
+            $current .= "\n" . (string) $names[$i] . "	.0" . (string)$log_times[$i];
+        }
+
+      }
+      
+      file_put_contents($file, $current);
+
+      session_unset();
+      session_destroy();
+      $_SESSION = array();
+   
+      header("Location: /Boox");
+      
+    }
     public function reg(){
 
     }

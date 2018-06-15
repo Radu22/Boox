@@ -23,7 +23,7 @@
   }
 
 
-  $controllers = array('pages' => ['reg', 'error', 'main', 'book', 'profile', 'contact', 'add', 'notification'],
+  $controllers = array('pages' => ['reg', 'error', 'main', 'book', 'profile', 'contact', 'add', 'notification','logout'],
                        'auth'  => ['signup', 'signin', 'edit'],
                        'textbook' => ['ins_book']
                      );
