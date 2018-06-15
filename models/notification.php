@@ -11,7 +11,7 @@
 				$req = $db->prepare('INSERT INTO notification (user_to, type, user_from, seen) values (:id_to, :tip, :id_from, :val_seen)');
    				$req->bindValue(":id_to", $user_id );
     			$req->bindValue(":val_seen", 1 );
-    			$req->bindValue(":tip", "trade" );
+    			$req->bindValue(":tip", "trade" . $book_title );
     			$req->bindValue(":id_from", $_SESSION['id'] );
 				$req->execute();
 
