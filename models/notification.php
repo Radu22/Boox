@@ -4,8 +4,7 @@
 
 			$db = Db::getInstance();
 			if(Notification::getNotification($user_id, $book_title)){
-				var_dump("nu mai insera");
-				exit();
+				header("notification.php?controller=pages&action=notification");
 			}else{
 
 				$req = $db->prepare('INSERT INTO notification (user_to, type, user_from, seen) values (:id_to, :tip, :id_from, :val_seen)');
@@ -28,10 +27,10 @@
     		$req->bindValue("id_from", $_SESSION['id'] );
     		$req->execute();
     		if($req->fetchColumn() >0){
-    			return 1;
+    			return 0;
     		}
     		else{
-    			return 0;
+    			return 1;
     		}
 		}
 	}

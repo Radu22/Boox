@@ -8,7 +8,7 @@ function createDiv(){
 
          }
         };
-            xmlhttp.open("POST", "../../controllers/notification.php", true);
+            xmlhttp.open("POST", "../../controllers/notification.php?controller=pages&action=notification"", true);
             xmlhttp.send();
             return false;
         }
