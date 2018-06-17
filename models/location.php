@@ -51,7 +51,7 @@
                 $a = sin($dLat/2) * sin($dLat/2) + cos(deg2rad($lat)) * cos(deg2rad($this->lat)) * sin($dLon/2) * sin($dLon/2);
                 $c = 2 * atan2(sqrt($a), sqrt(1-$a));
                 $d = $R * $c;
-                if($d < 5){
+                if($d < 50){
 
                     $req = $db->prepare('SELECT count(*) FROM notification WHERE user_to = :id and type = :loc and user_from = :id2');
                     $req->bindValue(":id2", $user2);
