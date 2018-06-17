@@ -3,7 +3,7 @@
 		public static function insertNotification($user_id, $book_title){
 
 			$db = Db::getInstance();
-			if(Notification::getNotification($user_id, $book_title)){
+			if(Notification::getNotification($user_id, $book_title) > 0){
 				header("notification.php?controller=pages&action=notification");
 			}else{
 
@@ -20,18 +20,10 @@
 		}
 		public static function getNotification($user_id, $book_title){
 			$db = Db::getInstance();
-			$req = $db->prepare('SELECT count(*) FROM notification WHERE user_to = :id_to and seen = :val_seen and type = :tip and user_from = :id_from' );
-   			$req->bindValue(":id_to", $user_id );
-    		$req->bindValue(":val_seen", 1 );
-    		$req->bindValue(":tip", $book_title);
-    		$req->bindValue("id_from", $_SESSION['id'] );
-    		$req->execute();
-    		if($req->fetchColumn() >0){
-    			return 0;
-    		}
-    		else{
-    			return 1;
-    		}
+			$sql = 'SELECT COUNT(*) FROM notification WHERE user_to = ' . $user_id . ' and seen = 1 ' . ' and type = \'trade' . $book_title .'\' ' ;
+			$req = $db->query($sql);
+			$req = $req->fetch(PDO::FETCH_ASSOC);
+      		return $req['COUNT(*)'];
 		}
 	}
  ?>
