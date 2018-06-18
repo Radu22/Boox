@@ -44,6 +44,14 @@
       }
     }
 
+    public static function getBookID($book_title, $table_name){
+        $db = Db::getInstance();
+        $sql = "SELECT book_id from " . $table_name . " WHERE book_title='" . $book_title . "'";
+        $req = $db->query($sql);
+        return $req->fetch()["book_id"];
+
+    }
+
     public static function getByTitle($table_name, $title){
       $db = Db::getInstance();
       $list = [];

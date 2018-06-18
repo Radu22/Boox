@@ -9,8 +9,6 @@
 	  $action     = 'reg';
 	}
 
-	global $current_dir;
-	$current_dir =  getcwd();
 	require_once("../../routes.php");
 
 ?>
@@ -34,7 +32,7 @@
 		<section class="main-container">
 			<div class ="formular">
 				<h2>Adauga Carte</h2>
-				<form action="?controller=textbook&action=ins_book" method="POST" >
+				<form action="?controller=textbook&action=ins_book" method="POST"  enctype="multipart/form-data">
 
 				 		<label >Titlu:</label>
 				 		<input type="text" id="titlu" name="title">
@@ -90,8 +88,8 @@
 						<br>
 						<br>
 
-						<input type="file" name="file" id="file" class="inputfile" />
-						<label for="file">Upload Photo</label>
+						<input type="file" name="image" value="sadERIOSN" />
+						<!-- <label for="file">Upload Photo</label> -->
 						<br>
 
 						<label >Durata ofertei: (nr de zile) </label>

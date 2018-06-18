@@ -262,6 +262,19 @@
       header("Location: /Boox");
       
     }
+    public function add(){
+      
+    
+    
+    }
+   
+   
+   
+   
+   
+   
+   
+   
     public function reg(){
 
     }
@@ -271,8 +284,7 @@
     public function contact(){
 
     }
-    public function add(){
-    }
+  
 
 
   }

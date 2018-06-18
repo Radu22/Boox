@@ -6,6 +6,7 @@
     require_once('models/users.php');
     require_once('models/books.php');
     require_once('models/notification.php');
+    require_once('models/images.php');
 
     switch($controller) {
       case 'pages':

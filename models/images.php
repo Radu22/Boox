@@ -3,84 +3,31 @@
 
     public $id;
     public $book_id;
-    // public $pic;
+    public $picture;
+    public $picture_name;
 
-    public function __construct() {
-
-
+    public function __construct($id, $book_id, $picture, $picture_name) {
+      $this->id           = $id;
+      $this->book_id      = $book_id;
+      $this->picture      = $picture;
+      $this->picture_name = $picture_name;
     }
 
-    public static function insertBook($table_name) {
-      global $info;
-
+    public static function insertImage($book_id, $pic, $pic_name){
       $db = Db::getInstance();
-      $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      $bookie = Book::getByTitle($table_name, $info[1]);
-      if($bookie == NULL){
-
-        $sql = "INSERT INTO ". $table_name . "(user_id,book_title,book_author , isbn, description,book_type,duration, language)
-        VALUES ('".$info[0]."','".$info[1]."','".$info[2]."', '".$info[3]."','".$info[4]."','".$info[5]."', '".$info[6]."', '".$info[7]."')";
-
-        if($db->query($sql)){
-            unset($info);
-            return true;
-        }else{
-          return false;
-        }
+      $sql = "INSERT INTO IMAGE (book_ID, image, image_name) VALUES (:book, :pic, :pic_name)";
+      $req = $db->prepare($sql);
+      $req->bindValue(":book", $book_id);
+      $req->bindValue(":pic", $pic);
+      $req->bindValue(":pic_name", $pic_name);
+      if($req->execute()){
+        return 1;
       }else{
-        return false;
+        return 0;
       }
-    }
-
-    public static function getByTitle($table_name, $title){
-      $db = Db::getInstance();
-      $list = [];
-      $sql = "SELECT * FROM " .  $table_name . " WHERE book_title='" . $title . "'";
-
-      $req = $db->query($sql);
-      foreach($req->fetchAll() as $post){
-        $list[] = new Book($post['book_id'],$post['user_id'],$post['book_title'],$post['book_author'],$post['ISBN'],$post['book_type'],$post['duration'],$post['language'],$post['description']);
-      }
-
-      return $list;
-
-    }
-
-    public static function getCount($table_name){
-      $db = Db::getInstance();
-      $sql = "SELECT COUNT(*) FROM " . $table_name . " WHERE user_id = " . $_SESSION['id'];
-      $req = $db->query($sql);
-      $req = $req->fetch(PDO::FETCH_ASSOC);
-      return $req['COUNT(*)'];
-    }
-
-    public static function getBooksByUserID($table_name, $user_id){
-      $db = Db::getInstance();
-      $list = [];
-      $sql = "SELECT * FROM " . $table_name . " WHERE user_id=" . $user_id;
-      $req = $db->query($sql);
-
-      foreach($req->fetchAll() as $post){
-        $list[] = new Book($post['book_id'],$post['user_id'],$post['book_title'],$post['book_author'],$post['ISBN'],$post['book_type'],$post['duration'],$post['language'],$post['description']);
-      }
-
-      return $list;
-    }
-
-    public function fetchBooks(){
-      $db = Db::getInstance();
-      $list = [];
-      $sql = $db->prepare('SELECT * FROM book_added WHERE user_id != :id');
-      $sql->bindValue(":id", $_SESSION['id'] );
-      $sql->execute();
-      foreach($sql->fetchAll() as $post){
-        $list[] = new Book($post['book_id'],$post['user_id'],$post['book_title'],$post['book_author'],$post['ISBN'],$post['book_type'],$post['duration'],$post['language'],$post['description']);
       
-      }
-      return $list;
     }
 
-    
 
   }
 
