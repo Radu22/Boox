@@ -16,6 +16,7 @@ class BooksController {
     }
 
     public function ins_book(){
+		require_once("auth_controller.php");
 		global $info;
 		$info = array();
 		$title = $_POST['title'];
@@ -121,14 +122,15 @@ class BooksController {
 
 			array_push($info,$user_id, $title, $author, $isbn, $description,$tip,$duration, $limba);
 
-			$image = addslashes(file_get_contents($_FILES['image']['tmp_name'])); 
-			$image_name = addslashes($_FILES['image']['name']);
-			if(empty($image)){
+			if(empty($_FILES['image']['tmp_name'])){
 				AuthController::prompt("You have to insert an image with the book as well");
 			}else{
+				$image_name = addslashes($_FILES['image']['name']);
+				$fp = fopen($_FILES['image']['tmp_name'], 'rb');
+
 				if(Book::insertBook('book_added')){
 					$id_book = Book::getBookID($title, "book_added");
-					if(Image::insertImage($id_book, $image, $image_name)){
+					if(Image::insertImage($id_book, $fp, $image_name)){
 						header("Location: ../../views/pages/main.php?controller=pages&action=main");
 						unset($info);
 					}else{

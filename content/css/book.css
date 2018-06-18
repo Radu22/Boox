@@ -106,6 +106,8 @@ tbody tr:hover{
 td{
 	margin-top: 10px;	
 }
+
+
 /*
 *
 *		CLASSes
@@ -114,9 +116,13 @@ td{
 */
 
 .field{
-	width: 15px;
-	height: 15px;
+	padding:0;
 
+}
+img{
+	position: relative;
+	top: 5px;
+	left: 44px;
 }
 
 .clearfix::after{

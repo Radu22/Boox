@@ -1,6 +1,7 @@
 <?php 
     session_start();
     global $books_for_lease, $books_wanted;
+    header("Content-Type: image");
 
     if (isset($_GET['controller']) && isset($_GET['action'])) {
         $controller = $_GET['controller'];
@@ -29,7 +30,7 @@
     </head>
     <body>
 
-		<?php require_once('../header_main.php');?>
+        <?php require_once('../header_main.php');?>
 
     <h2>My books</h2>
     <hr>
@@ -69,9 +70,14 @@
                 switch($_GET['types']){
                     case 'lease':
                     foreach($books_for_lease as $book) {?>
+                        
+
                         <tr class="<?php echo "".$book->book_id.""; ?>" align="left">
                             <td class="field cover">
-                                <img src="../../content/images/crime.jpg" alt="<?php echo $book->description; ?>" width="80" height="80"></td>
+                            
+                            <?php echo '<img src="data:image;base64,' . base64_encode(Image::getImage(Image::getImageID($book->book_id))) . '" width="100" height="100"'; ?>
+                            </td>
+                       
 
                             <td class="field title"><?php echo $book->book_title; ?></td>
                             <td class="field author"><?php echo $book->book_author; ?></td>
@@ -85,8 +91,9 @@
                  foreach($books_wanted as $book) {?>
                     <tr class="<?php echo "".$book->book_id.""; ?>" align="left">
                         <td class="field cover">
-                            <img src="../../content/images/crime.jpg" alt="<?php echo $book->description; ?>" width="80" height="80"></td>
-
+                        <?php echo '<img src="data:image;base64,' . base64_encode(Image::getImage(Image::getImageID($book->book_id))) . '" width="80" height="80"'; ?>
+                        </td>
+                    
                         <td class="field title"><?php echo $book->book_title; ?></td>
                         <td class="field author"><?php echo $book->book_author; ?></td>
                         <td class="field type"><?php echo $book->book_type; ?></td>
@@ -97,9 +104,10 @@
                 <?php  case 'total':
                      foreach($books_for_lease as $book) {?>
                         <tr class="<?php echo "".$book->book_id.""; ?>" align="left">
-                            <td class="field cover">
-                                <img src="../../content/images/crime.jpg" alt="<?php echo $book->description; ?>" width="80" height="80"></td>
-
+                             <td class="field cover">
+                             <?php echo '<img src="data:image;base64,' . base64_encode(Image::getImage(Image::getImageID($book->book_id))) . '" width="80" height="80"'; ?>
+                             </td>
+                        
                             <td class="field title"><?php echo $book->book_title; ?></td>
                             <td class="field author"><?php echo $book->book_author; ?></td>
                             <td class="field type"><?php echo $book->book_type; ?></td>
@@ -111,8 +119,8 @@
                     foreach($books_wanted as $book) {?>
                     <tr class="<?php echo "".$book->book_id.""; ?>" align="left">
                         <td class="field cover">
-                            <img src="../../content/images/crime.jpg" alt="<?php echo $book->description; ?>" width="80" height="80"></td>
-
+                        <?php echo '<img src="data:image;base64,' . base64_encode(Image::getImage(Image::getImageID($book->book_id))) . '" width="80" height="80"'; ?>
+                        </td>
                         <td class="field title"><?php echo $book->book_title; ?></td>
                         <td class="field author"><?php echo $book->book_author; ?></td>
                         <td class="field type"><?php echo $book->book_type; ?></td>
