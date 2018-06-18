@@ -143,10 +143,12 @@
     }
 
     public function book(){
-      global $books;
-      $_SESSION['count'] = Book::getCount('book_added');
-      $books = Book::getBooksByUserID('book_added', $_SESSION['id']);
-
+      global $books_for_lease, $books_wanted;
+      $_SESSION['count_total'] = Book::getTotalCount();
+      $_SESSION['count_added'] = Book::getCount('book_added');
+      $_SESSION['count_wanted'] = Book::getCount('book_wanted');
+      $books_for_lease = Book::getBooksByUserID('book_added', $_SESSION['id']);
+      $books_wanted = Book::getBooksByUserID('book_wanted', $_SESSION['id']);
 
     }
     public function notification(){

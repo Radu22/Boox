@@ -25,7 +25,7 @@ echo '	<div class="header" id="myHeader">
 
 
 				<a href="main.php?controller=pages&action=main" class="active" >Homepage </a>
-				<a href="book.php?controller=pages&action=book">My books</a>
+				<a href="book.php?controller=pages&action=book&types=lease">My books</a>
 				<a href="contact.php?controller=pages&action=contact">Contact us</a>
 				<a href="?controller=pages&action=logout">Logout</a>
 				<button class="button-header" onclick="updateDB()">Find books near me</button>

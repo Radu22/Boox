@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    global $books;
+    global $books_for_lease, $books_wanted;
 
     if (isset($_GET['controller']) && isset($_GET['action'])) {
         $controller = $_GET['controller'];
@@ -44,9 +44,9 @@
             <h3>Bookshelves</h3>
             <div id="shelf">
                 <ul>
-                    <li><a href="#">Total Books - <?php echo $_SESSION['count']; ?></a></li>
-                    <li><a href="#">For leasing ( )</a></li>
-                    <li><a href="#">Want to read ( )</a></li>
+                    <li><a href="book.php?controller=pages&action=book&types=total">Total Books   - <?php echo $_SESSION['count_total']; ?></a></li>
+                    <li><a href="book.php?controller=pages&action=book&types=lease">For leasing   - <?php echo $_SESSION['count_added']; ?> </a></li>
+                    <li><a href="book.php?controller=pages&action=book&types=wantTo">Want to read - <?php echo $_SESSION['count_wanted']; ?> </a></li>
                 </ul>
 
             </div>
@@ -66,8 +66,23 @@
             </thead>
             <tbody>
                 <?php 
-        
-                foreach($books as $book) {?>
+                switch($_GET['types']){
+                    case 'lease':
+                    foreach($books_for_lease as $book) {?>
+                        <tr class="<?php echo "".$book->book_id.""; ?>" align="left">
+                            <td class="field cover">
+                                <img src="../../content/images/crime.jpg" alt="<?php echo $book->description; ?>" width="80" height="80"></td>
+
+                            <td class="field title"><?php echo $book->book_title; ?></td>
+                            <td class="field author"><?php echo $book->book_author; ?></td>
+                            <td class="field type"><?php echo $book->book_type; ?></td>
+                            <td class="field duration"><?php echo $book->duration; ?></td>
+                            <td class="field language"><?php echo $book->language; ?></td>
+                        </tr>
+                    <?php } break; ?>
+                 <?php  case 'wantTo':
+
+                 foreach($books_wanted as $book) {?>
                     <tr class="<?php echo "".$book->book_id.""; ?>" align="left">
                         <td class="field cover">
                             <img src="../../content/images/crime.jpg" alt="<?php echo $book->description; ?>" width="80" height="80"></td>
@@ -78,6 +93,36 @@
                         <td class="field duration"><?php echo $book->duration; ?></td>
                         <td class="field language"><?php echo $book->language; ?></td>
                     </tr>
+                <?php } break; ?>
+                <?php  case 'total':
+                     foreach($books_for_lease as $book) {?>
+                        <tr class="<?php echo "".$book->book_id.""; ?>" align="left">
+                            <td class="field cover">
+                                <img src="../../content/images/crime.jpg" alt="<?php echo $book->description; ?>" width="80" height="80"></td>
+
+                            <td class="field title"><?php echo $book->book_title; ?></td>
+                            <td class="field author"><?php echo $book->book_author; ?></td>
+                            <td class="field type"><?php echo $book->book_type; ?></td>
+                            <td class="field duration"><?php echo $book->duration; ?></td>
+                            <td class="field language"><?php echo $book->language; ?></td>
+                        </tr>
+                    <?php }
+
+                    foreach($books_wanted as $book) {?>
+                    <tr class="<?php echo "".$book->book_id.""; ?>" align="left">
+                        <td class="field cover">
+                            <img src="../../content/images/crime.jpg" alt="<?php echo $book->description; ?>" width="80" height="80"></td>
+
+                        <td class="field title"><?php echo $book->book_title; ?></td>
+                        <td class="field author"><?php echo $book->book_author; ?></td>
+                        <td class="field type"><?php echo $book->book_type; ?></td>
+                        <td class="field duration"><?php echo $book->duration; ?></td>
+                        <td class="field language"><?php echo $book->language; ?></td>
+                    </tr>
+                    <?php } break; ?>
+
+
+
                 <?php } ?>
             </tbody>
         

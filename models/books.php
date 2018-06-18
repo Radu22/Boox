@@ -73,6 +73,17 @@
       $req = $req->fetch(PDO::FETCH_ASSOC);
       return $req['COUNT(*)'];
     }
+    
+    public static function getTotalCount(){
+      $db = Db::getInstance();
+      $sql1 = "SELECT COUNT(*) FROM book_added WHERE user_id = " . $_SESSION['id'];
+      $sql2 = "SELECT COUNT(*) FROM book_wanted WHERE user_id = " . $_SESSION['id'];
+      $req1 = $db->query($sql1);
+      $req2 = $db->query($sql2);
+      $req1 = $req1->fetch(PDO::FETCH_ASSOC);
+      $req2 = $req2->fetch(PDO::FETCH_ASSOC);
+      return $req1['COUNT(*)'] + $req2['COUNT(*)'];
+    }
 
     public static function getBooksByUserID($table_name, $user_id){
       $db = Db::getInstance();
