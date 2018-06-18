@@ -118,7 +118,10 @@
             // if for img check null
 
             $description = $firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('div')[1]->textContent;
+            if($firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('div')[1]->getElementsByTagName('img')[0] != NULL){
+                $image_path = $firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('div')[1]->getElementsByTagName('img')[0]->getAttribute('src');
 
+              }
 
             $isbn = 0;
             $language = '';
@@ -126,9 +129,16 @@
             $duration = 0;
             $user_id = $_SESSION['id'];
 
-            array_push($info,$user_id, $title, $author, $isbn, $description, $type, $language, $duration);
+            array_push($info,$user_id, $title, $author, $isbn, $description, $type, $duration, $language);
 
             if(Book::insertBook('book_wanted')){
+              $id_book = Book::getBookID($title, "book_wanted");
+              if(!empty($image_path)){
+                  if(!Image::insertPath($id_book, $image_path)){
+                    header("Location: ../pages/error.php");
+                }
+              }
+                
               header("Location: ../pages/main.php?controller=pages&action=main");
               unset($info);
             } else {

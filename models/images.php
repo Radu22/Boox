@@ -29,16 +29,22 @@
       
     }
 
-    public static function all(){
-      $list = [];
+    public static function insertPath($book_id, $path){
+
       $db = Db::getInstance();
-      $req = $db->query('SELECT * FROM IMAGE');
+      $lala = NULL;
+      $stmt = $db->prepare("INSERT INTO IMAGE (book_ID, image, image_name) VALUES (?, ?, ?) ");
 
-      foreach($req->fetchAll() as $post) {
-        $list[] = new Image($post['id'], $post['book_ID'], $post['image'],$post['image_name']);
+      $stmt->bindParam(1, $book_id);
+      $stmt->bindParam(2, $lala, PDO::PARAM_LOB);
+      $stmt->bindParam(3, $path);
+
+      if($stmt->execute()){
+        return 1;
+      }else{
+        return 0;
       }
-
-      return $list;
+      
     }
 
     public static function getImageID($book_id){
