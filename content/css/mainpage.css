@@ -39,6 +39,11 @@ img{
     margin-top: 19px;
 }
 
+.dimension{
+    width:100%;
+    height: 100%;
+}
+
 .rand {
     margin-top: 69px;
     padding: 20px;

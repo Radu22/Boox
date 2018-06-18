@@ -70,7 +70,7 @@
                                     <br><br><br><br>
                                     <h5>' . $f->book_author . '</h5>
                                     <div class="fakeimg">
-                                        ' . $f->description . '
+                                        <img src="data:image;base64,' . base64_encode(Image::getImage(Image::getImageID($f->book_id))) .'" class="dimension" />
                                     </div>
                                 </div>';
                             $count+=3;
@@ -84,7 +84,7 @@
                                     <br><br><br><br>
                                     <h5>' . $bookie["author"] . '</h5>
                                     <div class="fakeimg">
-                                        <img src="' . $bookie["img_src"] . '">
+                                        <img src="' . $bookie["img_src"] . '" width="123" height="175">
                                     </div>
                                 </div>';
                             $count+=3;
