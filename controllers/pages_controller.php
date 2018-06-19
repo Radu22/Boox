@@ -172,37 +172,47 @@
             $tables_to_search = array(
                 'book_added'  => Book::getByTitle('book_added', $book_title),
                 'book_wanted' => Book::getByTitle('book_wanted', $book_title)
-                
             );
-
-
+            
             if(empty($tables_to_search['book_added']) && !empty($tables_to_search['book_wanted'])){
-                $status = Book::deleteByTitle($book_title, 'book_wanted');
-                if(!$status){
-                    AuthController::prompt("not working wanted deletion");
-                    header("Location: ../pages/error.php");
-                }else{
-                    header("Location: ../pages/book.php?controller=pages&action=book&types=total");
-                }
-            }else if(!empty($tables_to_search['book_added']) && empty($tables_to_search['book_wanted'])){
-                    $status = Book::deleteByTitle($book_title, 'book_added');
-                    if(!$status){
-                        AuthController::prompt("not working added deletion");
+                $id_book = Book::getByTitle('book_wanted', $book_title)[0]->book_id;
+                if(!empty($id_book)){
+                    $status = Book::deleteByTitle($book_title, 'book_wanted');
+                    $status2 = Image::deleteByBookID($id_book);
+                    if(!$status || !$status2){
+                        AuthController::prompt("not working wanted deletion");
                         header("Location: ../pages/error.php");
                     }else{
                         header("Location: ../pages/book.php?controller=pages&action=book&types=total");
                     }
                 }
-            else if(!empty($tables_to_search['book_added']) && !empty($tables_to_search['book_wanted'])){
-                $status1 = Book::deleteByTitle($book_title, 'book_wanted');
-                $status2 = Book::deleteByTitle($book_title, 'book_added');
-                if(!$status1 || !$status2){
-                    AuthController::prompt("not working both deletions");
-                    header("Location: ../pages/error.php");
-                }else{
-                    header("Location: ../pages/book.php?controller=pages&action=book&types=total");
+            }else if(!empty($tables_to_search['book_added']) && empty($tables_to_search['book_wanted'])){
+                    $id_book = Book::getByTitle('book_added', $book_title)[0]->book_id;
+                    if(!empty($id_book)){
+                        $status = Book::deleteByTitle($book_title, 'book_added');
+                        $status2 = Image::deleteByBookID($id_book);
+                        if(!$status || !$status2){
+                            AuthController::prompt("not working added deletion");
+                            header("Location: ../pages/error.php");
+                        }else{
+                            header("Location: ../pages/book.php?controller=pages&action=book&types=total");
+                        }
+                    }
                 }
-            
+            else if(!empty($tables_to_search['book_added']) && !empty($tables_to_search['book_wanted'])){
+                $id_book1 = Book::getByTitle('book_added',  $book_title)[0]->book_id;
+                $id_book2 = Book::getByTitle('book_wanted', $book_title)[0]->book_id;
+                    if(!empty($id_book1) && !empty($id_book2)){
+                        $status = Book::deleteByTitle($book_title, 'book_added');
+                        $status2 = Book::deleteByTitle($book_title, 'book_wanted');
+                        $status3 = Image::deleteByBookID($id_book);
+                        if(!$status || !$status2 || !$status3){
+                            AuthController::prompt("not working both deletion");
+                            header("Location: ../pages/error.php");
+                        }else{
+                            header("Location: ../pages/book.php?controller=pages&action=book&types=total");
+                        }
+                    }
             }else if(empty($tables_to_search['book_added']) && empty($tables_to_search['book_wanted'])){
                     AuthController::prompt("cant delete book, it doesnt exist");
             }

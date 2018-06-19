@@ -78,7 +78,7 @@
     public static function deleteByBookID($book_id){
       $db = Db::getInstance();
       $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      $sql = "DELETE FROM IMAGE WHERE book_ID='" . $book_id . "'";
+      $sql = "DELETE FROM IMAGE WHERE book_ID=$book_id";
 
       if($db->query($sql)){
             return true;

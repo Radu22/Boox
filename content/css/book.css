@@ -170,8 +170,8 @@ img{
 #deletion_inp{
 	font-size: 20px;
 	padding: 10px;
-	text-align: center;
-	letter-spacing: 0.15em;
+	text-align: left;
+	letter-spacing: 0.009em;
 }
 
 #deletion{
