@@ -91,7 +91,13 @@
                  foreach($books_wanted as $book) {?>
                     <tr class="<?php echo "".$book->book_id.""; ?>" align="left">
                         <td class="field cover">
-                        <?php echo '<img src="data:image;base64,' . base64_encode(Image::getImage(Image::getImageID($book->book_id))) . '" width="80" height="80"'; ?>
+                        <?php  
+                             $book_title_to_search = $book->book_title;     
+                             $book_found = Book::getByTitle('book_added', $book_title_to_search );
+                             $id_found = $book_found[0]->book_id;
+                        ?>
+
+                        <?php echo '<img src="data:image;base64,' . base64_encode(Image::getImage(Image::getImageID($id_found))) . '" width="80" height="80"'; ?>
                         </td>
                     
                         <td class="field title"><?php echo $book->book_title; ?></td>
@@ -119,7 +125,13 @@
                     foreach($books_wanted as $book) {?>
                     <tr class="<?php echo "".$book->book_id.""; ?>" align="left">
                         <td class="field cover">
-                        <?php echo '<img src="data:image;base64,' . base64_encode(Image::getImage(Image::getImageID($book->book_id))) . '" width="80" height="80"'; ?>
+                        <?php  
+                             $book_title_to_search = $book->book_title;     
+                             $book_found = Book::getByTitle('book_added', $book_title_to_search );
+                             $id_found = $book_found[0]->book_id;
+                        ?>
+                       
+                        <?php echo '<img src="data:image;base64,' . base64_encode(Image::getImage(Image::getImageID($id_found))) . '" width="80" height="80"'; ?>
                         </td>
                         <td class="field title"><?php echo $book->book_title; ?></td>
                         <td class="field author"><?php echo $book->book_author; ?></td>
