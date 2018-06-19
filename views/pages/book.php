@@ -1,7 +1,7 @@
 <?php 
     session_start();
     global $books_for_lease, $books_wanted;
-    header("Content-Type: image");
+    
 
     if (isset($_GET['controller']) && isset($_GET['action'])) {
         $controller = $_GET['controller'];

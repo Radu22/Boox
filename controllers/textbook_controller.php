@@ -120,7 +120,7 @@ class BooksController {
     			break;
 			}
 
-			array_push($info,$user_id, $title, $author, $isbn, $description,$tip,$duration, $limba);
+			array_push($info,$user_id, $title, $author, $isbn, $description,$tip, $limba,$duration);
 
 			if(empty($_FILES['image']['tmp_name'])){
 				AuthController::prompt("You have to insert an image with the book as well");

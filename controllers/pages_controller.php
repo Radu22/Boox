@@ -129,7 +129,7 @@
             $duration = 0;
             $user_id = $_SESSION['id'];
 
-            array_push($info,$user_id, $title, $author, $isbn, $description, $type, $duration, $language);
+            array_push($info,$user_id, $title, $author, $isbn, $description, $type, $language, $duration);
 
             if(Book::insertBook('book_wanted')){
               $id_book = Book::getBookID($title, "book_wanted");

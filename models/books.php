@@ -30,7 +30,7 @@
       $bookie = Book::getByTitle($table_name, $info[1]);
       if($bookie == NULL){
 
-        $sql = "INSERT INTO ". $table_name . "(user_id,book_title,book_author , isbn, description,book_type,duration, language)
+        $sql = "INSERT INTO ". $table_name . "(user_id,book_title,book_author , isbn, description,book_type,language, duration)
         VALUES ('".$info[0]."','".$info[1]."','".$info[2]."', '".$info[3]."','".$info[4]."','".$info[5]."', '".$info[6]."', '".$info[7]."')";
 
         if($db->query($sql)){
@@ -59,7 +59,7 @@
 
       $req = $db->query($sql);
       foreach($req->fetchAll() as $post){
-        $list[] = new Book($post['book_id'],$post['user_id'],$post['book_title'],$post['book_author'],$post['ISBN'],$post['book_type'],$post['duration'],$post['description'], $post['language']);
+        $list[] = new Book($post['book_id'],$post['user_id'],$post['book_title'],$post['book_author'],$post['ISBN'],$post['book_type'],$post['duration'],$post['language'], $post['description']);
       }
 
       return $list;
@@ -92,7 +92,7 @@
       $req = $db->query($sql);
 
       foreach($req->fetchAll() as $post){
-        $list[] = new Book($post['book_id'],$post['user_id'],$post['book_title'],$post['book_author'],$post['ISBN'],$post['book_type'],$post['duration'],$post['description'], $post['language']);
+        $list[] = new Book($post['book_id'],$post['user_id'],$post['book_title'],$post['book_author'],$post['ISBN'],$post['book_type'],$post['duration'],$post['language'], $post['description']);
       }
 
       return $list;
@@ -105,7 +105,7 @@
       $sql->bindValue(":id", $_SESSION['id'] );
       $sql->execute();
       foreach($sql->fetchAll() as $post){
-        $list[] = new Book($post['book_id'],$post['user_id'],$post['book_title'],$post['book_author'],$post['ISBN'],$post['book_type'],$post['duration'],$post['description'],$post['language']);
+        $list[] = new Book($post['book_id'],$post['user_id'],$post['book_title'],$post['book_author'],$post['ISBN'],$post['book_type'],$post['duration'],$post['language'],$post['description']);
 
       }
       return $list;
