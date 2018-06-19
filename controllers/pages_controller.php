@@ -64,7 +64,19 @@
                                 <br><br><br><br>
                                 <h5>' . $f->book_author . '</h5>
                                 <div class="fakeimg">
-                                     ' .  $f->description . '
+                                      ' . $f->description . '
+                                </div>
+                                <div style="display:none">
+                                    ' . $f->book_type . '
+                                </div>
+                                <div style="display:none">
+                                    ' . $f->language . '
+                                </div>
+                                <div style="display:none">
+                                    ' . $f->duration . '
+                                </div>
+                                <div style="display:none">
+                                    ' . $f->isbn . '
                                 </div>
                             </div>';
                   $count+=3;
@@ -81,6 +93,14 @@
                                 <h5>' . $bookie["author"] . '</h5>
                                 <div class="fakeimg">
                                     <img src="' . $bookie["img_src"] . '">
+                                </div>  <div style="display:none">
+                                     ' . $f->book_type . '
+                                </div>
+                                <div style="display:none">
+                                    ' . $f->language . '
+                                </div>
+                                <div style="display:none">
+                                    ' . $f->duration . '
                                 </div>
                           </div>';
                       $count+=3;
@@ -103,34 +123,29 @@
             }
             $key = (int) $key;
 
-            //   var_dump($firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('img')->textContent);
-
-
-            // die;
-
             global $info;
             $info = array();
 
 
             $title = $firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('h2')[0]->textContent;
             $author = $firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('h5')[0]->textContent;
-
-            // if for img check null
-
-            $description = $firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('div')[1]->textContent;
+            
+            $description  = $firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('div')[1]->textContent;
+            $type         = $firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('div')[2]->textContent;
+            $language     = $firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('div')[3]->textContent;
+            $duration     = $firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('div')[4]->textContent;
+            $duration   = (int) $duration;
+            $isbn         = $firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('div')[5]->textContent;
+            $isbn = (int) $isbn;
             if($firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('div')[1]->getElementsByTagName('img')[0] != NULL){
                 $image_path = $firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('div')[1]->getElementsByTagName('img')[0]->getAttribute('src');
-
               }
 
-            $isbn = 0;
-            $language = '';
-            $type = '';
-            $duration = 0;
             $user_id = $_SESSION['id'];
 
+            
             array_push($info,$user_id, $title, $author, $isbn, $description, $type, $language, $duration);
-
+  
             if(Book::insertBook('book_wanted')){
               $id_book = Book::getBookID($title, "book_wanted");
               if(!empty($image_path)){
