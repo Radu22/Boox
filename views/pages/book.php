@@ -49,8 +49,15 @@
                     <li><a href="book.php?controller=pages&action=book&types=lease">For leasing   - <?php echo $_SESSION['count_added']; ?> </a></li>
                     <li><a href="book.php?controller=pages&action=book&types=wantTo">Want to read - <?php echo $_SESSION['count_wanted']; ?> </a></li>
                 </ul>
+            <h4> You can delete any book by providing it's name, from here:</h4>
+            <form method="post">
+                <input type="text" placeholder="Name for deletion" name="del" title="Delete book" id="deletion_inp"
+                    onkeyup="getFiltered()">
+                <button type="submit" name="submit" id="deletion">Delete book</button>
+            </form>
 
             </div>
+            
         </div>
         <div style="overflow-x:hidden">
 
@@ -94,10 +101,26 @@
                         <?php  
                              $book_title_to_search = $book->book_title;     
                              $book_found = Book::getByTitle('book_added', $book_title_to_search );
-                             $id_found = $book_found[0]->book_id;
+                             if(empty($book_found)){
+                                 $id_found = $book->book_id;
+                                 $image_url = Image::getPath(Image::getImageID($id_found));
+                             }else{
+                                $id_found = $book_found[0]->book_id;
+                             }
+                             
                         ?>
 
-                        <?php echo '<img src="data:image;base64,' . base64_encode(Image::getImage(Image::getImageID($id_found))) . '" width="80" height="80"'; ?>
+                        <?php 
+
+                         if(!empty($image_url)) {
+                              // we have book wanted from GOODREADS
+                              echo "<img src='$image_url' width='80' height='80' />";
+                         }else{
+                             // we have book wanted from USERS
+                            echo '<img src="data:image;base64,' . base64_encode(Image::getImage(Image::getImageID($id_found))) . '" width="80" height="80"'; 
+                         }
+                            
+                        ?>
                         </td>
                     
                         <td class="field title"><?php echo $book->book_title; ?></td>
@@ -128,10 +151,25 @@
                         <?php  
                              $book_title_to_search = $book->book_title;     
                              $book_found = Book::getByTitle('book_added', $book_title_to_search );
-                             $id_found = $book_found[0]->book_id;
+                             if(empty($book_found)){
+                                 $id_found = $book->book_id;
+                                 $image_url = Image::getPath(Image::getImageID($id_found));
+                             }else{
+                                $id_found = $book_found[0]->book_id;
+                             }
+                             
                         ?>
                        
-                        <?php echo '<img src="data:image;base64,' . base64_encode(Image::getImage(Image::getImageID($id_found))) . '" width="80" height="80"'; ?>
+                        <?php 
+                         if(!empty($image_url)) {
+                              // we have book wanted from GOODREADS
+                              echo "<img src='$image_url' width='80' height='80' />";
+                         }else{
+                             // we have book wanted from USERS
+                            echo '<img src="data:image;base64,' . base64_encode(Image::getImage(Image::getImageID($id_found))) . '" width="80" height="80"'; 
+                         }
+                            
+                        ?>
                         </td>
                         <td class="field title"><?php echo $book->book_title; ?></td>
                         <td class="field author"><?php echo $book->book_author; ?></td>

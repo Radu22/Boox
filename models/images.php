@@ -46,6 +46,13 @@
       }
       
     }
+    public static function getPath($image_id){
+      $db = Db::getInstance();
+      $sql = "SELECT * FROM IMAGE WHERE id = $image_id" ;
+      $req = $db->query($sql);
+      $req = $req->fetch();
+      return $req['image_name'];
+    }
 
     public static function getImageID($book_id){
       $db = Db::getInstance();
@@ -66,6 +73,19 @@
         $query->fetch(PDO::FETCH_BOUND);
 
         return $data;
+    }
+
+    public static function deleteByBookID($book_id){
+      $db = Db::getInstance();
+      $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      $sql = "DELETE FROM IMAGE WHERE book_ID='" . $book_id . "'";
+
+      if($db->query($sql)){
+            return true;
+        }else{
+          return false;
+        }
+      
     }
 
 

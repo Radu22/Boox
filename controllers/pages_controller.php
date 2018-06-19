@@ -47,7 +47,6 @@
           }
         }
 
-
         $fetching_for_file = Book::fetchBooks();
         if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
@@ -93,14 +92,6 @@
                                 <h5>' . $bookie["author"] . '</h5>
                                 <div class="fakeimg">
                                     <img src="' . $bookie["img_src"] . '">
-                                </div>  <div style="display:none">
-                                     ' . $f->book_type . '
-                                </div>
-                                <div style="display:none">
-                                    ' . $f->language . '
-                                </div>
-                                <div style="display:none">
-                                    ' . $f->duration . '
                                 </div>
                           </div>';
                       $count+=3;
@@ -115,7 +106,6 @@
 
             $form = $dom->getElementsByTagName('form')[2];
             $firstrow = $form->getElementsByTagName('div')[0];
-
             if(strlen(key($_POST)) == 6 ){
               $key = substr(key($_POST), strlen(key($_POST)) - 2);
             }else{
@@ -143,7 +133,7 @@
 
             $user_id = $_SESSION['id'];
 
-            
+
             array_push($info,$user_id, $title, $author, $isbn, $description, $type, $language, $duration);
   
             if(Book::insertBook('book_wanted')){
@@ -168,12 +158,56 @@
     }
 
     public function book(){
+      require_once("auth_controller.php");
       global $books_for_lease, $books_wanted;
       $_SESSION['count_total'] = Book::getTotalCount();
       $_SESSION['count_added'] = Book::getCount('book_added');
       $_SESSION['count_wanted'] = Book::getCount('book_wanted');
       $books_for_lease = Book::getBooksByUserID('book_added', $_SESSION['id']);
       $books_wanted = Book::getBooksByUserID('book_wanted', $_SESSION['id']);
+
+      if($_SERVER['REQUEST_METHOD'] == 'POST'){
+          if(isset($_POST['submit'])){
+            $book_title = $_POST['del'];
+            $tables_to_search = array(
+                'book_added'  => Book::getByTitle('book_added', $book_title),
+                'book_wanted' => Book::getByTitle('book_wanted', $book_title)
+                
+            );
+
+
+            if(empty($tables_to_search['book_added']) && !empty($tables_to_search['book_wanted'])){
+                $status = Book::deleteByTitle($book_title, 'book_wanted');
+                if(!$status){
+                    AuthController::prompt("not working wanted deletion");
+                    header("Location: ../pages/error.php");
+                }else{
+                    header("Location: ../pages/book.php?controller=pages&action=book&types=total");
+                }
+            }else if(!empty($tables_to_search['book_added']) && empty($tables_to_search['book_wanted'])){
+                    $status = Book::deleteByTitle($book_title, 'book_added');
+                    if(!$status){
+                        AuthController::prompt("not working added deletion");
+                        header("Location: ../pages/error.php");
+                    }else{
+                        header("Location: ../pages/book.php?controller=pages&action=book&types=total");
+                    }
+                }
+            else if(!empty($tables_to_search['book_added']) && !empty($tables_to_search['book_wanted'])){
+                $status1 = Book::deleteByTitle($book_title, 'book_wanted');
+                $status2 = Book::deleteByTitle($book_title, 'book_added');
+                if(!$status1 || !$status2){
+                    AuthController::prompt("not working both deletions");
+                    header("Location: ../pages/error.php");
+                }else{
+                    header("Location: ../pages/book.php?controller=pages&action=book&types=total");
+                }
+            
+            }else if(empty($tables_to_search['book_added']) && empty($tables_to_search['book_wanted'])){
+                    AuthController::prompt("cant delete book, it doesnt exist");
+            }
+        } 
+      }
 
     }
     public function notification(){

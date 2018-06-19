@@ -21,6 +21,10 @@ h2{
 h3{
 	margin-top: 65px;
 }
+h4{
+	margin-top: 150px;
+	font-size: 20px;
+}
 
 ul{
 	padding: 0;
@@ -162,6 +166,27 @@ img{
 
 #booksHeader{
 	width: 100%;
+}
+#deletion_inp{
+	font-size: 20px;
+	padding: 10px;
+	text-align: center;
+	letter-spacing: 0.15em;
+}
+
+#deletion{
+	background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+	cursor: pointer;
+	margin-left: 60px;
+	margin-top: 20px;
 }
 
 @media screen and (max-width: 758px){

@@ -111,6 +111,22 @@
       return $list;
     }
 
+    public static function deleteByTitle($book_title, $table_name){
+      $db = Db::getInstance();
+      $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      $bookie = Book::getByTitle($table_name, $book_title);
+      if($bookie != NULL){
+
+        $sql = "DELETE FROM " . $table_name . "  WHERE book_title='" . $book_title . "'";
+
+      if($db->query($sql)){
+            return true;
+        }else{
+          return false;
+        }
+      }
+    }
+
 
 
   }
