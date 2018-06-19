@@ -1,4 +1,6 @@
 <?php
+	date_default_timezone_set('Europe/Bucharest');
+
 	class Location{
 
 		public $lat;
@@ -19,39 +21,46 @@
        		$req->execute();
         	if ($req->fetchColumn() > 0) {
         		//update
-        		$sql = $db->prepare('UPDATE location SET lat = :lat, lng = :long WHERE user_id = :id');
+        		$sql = $db->prepare('UPDATE location SET lat = :lat, lng = :long, last_update = :astazi WHERE user_id = :id');
         		$sql->bindValue(":lat", $this->lat);
         		$sql->bindValue(":long", $this->lng );
+        		$sql->bindValue(":astazi", date("Y-m-d H:i:s"));
         		$sql->bindValue(":id", $_SESSION['id'] );
         		$sql->execute();
         	}else{
         		//insert
-        		$sql = $db->prepare("INSERT INTO location (user_id, lat, lng) values (:id, :lat, :long)");
+        		$sql = $db->prepare("INSERT INTO location (user_id, lat, lng, last_update) values (:id, :lat, :long, :astazi)");
         		$sql->bindValue(":lat", $this->lat);
         		$sql->bindValue(":long", $this->lng );
+        		$sql->bindValue(":astazi", date("Y-m-d H:i:s"));
         		$sql->bindValue(":id", $_SESSION['id'] );
         		$sql->execute();
         	}
 		}
 
-        public function verifyNearUsers(){
+        public function locNotification(){
             require_once("../connection.php");
             $db = Db::getInstance();
 
-            $sql = $db->prepare('SELECT lat, lng, user_id FROM location WHERE user_id != :id');
+            $sql = $db->prepare('SELECT lat, lng, user_id, last_update FROM location WHERE user_id != :id');
             $sql->bindValue(":id", $_SESSION['id'] );
             $sql->execute();
             foreach($sql->fetchAll() as $loc){
                 $lat = $loc['lat'];
                 $long = $loc['lng'];
                 $user2 = $loc['user_id'];
-                $R = 6371;
-                $dLat = deg2rad($lat-$this->lat);
-                $dLon = deg2rad($long-$this->lng);
-                $a = sin($dLat/2) * sin($dLat/2) + cos(deg2rad($lat)) * cos(deg2rad($this->lat)) * sin($dLon/2) * sin($dLon/2);
-                $c = 2 * atan2(sqrt($a), sqrt(1-$a));
-                $d = $R * $c;
-                if($d < 50){
+                $data = strtotime($loc['last_update']);
+                $data_curenta = strtotime(date("Y-m-d H:i:s"));
+                $diferenta = round(($data_curenta - $data)/3600);
+
+                if($diferenta<2){
+                	$R = 6371;
+	                $dLat = deg2rad($lat-$this->lat);
+	                $dLon = deg2rad($long-$this->lng);
+	                $a = sin($dLat/2) * sin($dLat/2) + cos(deg2rad($lat)) * cos(deg2rad($this->lat)) * sin($dLon/2) * sin($dLon/2);
+	                $c = 2 * atan2(sqrt($a), sqrt(1-$a));
+	                $d = $R * $c;
+	                if($d < 5){
 
                     $req = $db->prepare('SELECT count(*) FROM notification WHERE user_to = :id and type = :loc and user_from = :id2');
                     $req->bindValue(":id2", $user2);
@@ -74,9 +83,11 @@
                         $ql->bindValue(":id1", $_SESSION['id'] );
                         $ql->execute();
                     }
-
                 }
             }
+
+                
+        }
 
         }
 
