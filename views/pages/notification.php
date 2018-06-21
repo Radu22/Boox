@@ -20,8 +20,7 @@
     <body>
 
       <?php require_once('../header_main.php');?>
-      <script src="../../content/js/notification.js"></script>
-
+      
        <div id="txtHint"></div>
 
 
@@ -41,3 +40,8 @@
 ?>
       </body>
 </html>
+
+
+
+
+

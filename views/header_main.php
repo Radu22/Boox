@@ -1,4 +1,3 @@
-
 <?php
 
 echo '	<div class="header" id="myHeader">
@@ -7,11 +6,12 @@ echo '	<div class="header" id="myHeader">
 	';
 
 		echo'
+
 			<div class="header-left">
-
-
+	            
 				<a href="notification.php?controller=pages&action=notification" class="fa fa-bell">
-					<div class="notification">30</div>
+                    <script src="../../content/js/notif.js"></script>
+					<div id = "notif_nr"></div>
 				</a>
 
 

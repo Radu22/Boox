@@ -3,9 +3,12 @@
 
 }
 
-.card{
-	background-color: aquamarine;
-    width: 80%;
+#card{
+	float:left;
+	background-color: rgb(187, 187, 119) ;
+    width: 60%;
+    margin: 20px;
+    padding: 20px;
 }
 
 .titlu{
@@ -14,8 +17,12 @@
 
 h3{
 	font-weight: 100;
+	color: green;
 }
 
 b{
 	font-size: 24px;
+}
+select {
+	font-size: 18px;
 }
