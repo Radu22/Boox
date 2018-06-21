@@ -31,7 +31,7 @@
 				header("notification.php?controller=pages&action=notification");
 			}else{
 				//verificam daca exista o notificare de accept pentru oricare dintre cartii
-
+				
 				//inseram notificarea daca ea nu exista
 				$req = $db->prepare('INSERT INTO notification (user_to, book_id_to, type, user_from, book_id_from, last_update) values (:id_to, :book_id_1, :tip, :id_from, :book_id_2, :astazi)');
    				$req->bindValue(":id_to", $user_id );
@@ -103,7 +103,6 @@
 				//inseram notificarea de accept trade pentru userul care a acceptat trade-ul
 			}
 		}
-
 		public static function getNotification($user_id, $tip, $id_book_1, $id_book_2){
 			$db = Db::getInstance();
 			$sql = $db->prepare('SELECT * from notification where user_to = :id_to and type = :tip and user_from = :id_from and book_id_to = :book_id_to and book_id_from = :book_id_from ');
@@ -119,7 +118,6 @@
 				return 0;
 			}
 		}
-
 		public static function deleteByUserID($user_id){
 			$db = Db::getInstance();
 			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

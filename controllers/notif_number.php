@@ -26,6 +26,15 @@
 			$number = $number + 1;
 		}
 	}
+	$req = $db->prepare('SELECT * FROM notification WHERE user_from = :id' );
+    $req->bindValue(":id", $_SESSION['id']);
+	$req->execute();
+	foreach ($req->fetchAll() as $notif){
+		if($notif['type']=="accepted"){
+			$number = $number + 1;
+		}
+	}
+
 	if($number>0){
 		echo '<div class="notification">'. $number . '</div>';
 	}

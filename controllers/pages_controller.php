@@ -234,8 +234,8 @@
     }
     public function notification(){
 
-    //luam toate notificarile utilizatorului din sesiune
     $db = Db::getInstance();
+    //luam toate notificarile utilizatorului din sesiune
     $req = $db->prepare('SELECT * FROM notification WHERE user_to = :id' );
     $req->bindValue(":id", $_SESSION['id'] );
 	$req->execute();
@@ -248,44 +248,25 @@
     	//daca notificarea este de tip accepted
     	if($notif['type']=="accepted"){
 
-    		$sql = $db->prepare('SELECT * FROM trade where user_id1 =:id');
+    		$sql = $db->prepare('SELECT * FROM trade where user_id2 =:id');
     		$sql->bindValue(":id", $notif["user_to"]);
 			$sql->execute();
 			foreach ($sql->fetchAll() as $carte_acceptata) {
 
+				$ql = $db->prepare('SELECT * from users where user_id = :id');
+				$ql->bindValue(":id", $carte_acceptata['user_id1']);
+				$ql->execute();
+				$user_1 = $ql->fetch();
+
     			echo '<div id = "card" >';
-				echo "<h4><b>Tu ai acceptat urmatoarea oferta de trade: </b></h4>";
+				echo "<h4><b>Ti-a fost acceptat cererea de trade: </b></h4>";
 				echo "<p>Cartea: ". $carte_acceptata['book_title2'] . " pentru " . $carte_acceptata['book_title1'] . "</p>";
+				echo "<p>Intra in contact cu user-ul ". $user_1['user_first'] . " pentru a face schimbul: 0". $user_1['phone_number'] . "</p>";
 				echo '</div>';
-			}
-
-    		$sql = $db->prepare('SELECT * FROM trade where user_id1 =:id');
-    		$sql->bindValue(":id", $notif["user_from"]);
-			$sql->execute();
-			$carte_acceptata = $sql->fetchAll();
-				//accesam informatiile celui care a acceptat trade-ul
-				$l = $db->prepare('SELECT * FROM users WHERE user_id = :id');
-			    $l->bindValue(":id", $notif['user_to']);
-				$l->execute();
-				$user_accepted = $l->fetch();
-				foreach($carte_acceptata as $a) 
-				{
-								//afisam cardul de notificare accept trade
-				echo '<div id = "card" >';
-					echo "<h4><b>" . $user_accepted['user_first'] . " a acceptat oferta ta de trade: </b></h4>";
-					echo "<p>Cartea: ". $a['book_title1'] . " pentru " . $a['book_title2'] . "</p>";
-					echo "<p>Adresa de email: " . $user_accepted['user_email'] . " pentru a intra in contact cu " . $user_accepted['user_first'] . "</p>";
-				echo '</div>';
-
 				}
 
     		}
-
-    		
-			
-    	}
-  		
-
+    	
 		//daca notificarea este de tipul trade
         if($notif['type']=="trade"){
 
@@ -327,7 +308,6 @@
 
         //daca notificare este de tip locatie
         if($notif['type']=="location"){
-
         	//verificam ca notificarea sa fie in ultima ora
         	$data = strtotime($notif['last_update']);
             $data_curenta = strtotime(date("Y-m-d H:i:s"));
@@ -381,10 +361,8 @@
         		}
         	}        
     	}
-	
+    }
 	echo '</form>';
-
-
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
   	
   	//verificam ce tip de buton sa apasat
@@ -412,11 +390,33 @@
 	        	Notification::insertAcceptNotification($_POST[$userish],$_POST[$carte_ap_schimb],$_POST[$carte_schimbata]);
 	        	//header("Location: ../pages/notification.php?controller=pages&action=notification");
 	        }
-
       	}
     }
-}
+    $req = $db->prepare('SELECT * FROM notification WHERE user_from = :id' );
+    $req->bindValue(":id", $_SESSION['id'] );
+	$req->execute();
+	foreach($req->fetchAll() as $notif){
+		if($notif['type']=="accepted"){
 
+			$sql = $db->prepare('SELECT * FROM trade where user_id1 =:id');
+    		$sql->bindValue(":id", $notif["user_from"]);
+			$sql->execute();
+			foreach ($sql->fetchAll() as $carte_acceptata) {
+
+				$ql = $db->prepare('SELECT * from users where user_id = :id');
+				$ql->bindValue(":id", $carte_acceptata['user_id2']);
+				$ql->execute();
+				$user_1 = $ql->fetch();
+
+    			echo '<div id = "card" >';
+				echo "<h4><b>Ai acceptat urmatoarea oferta de trade: </b></h4>";
+				echo "<p>Cartea: ". $carte_acceptata['book_title1'] . " pentru " . $carte_acceptata['book_title2'] . "</p>";
+				echo "<p>Intra in contact cu user-ul ".$user_1['user_first']. " pentru a face schimbul: 0". $user_1['phone_number'] . "</p>";
+				echo '</div>';
+			}	
+		}
+	}
+}
 
     public function logout(){
       $users = User::all();
