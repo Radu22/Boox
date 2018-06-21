@@ -22,10 +22,12 @@ class AuthController{
 *
 */
         // Getting data from form
-        $name     = $_POST['name'];
-        $username = $_POST['user_name'];
-        $email    = $_POST['user_email'];
-        $password = $_POST['user_password'];
+        $name          = $_POST['name'];
+        $username      = $_POST['user_name'];
+        $email         = $_POST['user_email'];
+        $password      = $_POST['user_password'];
+        $phone_number  = $_POST['user_phone'];
+        $phone_number = (int) $phone_number;
 
         // Splitting name to get first_name / last_name
         $name = explode(" ",$name);
@@ -54,7 +56,7 @@ class AuthController{
                             array_push($required, $name[$i]);
                     }
                 }
-                array_push($required, $email, $username, $password);
+                array_push($required, $email, $username, $password, $phone_number);
 
                 // Check if input is empty
                 foreach($required as $req){
@@ -130,14 +132,14 @@ class AuthController{
                     }
                 }
 
-                if(empty($city) xor empty($county)){
-                     AuthController::prompt("For location you need to specify both city and county");
-                }else{
-                    if(!empty($city) && !empty($county)){
-                        $location = $city .", ".$county;
-                        User::updateLocation($location);
-                    }
-                }
+                // if(empty($city) xor empty($county)){
+                //      AuthController::prompt("For location you need to specify both city and county");
+                // }else{
+                //     if(!empty($city) && !empty($county)){
+                //         $location = $city .", ".$county;
+                //         User::updateLocation($location);
+                //     }
+                // }
 
 
                 if(!empty($notification)){

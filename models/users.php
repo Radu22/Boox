@@ -7,20 +7,20 @@
     public $username;
     public $password;
     public $notif;
-    public $location;
     public $logged_time;
+    public $phone_number;
 
-
-    public function __construct($id, $firstname, $lastname, $email, $username, $password,$notif,$location,$logged_time) {
-      $this->id         = $id;
-      $this->firstname  = $firstname;
-      $this->lastname   = $lastname;
-      $this->email      = $email;
-      $this->username   = $username;
-      $this->password   = $password;
-      $this->notif      = $notif;
-      $this->location   = $location;
-      $this->logged_time = $logged_time;
+    public function __construct($id, $firstname, $lastname, $email, $username, $password,$notif,$logged_time, $phone_number) {
+      $this->id             = $id;
+      $this->firstname      = $firstname;
+      $this->lastname       = $lastname;
+      $this->email          = $email;
+      $this->username       = $username;
+      $this->password       = $password;
+      $this->notif          = $notif;
+      $this->location       = $location;
+      $this->logged_time    = $logged_time;
+      $this->phone_number   = $phone_number;
     }
 
 
@@ -31,7 +31,7 @@
 
       foreach($req->fetchAll() as $post) {
         $list[] = new User($post['user_id'], $post['user_first'], $post['user_last'],
-            $post['user_email'], $post['user_uid'],$post['user_pwd'],$post['notification'],$post['location'], $post['logged_time']);
+            $post['user_email'], $post['user_uid'],$post['user_pwd'],$post['notification'],$post['logged_time'], $post['phone_number']);
       }
 
       return $list;
@@ -68,7 +68,7 @@
       $post = $req->fetch();
 
       return new User($post['user_id'], $post['user_first'], $post['user_last'],
-      $post['user_email'], $post['user_uid'],$post['user_pwd'],$post['notification'],$post['location'], $post['logged_time']);
+      $post['user_email'], $post['user_uid'],$post['user_pwd'],$post['notification'],$post['logged_time'] , $post['phone_number']);
     }
 
     public static function getUserByUsername($username){
@@ -78,7 +78,7 @@
       $post = $req->fetch();
 
       return new User($post['user_id'], $post['user_first'], $post['user_last'],
-      $post['user_email'], $post['user_uid'],$post['user_pwd'],$post['notification'],$post['location'], $post['logged_time']);
+      $post['user_email'], $post['user_uid'],$post['user_pwd'],$post['notification'],$post['logged_time'], $post['phone_number']);
     }
 
     public static function getUserByEmail($email){
@@ -88,7 +88,7 @@
       $post = $req->fetch();
 
       return new User($post['user_id'], $post['user_first'], $post['user_last'],
-      $post['user_email'], $post['user_uid'],$post['user_pwd'],$post['notification'],$post['location'], $post['logged_time']);
+      $post['user_email'], $post['user_uid'],$post['user_pwd'],$post['notification'],$post['logged_time'], $post['phone_number']);
     }
 
     public static function updateUsername($username){

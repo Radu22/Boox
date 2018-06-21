@@ -19,7 +19,10 @@
 			          <input type="email" name="user_email">
 
 			          <label>Password *</label>
-			          <input type="password" name="user_password">
+					  <input type="password" name="user_password">
+					  
+					  <label>Phone number - required for trade *</label>
+			          <input type="text" name="user_phone">
 
 			        </fieldset>
 			      <button type="submit" name="submit" > Sign Up </button>
