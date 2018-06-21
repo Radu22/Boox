@@ -10,6 +10,7 @@
     public $logged_time;
     public $phone_number;
 
+
     public function __construct($id, $firstname, $lastname, $email, $username, $password,$notif,$logged_time, $phone_number) {
       $this->id             = $id;
       $this->firstname      = $firstname;
@@ -18,7 +19,6 @@
       $this->username       = $username;
       $this->password       = $password;
       $this->notif          = $notif;
-      $this->location       = $location;
       $this->logged_time    = $logged_time;
       $this->phone_number   = $phone_number;
     }
@@ -31,7 +31,7 @@
 
       foreach($req->fetchAll() as $post) {
         $list[] = new User($post['user_id'], $post['user_first'], $post['user_last'],
-            $post['user_email'], $post['user_uid'],$post['user_pwd'],$post['notification'],$post['logged_time'], $post['phone_number']);
+        $post['user_email'], $post['user_uid'],$post['user_pwd'],$post['notification'],$post['logged_time'], $post['phone_number']);
       }
 
       return $list;
@@ -68,7 +68,7 @@
       $post = $req->fetch();
 
       return new User($post['user_id'], $post['user_first'], $post['user_last'],
-      $post['user_email'], $post['user_uid'],$post['user_pwd'],$post['notification'],$post['logged_time'] , $post['phone_number']);
+      $post['user_email'], $post['user_uid'],$post['user_pwd'],$post['notification'],$post['logged_time'], $post['phone_number']);
     }
 
     public static function getUserByUsername($username){
@@ -133,18 +133,6 @@
         $sql = "UPDATE users SET notification = :notif WHERE user_id = :id";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(":notif", $notification);
-        $stmt->bindValue(":id", $_SESSION['id'] );
-        $stmt->execute();
-        return 1;
-
-      }
-
-      public static function updateLocation($location){
-        $db = Db::getInstance();
-        //$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "UPDATE users SET location = :location WHERE user_id = :id";
-        $stmt = $db->prepare($sql);
-        $stmt->bindValue(":location", $location);
         $stmt->bindValue(":id", $_SESSION['id'] );
         $stmt->execute();
         return 1;

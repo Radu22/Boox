@@ -122,7 +122,7 @@
                             
                         ?>
                         </td>
-                    
+                         
                         <td class="field title"><?php echo $book->book_title; ?></td>
                         <td class="field author"><?php echo $book->book_author; ?></td>
                         <td class="field type"><?php echo $book->book_type; ?></td>

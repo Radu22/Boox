@@ -108,14 +108,18 @@ class AuthController{
         public function edit(){
 
             if($_SERVER['REQUEST_METHOD'] === 'POST'){
+                if(isset($_POST['username'])){
+                    $username = $_POST['username'];
+                }
+                if(isset($_POST['email'])){
+                    $email = $_POST['email'];
+                }
+                if(isset($_POST['notification'])){
+                    $notification = $_POST['notification'];
+                    $_SESSION['notif'] = $notification;
+                }
 
-                $username = $_POST['username'];
-                $email = $_POST['email'];
-                $city = $_POST['city'];
-                $county = $_POST['county'];
-                $notification = $_POST['notification'];
 
-                $_SESSION['notif'] = $notification;
 
                 if(!empty($username) ){
                     if(!User::updateUsername($username)){
@@ -132,15 +136,6 @@ class AuthController{
                     }
                 }
 
-                // if(empty($city) xor empty($county)){
-                //      AuthController::prompt("For location you need to specify both city and county");
-                // }else{
-                //     if(!empty($city) && !empty($county)){
-                //         $location = $city .", ".$county;
-                //         User::updateLocation($location);
-                //     }
-                // }
-
 
                 if(!empty($notification)){
                     if($notification == '2'){
@@ -150,6 +145,21 @@ class AuthController{
                         AuthController::prompt("Error");
                     }
                 }
+
+                if(isset($_POST['titlu']) && isset($_POST['duration'])){
+                    $book_title = $_POST['titlu'];
+                    
+                    $dur        = $_POST['duration'];
+                    $book = Book::getByTitleAndID('book_added', $book_title, $_SESSION['id']);
+            
+                    if(!Book::updateDuration($book_title, $dur, $_SESSION['id'])){
+                        AuthController::prompt("update not successful");   
+                    }
+                
+                }else{
+                    AuthController::prompt("Data about book not provided");
+                }
+
             }
         }
 }

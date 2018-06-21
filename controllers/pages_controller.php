@@ -65,18 +65,18 @@
                                 <div class="fakeimg">
                                       ' . $f->description . '
                                 </div>
-                                <div style="display:none">
+                                <p style="display:none">
                                     ' . $f->book_type . '
-                                </div>
-                                <div style="display:none">
+                                </p>
+                                <p style="display:none">
                                     ' . $f->language . '
-                                </div>
-                                <div style="display:none">
+                                </p>
+                                <p style="display:none">
                                     ' . $f->duration . '
-                                </div>
-                                <div style="display:none">
+                                </p>
+                                <p style="display:none">
                                     ' . $f->isbn . '
-                                </div>
+                                </p>
                             </div>';
                   $count+=3;
                }
@@ -106,6 +106,7 @@
 
             $form = $dom->getElementsByTagName('form')[2];
             $firstrow = $form->getElementsByTagName('div')[0];
+
             if(strlen(key($_POST)) == 6 ){
               $key = substr(key($_POST), strlen(key($_POST)) - 2);
             }else{
@@ -116,17 +117,26 @@
             global $info;
             $info = array();
 
-
             $title = $firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('h2')[0]->textContent;
             $author = $firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('h5')[0]->textContent;
-            
-            $description  = $firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('div')[1]->textContent;
-            $type         = $firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('div')[2]->textContent;
-            $language     = $firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('div')[3]->textContent;
-            $duration     = $firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('div')[4]->textContent;
-            $duration   = (int) $duration;
-            $isbn         = $firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('div')[5]->textContent;
-            $isbn = (int) $isbn;
+
+            if($firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('p')[0] != NULL){
+                $duration  = $firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('div')[1]->textContent;
+                $description = $firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('p')[0]->textContent;
+                $language = $firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('p')[1]->textContent;
+                $type = $firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('p')[2]->textContent;
+                $duration   = (int) $duration;
+                $isbn = $firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('p')[3]->textContent;
+                $isbn = (int) $isbn;
+
+            }else{
+                    $description = '';
+                    $type = '';
+                    $language = '';
+                    $duration = 0;
+                    $isbn = 0;
+            }
+
             if($firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('div')[1]->getElementsByTagName('img')[0] != NULL){
                 $image_path = $firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('div')[1]->getElementsByTagName('img')[0]->getAttribute('src');
               }
@@ -166,12 +176,14 @@
       $books_for_lease = Book::getBooksByUserID('book_added', $_SESSION['id']);
       $books_wanted = Book::getBooksByUserID('book_wanted', $_SESSION['id']);
 
+
+      // BOOK DELETION FEATURE ON MY BOOKS, THE ENTIRE REQUEST SERVES FOR THAT
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
           if(isset($_POST['submit'])){
             $book_title = $_POST['del'];
             $tables_to_search = array(
-                'book_added'  => Book::getByTitle('book_added', $book_title),
-                'book_wanted' => Book::getByTitle('book_wanted', $book_title)
+                'book_added'  => Book::getByTitleAndID('book_added', $book_title, $_SESSION['id']),
+                'book_wanted' => Book::getByTitleAndID('book_wanted', $book_title, $_SESSION['id'])
             );
             
             if(empty($tables_to_search['book_added']) && !empty($tables_to_search['book_wanted'])){

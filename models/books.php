@@ -10,7 +10,8 @@
     public $duration;
     public $language;
 
-    public function __construct($book_id, $user_id, $book_title, $book_author, $isbn, $book_type, $duration, $language, $description = '') {
+
+    public function __construct($book_id, $user_id, $book_title, $book_author, $isbn, $description, $book_type, $language, $duration) {
       $this->book_id = $book_id;
       $this->user_id = $user_id;
       $this->book_title = $book_title;
@@ -59,12 +60,28 @@
 
       $req = $db->query($sql);
       foreach($req->fetchAll() as $post){
-        $list[] = new Book($post['book_id'],$post['user_id'],$post['book_title'],$post['book_author'],$post['ISBN'],$post['book_type'],$post['duration'],$post['language'], $post['description']);
+        $list[] = new Book($post['book_id'],$post['user_id'],$post['book_title'],$post['book_author'],$post['ISBN'],$post['description'], $post['book_type'],$post['language'],$post['duration']);
       }
 
       return $list;
 
     }
+
+    public static function getByTitleAndID($table_name, $title, $user_id){
+      $db = Db::getInstance();
+      $list = [];
+      $sql = "SELECT * FROM " .  $table_name . " WHERE book_title='" . $title . "' and user_id=$user_id";
+
+      $req = $db->query($sql);
+      foreach($req->fetchAll() as $post){
+        $list[] = new Book($post['book_id'],$post['user_id'],$post['book_title'],$post['book_author'],$post['ISBN'],$post['description'], $post['book_type'],$post['language'],$post['duration']);
+      }
+
+      return $list;
+
+    }
+
+
 
     public static function getCount($table_name){
       $db = Db::getInstance();
@@ -92,7 +109,7 @@
       $req = $db->query($sql);
 
       foreach($req->fetchAll() as $post){
-        $list[] = new Book($post['book_id'],$post['user_id'],$post['book_title'],$post['book_author'],$post['ISBN'],$post['book_type'],$post['duration'],$post['language'], $post['description']);
+        $list[] = new Book($post['book_id'],$post['user_id'],$post['book_title'],$post['book_author'],$post['ISBN'],$post['description'], $post['book_type'],$post['language'],$post['duration']);
       }
 
       return $list;
@@ -105,7 +122,7 @@
       $sql->bindValue(":id", $_SESSION['id'] );
       $sql->execute();
       foreach($sql->fetchAll() as $post){
-        $list[] = new Book($post['book_id'],$post['user_id'],$post['book_title'],$post['book_author'],$post['ISBN'],$post['book_type'],$post['duration'],$post['language'],$post['description']);
+        $list[] = new Book($post['book_id'],$post['user_id'],$post['book_title'],$post['book_author'],$post['ISBN'],$post['description'], $post['book_type'],$post['language'],$post['duration']);
 
       }
       return $list;
@@ -125,6 +142,20 @@
           return false;
         }
       }
+    }
+
+    public static function updateDuration($book_title, $duration, $user_id){
+        $db = Db::getInstance(); 
+        $stmt = $db->prepare("UPDATE book_added SET duration=:duration WHERE book_title=:book_title and user_id=:user");
+        $stmt->bindValue(":duration", $duration);
+        $stmt->bindValue(":book_title", $book_title);
+        $stmt->bindValue(":user", $user_id);
+        if($stmt->execute()){
+          return true;
+        }else{
+          return false;
+        }
+
     }
 
 
