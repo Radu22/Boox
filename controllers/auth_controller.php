@@ -108,56 +108,95 @@ class AuthController{
         public function edit(){
 
             if($_SERVER['REQUEST_METHOD'] === 'POST'){
-                if(isset($_POST['username'])){
-                    $username = $_POST['username'];
-                }
-                if(isset($_POST['email'])){
-                    $email = $_POST['email'];
-                }
-                if(isset($_POST['notification'])){
-                    $notification = $_POST['notification'];
-                    $_SESSION['notif'] = $notification;
-                }
 
-
-
-                if(!empty($username) ){
-                    if(!User::updateUsername($username)){
-                        AuthController::prompt("Username taken");
+                if(isset($_POST['saving'])){
+                    if(isset($_POST['username'])){
+                        $username = $_POST['username'];
                     }
-                }
-                if(!empty($email)){
-                    if(strpos($email, '@')){
-                        if(!User::updateEmail($email)){
-                            AuthController::prompt("There is already an account associated with this email");
+                    if(isset($_POST['email'])){
+                        $email = $_POST['email'];
+                    }
+                    if(isset($_POST['notification'])){
+                        $notification = $_POST['notification'];
+                        $_SESSION['notif'] = $notification;
+                    }
+    
+    
+                    // Update username
+                    if(!empty($username) ){
+                        if(!User::updateUsername($username)){
+                            AuthController::prompt("Username taken");
                         }
-                    }else{
-                        AuthController::prompt("You didn't write a valid email");
                     }
-                }
 
-
-                if(!empty($notification)){
-                    if($notification == '2'){
-                        $notification = '0';
+                    // Update email
+                    if(!empty($email)){
+                        if(strpos($email, '@')){
+                            if(!User::updateEmail($email)){
+                                AuthController::prompt("There is already an account associated with this email");
+                            }
+                        }else{
+                            AuthController::prompt("You didn't write a valid email");
+                        }
                     }
-                    if(!User::updateNotification($notification)){
-                        AuthController::prompt("Error");
+    
+                    // Update notification
+                    if(!empty($notification)){
+                        if($notification == '2'){
+                            $notification = '0';
+                        }
+                        if(!User::updateNotification($notification)){
+                            AuthController::prompt("Error");
+                        }
                     }
-                }
-
-                if(isset($_POST['titlu']) && isset($_POST['duration'])){
-                    $book_title = $_POST['titlu'];
                     
-                    $dur        = $_POST['duration'];
-                    $book = Book::getByTitleAndID('book_added', $book_title, $_SESSION['id']);
-            
-                    if(!Book::updateDuration($book_title, $dur, $_SESSION['id'])){
-                        AuthController::prompt("update not successful");   
-                    }
+                    // Update book duration for trading
+                    if(isset($_POST['titlu']) && isset($_POST['duration'])){
+                        $book_title = $_POST['titlu'];
+                        
+                        $dur        = $_POST['duration'];
+                        $book = Book::getByTitleAndID('book_added', $book_title, $_SESSION['id']);
                 
-                }else{
-                    AuthController::prompt("Data about book not provided");
+                        if(!Book::updateDuration($book_title, $dur, $_SESSION['id'])){
+                            AuthController::prompt("update not successful");   
+                        }
+                    
+                    }else{
+                        AuthController::prompt("Data about book not provided");
+                    }
+
+                }else if($_POST['delete']){
+                    require_once("../models/location.php");
+                    // delete user's books
+                        $status = Book::deleteByUserID('book_added', $_SESSION['id']);
+                        if(!$status){
+                            AuthController::prompt("error deleting book");
+                            exit();
+                        }
+
+                        $status = Book::deleteByUserID('book_wanted', $_SESSION['id']);
+                        if(!$status){
+                            AuthController::prompt("error deleting book");
+                            exit();
+                        }
+                    // delete user's notification
+                        $status = Notification::deleteByUserID($user_id);
+                        if(!$status){
+                            AuthController::prompt("error deleting notification");
+                            exit();
+                        }
+                    // delete user's location
+                        $status = Location::deleteByUserID($user_id);
+                        if(!$status){
+                            AuthController::prompt("error deleting location");
+                            exit();
+                        }
+                    // delete user
+                    $status = User::deleteByUserID($user_id);
+                    if(!$status){
+                        AuthController::prompt("error deleting user");
+                        exit();
+                    }
                 }
 
             }

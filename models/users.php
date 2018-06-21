@@ -162,7 +162,19 @@
   
         return $post['lista'];
       }
-
+      
+      public static function deleteByUserID($user_id){
+        $db = Db::getInstance();
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      
+        $sql = "DELETE FROM USERS WHERE user_id=$user_id";
+      
+        if($db->query($sql)){
+            return true;
+          }else{
+            return false;
+          }
+      }
   }
 
 ?>

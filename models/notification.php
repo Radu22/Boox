@@ -1,6 +1,24 @@
 <?php
 	date_default_timezone_set('Europe/Bucharest');
 	class Notification{
+		public $id;
+		public $user_to;
+		public $book_id_to;
+		public $type;
+		public $user_from;
+		public $book_id_from;
+		public $last_update;
+	
+	
+		public function __construct($id, $user_to, $book_id_to, $type, $user_from, $book_id_from, $last_update) {
+		  $this->id = $id;
+		  $this->user_to = $user_to;
+		  $this->book_id_to = $book_id_to;
+		  $this->type = $type;
+		  $this->user_from = $user_from;
+		  $this->book_id_from = $book_id_from;
+		  $this->last_update = $last_updated;
+		}
 		
 		public static function insertTradeNotification($user_id, $requested_book, $carte_schimb){
 
@@ -101,5 +119,32 @@
 				return 0;
 			}
 		}
+
+		public static function deleteByUserID($user_id){
+			$db = Db::getInstance();
+			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	  
+			$sql = "DELETE FROM notification WHERE user_to=$user_id OR user_from=$user_id";
+	  
+			if($db->query($sql)){
+				  return true;
+			  }else{
+				return false;
+			  }
+		}
+
+		public static function getByUserID($user_id){
+			$db = Db::getInstance();
+			$list = [];
+			$sql = "SELECT * FROM notification WHERE user_to=$user_id or user_from=$user_id";
+	  
+			$req = $db->query($sql);
+			foreach($req->fetchAll() as $post){
+			  $list[] = new Notification($post['id'],$post['user_to'],$post['book_id_to'],$post['type'],$post['user_from'],$post['book_id_from'], $post['last_update']);
+			}
+	
+			return $list;
+	  
+		  }
 	}
  ?>

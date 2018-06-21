@@ -2,13 +2,18 @@
 	date_default_timezone_set('Europe/Bucharest');
 
 	class Location{
-
+		public $id;
+		public $user_id;
 		public $lat;
 		public $lng;
+		public $last_update;
 
-		public function __construct($lat, $lng){
+		public function __construct($id, $user_id, $lat, $lng, $last_update){
+			$this->id = $id;
+			$this->user_id = $user_id;
 			$this->lat = $lat;
-      		$this->lng = $lng;
+			$this->lng = $lng;
+			$this->last_update = $last_update;
 
 		}
 
@@ -95,6 +100,19 @@
                 	}
             	}        
         	}
-        }
+		}
+		
+		public static function deleteByUserID($user_id){
+			$db = Db::getInstance();
+			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	  
+			$sql = "DELETE FROM location WHERE user_id=$user_id";
+	  
+			if($db->query($sql)){
+				  return true;
+			  }else{
+				return false;
+			  }
+		}
     }
 ?>

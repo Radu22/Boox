@@ -88,9 +88,16 @@
 										</div>
 										
 										<div class="row">
-											<input type="submit" value="Save changes">
+											<input type="submit" name="saving" value="Save changes">
 										</div>
   							</form>
+								<div id="danger">DANGER ZONE</div>
+								<form action="logout.php" method="post">
+										<p id="deletionZone"> You can delete your profile from here: </p>
+										<div class="row">
+											<input type="submit" id="del" name="delete" value="DELETE">
+										</div>
+								</form>
 					</div>
 				</div>
 		</div>

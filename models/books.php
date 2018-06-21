@@ -81,6 +81,21 @@
 
     }
 
+    
+    public static function getByUserID($table_name, $user_id){
+      $db = Db::getInstance();
+      $list = [];
+      $sql = "SELECT * FROM " .  $table_name . " WHERE user_id=$user_id";
+
+      $req = $db->query($sql);
+      foreach($req->fetchAll() as $post){
+        $list[] = new Book($post['book_id'],$post['user_id'],$post['book_title'],$post['book_author'],$post['ISBN'],$post['description'], $post['book_type'],$post['language'],$post['duration']);
+      }
+
+      return $list;
+
+    }
+
 
 
     public static function getCount($table_name){
@@ -142,6 +157,31 @@
           return false;
         }
       }
+    }
+    
+    public static function deleteByTitleAndID($book_title, $table_name, $user_id){
+      $db = Db::getInstance();
+      $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+      $sql = "DELETE FROM " . $table_name . "  WHERE book_title='" . $book_title . "' and user_id=$user_id";
+
+      if($db->query($sql)){
+            return true;
+        }else{
+          return false;
+        }
+    }
+    public static function deleteByUserID($table_name, $user_id){
+      $db = Db::getInstance();
+      $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+      $sql = "DELETE FROM " . $table_name . "  WHERE user_id=$user_id";
+
+      if($db->query($sql)){
+            return true;
+        }else{
+          return false;
+        }
     }
 
     public static function updateDuration($book_title, $duration, $user_id){
