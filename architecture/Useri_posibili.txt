@@ -1,0 +1,8 @@
+Acest site se adreseaza oricarui tip de utilizator, interesat de carti.
+
+Acesti utilizatori trebuie sa fie logati(deci si inregistrati) pentru a vedea cartile altor utilizatori, 
+si pentru a putea face trade cu acestia
+
+Tipuri de utilizatori:
+-User cu drepturi de view si facilitati de client pe site.
+-Guest nu este un tip de utilizator.

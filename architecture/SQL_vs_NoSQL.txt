@@ -1,0 +1,11 @@
+Vom folosi o baza de date relationala deoarece:
+1)Experienta cu baze de date relationale ne va ajuta sa lucram mai rapid si mai eficient;
+
+2)Conceptul de 'rollback' in cadrul bazelor de date relationale este esential pentru siguranta datelor,deoarece ori se executa tot procesul(schimbarea email-ului unui utilizator,
+ori schimbam emailul sau in caz de intrerupere sau defectiune, va ramane tot emailul initiala) ori nu se vor altera date;
+
+3)Structura de tabel din cadrul SQL va ajuta la lucrul cu datele ,cu anume concepte de cheie-valoare. O gasire dupa ID ca primary key pentru anumite lucruri,
+proces ce va fi executat mai rapid. In bazele de date noSQL va fi mai dificil gasirea unor informatii fiind stocata ca fisier text,fata de un tabel ordonat ca in SQL,unde se pot adauga si
+indecsi pentru o si mai mare viteza.
+
+4)Rigurozitatea SQL va asigura imposibilitatea de a modifica datele aflate in baza de date in moduri malitioase,daca modificarea este in contradictie cu constrangerile tabelului;
