@@ -118,6 +118,7 @@
             $info = array();
 
             $title = $firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('h2')[0]->textContent;
+            $title = addslashes($title);
             $author = $firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('h5')[0]->textContent;
 
             if($firstrow->getElementsByTagName('div')[$key]->getElementsByTagName('p')[0] != NULL){

@@ -11,7 +11,6 @@
           $controller = 'pages';
           $action     = 'reg';
         }
-
         require_once("../../routes.php");
         $count = 0;
 
