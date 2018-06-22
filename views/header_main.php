@@ -8,7 +8,7 @@ echo '	<div class="header" id="myHeader">
 		echo'
 
 			<div class="header-left">
-	            
+	            <script src="../../content/js/notification.js"></script>
 				<a href="notification.php?controller=pages&action=notification" class="fa fa-bell">
                     <script src="../../content/js/notif.js"></script>
 					<div id = "notif_nr"></div>

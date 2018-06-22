@@ -88,6 +88,14 @@
 				$sql->bindValue(":book_2", $accepted_book);
 				$sql->execute();
 
+				$sql = $db->prepare('DELETE from notification where type = :tip and book_id_from = :book_2 and user_to = :id_to and user_from =:id_from');
+				$sql->bindValue(":tip", "added");
+				$sql->bindValue(":book_2", $for_book );
+				$sql->bindValue(":id_to", $user_id_to );
+				$sql->bindValue(":id_from",$_SESSION['id']);
+				$sql->execute();
+				
+
 				//eliminam cartile participante la trade
 				$sql = $db->prepare('DELETE from book_added where user_id = :id_user and book_id = :id_book');
 				$sql->bindValue(":id_user", $user_id_to);
@@ -98,9 +106,11 @@
 				$sql->bindValue(":id_user", $_SESSION['id']);
 				$sql->bindValue("id_book", $for_book);
 				$sql->execute();
+				
+				//stergem added din tabele daca exista
 
 
-				//inseram notificarea de accept trade pentru userul care a acceptat trade-ul
+
 			}
 		}
 		public static function getNotification($user_id, $tip, $id_book_1, $id_book_2){

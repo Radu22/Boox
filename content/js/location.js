@@ -5,13 +5,12 @@ function updateDB(){
         var lat = pos.coords.latitude,
             long= pos.coords.longitude,
             coords = lat + ', ' + long;
-            //console.log(coords);
+            console.log(coords);
 
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             console.log(this.responseText);
-                    //document.getElementById("txtHint").innerHTML = this.responseText;
          }
         };
             xmlhttp.open("POST", "../../controllers/location.php", true);

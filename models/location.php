@@ -2,19 +2,12 @@
 	date_default_timezone_set('Europe/Bucharest');
 
 	class Location{
-		public $id;
-		public $user_id;
 		public $lat;
 		public $lng;
-		public $last_update;
 
-		public function __construct($id, $user_id, $lat, $lng, $last_update){
-			$this->id = $id;
-			$this->user_id = $user_id;
+		public function __construct($lat, $lng){	
 			$this->lat = $lat;
 			$this->lng = $lng;
-			$this->last_update = $last_update;
-
 		}
 
 		public function updateLocation(){

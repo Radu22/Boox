@@ -264,8 +264,7 @@
 				echo "<p>Intra in contact cu user-ul ". $user_1['user_first'] . " pentru a face schimbul: 0". $user_1['phone_number'] . "</p>";
 				echo '</div>';
 				}
-
-    		}
+    	}
     	
 		//daca notificarea este de tipul trade
         if($notif['type']=="trade"){
@@ -305,7 +304,51 @@
             echo "</div>";
         	
         }
+        //daca notificarea este de tip added
+		if($notif['type']=="added"){
+			//luam informatiile cartii
+			$sql = $db->prepare('SELECT * FROM book_added WHERE user_id = :id and book_id = :book_id');
+		    $sql->bindValue(":id", $notif['user_from'] );
+		    $sql->bindValue(":book_id", $notif['book_id_from']);
+			$sql->execute();
+			$book = $sql->fetch();
 
+			//luam informatiile userului cu cartea ?poate afisam distanta
+			$ql = $db->prepare('SELECT * FROM users WHERE user_id = :id');
+	        $ql->bindValue(":id", $notif['user_from']);
+	      	$ql->execute();
+	      	$result = $ql->fetch();
+          	$nume = $result['user_first'];
+
+			//afisam cardul de trade
+			echo '<div id = "card" >';
+	               		echo "<h4><b>" . $nume . " are o carte pe care o ai la Wanted:</b></h4> ";
+	                	echo "<p>Titlu: ". $book['book_title'] . "</p>";
+	                	echo "<p>Autor: ". $book['book_author'] . "</p>";
+	                	echo "<p>ISBN: ". $book['ISBN'] . "</p>";
+	                	echo "<p>Limba: ". $book['language'] . "</p>";
+	                	echo "<p>Descriere: " . $book['description'] . "</p/>";
+
+		               	$count_trade++;
+		                echo '<input type="text" name="user_to' . $count_trade . '" class="titlu" value=' . $notif['user_from'] . '>';
+		                echo '<input type="text" name="id_requested_book' . $count_trade . '" class="titlu" value=' . $book['book_id'] . '>';
+		                if(Book::getCount('book_added') == 0){
+		                    echo '<p> You don\'t have any books to trade</p>';
+		                }else
+		                {	
+		                	echo '<h3>Alege carte pe care vrei sa o dai la schimb: </h3>' ;
+		                	echo "<select name = carte_de_schimb" . $count_trade ." > ";
+		                		$lista_carti = Book::getBooksByUserID("book_added", $_SESSION['id']);		
+		                		foreach ($lista_carti as $carte) {
+		                			echo "<option value=".$carte->book_id.">". $carte->book_title . "</option>";
+		                		}
+		                	echo "</select>";
+		                	echo "<br>";
+		                	echo "<br>";
+		                    echo '<input type="submit" name="trade" value="trade' . $count_trade .  '" style="font-size:20px;">';
+		                }
+	            echo "</div>";
+		}
         //daca notificare este de tip locatie
         if($notif['type']=="location"){
         	//verificam ca notificarea sa fie in ultima ora
